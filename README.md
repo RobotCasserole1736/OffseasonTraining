@@ -1,6 +1,6 @@
 # OffseasonTraining
 
-Offseason software development training content for FRC Team 1736
+Welcome to the Offseason software development training content for FRC Team 1736!
 
 ## Prerequisites - Software Installs
 
@@ -13,4 +13,4 @@ In order, click each link and install the software (following instructions as yo
 
 # Then....
 
-Start with the Chapter 1 readme
+Start with [the Chapter 1 readme.](https://github.com/RobotCasserole1736/OffseasonTraining/blob/master/Chapter_1/readme.md)

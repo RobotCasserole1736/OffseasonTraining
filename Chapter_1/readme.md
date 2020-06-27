@@ -148,5 +148,45 @@ That's all for today. When you're done exploring, you can stop the code by click
 
 ## Lesson 2 - The First Code Changes
 
-Coming Soon!
+Start with same software from last time
+
+Make your own branch
+
+Write some code to do some basic math - doubles, +-/*, variable scope
+
+Comparison operations -> booleans
+
+and/or/not
+
+Save/commit/push
+
+## Lesson 3 - Making Methods
+
+Start with same branch as last time
+
+Make a new method with two inputs and one output
+
+Use method in main code
+
+Save/commit/push
+
+## Lesson 4 - the Debugger
+
+Start with same branch as last time
+
+Make some recommended changes, inducing a problem
+
+Fire up debugger. Explain breakpoints and how to see variable values
+
+Step through code to the problem point
+
+Show the process of finding the error by failed "test" that you perform mentally
+
+Fix it, verify via debugger it's fixed
+
+save/commit/push
+
+
+
+
 
