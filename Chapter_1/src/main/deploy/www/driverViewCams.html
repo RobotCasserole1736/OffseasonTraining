@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+
+<title>Casserole Driver Cameras</title>
+
+<head>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+
+<div id="statusContent">
+    <div align="center" id="id01">
+        COM Status: Socket Not Yet Opened...
+    </div>
+    <div align="center">
+        <br>
+        <button onclick="openFullscreen();">Open Video in Fullscreen Mode</button>
+        <p> Press the "Esc" key to exit full screen.</p>
+        <br>
+    </div>
+</div>
+
+<div align="center" ><table id =supercooltable><tr id="webcams">
+
+<!--Gets auto-populated by javascript -->
+</tr></table></div>
+<br>
+
+<!-- Common navigation bar -->
+<div id="navbar">
+    <p>
+    <a href="index.html">Home</a>
+    <a href="presentState.html">State</a>   
+    <a href="calibration.html">Calibration</a>
+    <a href="driverView.html">Dashboard</a>
+    <a href="driverViewCams.html" target="_blank">Cameras</a>
+    <a href="rtplot.html">RT Plots</a>
+    <a href="robotPose.html">Pose</a>
+    <a href="ControllerMap.html">Controller Map</a>
+    </p>
+</div>
+<!-- END Common navigation bar -->
+
+<script type="text/javascript" src="/driverViewCams.js" >
+</script>
+
+</body>
+</html>

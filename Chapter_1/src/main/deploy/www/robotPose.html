@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+<title>Casserole Robot Pose View</title>
+
+<head>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+  <div id="id01">COM Status: Socket Not Yet Opened...</div>
+
+  <br>
+
+  <div>
+      <button id="path_clear_btn" type="button" onclick="handlePathClearBtnClick()" >Clear Path History</button> 
+  </div>
+
+  <div id="container" style="position: relative; border: 1px solid white">
+      <!-- This is the div which will be updated with the drawn field & Robot -->
+      <div style="position: absolute; left:0px; top:0px; z-index: 0">
+        <canvas id="field_bg_canvas" ></canvas>
+      </div>
+      <div style="position: absolute; left:0px; top:0px; z-index: 1">
+        <canvas id="robot_canvas"></canvas>
+      </div>
+      <div style="position: absolute; left:0px; top:0px; z-index: 2">
+        <canvas id="path_canvas"></canvas>
+      </div>
+  </div>
+
+  
+  <!-- Common navigation bar -->
+<div id="navbar">
+  <p>
+  <a href="index.html">Home</a>
+  <a href="presentState.html">State</a>   
+  <a href="calibration.html">Calibration</a>
+  <a href="driverView.html">Dashboard</a>
+  <a href="driverViewCams.html" target="_blank">Cameras</a>
+  <a href="rtplot.html">RT Plots</a>
+  <a href="robotPose.html">Pose</a>
+  <a href="ControllerMap.html">Controller Map</a>
+  </p>
+</div>
+<!-- END Common navigation bar -->
+
+<div style="display:none;">
+  <img id="source"
+       src="./field_bg.png">
+</div>
+
+<script type="text/javascript" src="/robotPose.js" ></script>
+
+</body>
+</html>
+
