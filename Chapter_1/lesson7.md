@@ -1,30 +1,24 @@
-# Lesson 7 - Structure of a Robot Project
 
-## The Match Cycle
+# Lesson 7 - Signals
 
-### Autonomous, Teleop, Disabled
-
-TODO
-
-### Init & Update
+## What is "Timeseries Data"
 
 TODO
 
-Requirement: code cannot "hang" or "wait". Must run every 20ms.
+Values with timestamps
 
-"Unroll" long wait operations.
+y = f(t) for arbitrary f.
 
-### Singletons
-
-TODO
-
-## Problem 1
+## How we get data into the website
 
 TODO
-add code that runs for teleop, other code that runs for auto, other code that gets run for both.
 
-Run both, confirm different code gets run.
+We generate timeseries in real-time by saving the values of key variables, and the time at which they had the value
 
-## Problem 2
+Time is referenced since RIO power-on
 
-Make a new class that's a singleton. use it from multiple classes.
+## Log files - how we get data back off
+
+# Problem 1 - Add a new signal
+
+# Problem 2 - analyzing the log file
