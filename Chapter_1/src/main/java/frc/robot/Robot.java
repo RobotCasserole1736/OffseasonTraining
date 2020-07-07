@@ -53,6 +53,9 @@ public class Robot extends TimedRobot {
         dataServer.startServer();
         webserver.startServer();
 
+        LessonTwo l2 = new LessonTwo();
+        l2.lessonTwoInit();
+
         System.out.println("Robot Init completed!");
     }
 

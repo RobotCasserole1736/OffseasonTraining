@@ -24,7 +24,6 @@ import java.util.ArrayList;
 
 import edu.wpi.first.wpilibj.Timer;
 import frc.lib.Util.CrashTracker;
-import frc.robot.RobotConstants;
 
 /**
  * Casserole Autonomous mode event sequencer. Provides an infrastructure for defining autonomous
@@ -174,7 +173,7 @@ public class AutoSequencer {
             }
             
 	        if(globalUpdateCount % 50 == 0){
-	        	CrashTracker.logAndPrint("["+name+"] Running. timestep = " + Double.toString(globalUpdateCount*RobotConstants.MAIN_LOOP_Ts) + "s | ActualTime = " + Double.toString(Timer.getFPGATimestamp()));
+	        	CrashTracker.logAndPrint("["+name+"] Running. timestep = " + Double.toString(globalUpdateCount*0.02) + "s | ActualTime = " + Double.toString(Timer.getFPGATimestamp()));
 	        }
 
         }

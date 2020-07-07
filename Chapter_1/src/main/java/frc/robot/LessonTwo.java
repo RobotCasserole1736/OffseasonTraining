@@ -1,8 +1,13 @@
+package frc.robot;
+
+import edu.wpi.first.wpilibj.Timer;
+import frc.lib.DataServer.Signal;
+
 class LessonTwo {
 
     ////////////////////////////////////////////////
     // Declare new variables after this line...
-    boolean sampleBool = True;
+    boolean sampleBool = true;
     int sampleInt = 42;
     double sampleDouble = -1736.930;
 
@@ -14,7 +19,11 @@ class LessonTwo {
     // ...but before this line.
     ////////////////////////////////////////////////
 
-    //TODO: Signals for debug output
+    Signal result1_sig = new Signal("L2 - result1", "double");
+    Signal result2_sig = new Signal("L2 - result2", "double");
+    Signal result3_sig = new Signal("L2 - result3", "bool");
+    Signal result4_sig = new Signal("L2 - result4", "int");
+    Signal raiseArmNow_sig = new Signal("L2 - raiseArmNow", "bool");
 
     void lessonTwoInit(){
 
@@ -25,7 +34,12 @@ class LessonTwo {
         // ...but before this line.
         ////////////////////////////////////////////////
 
-        //TODO: Update signal values
+        double sampleTime_ms = Timer.getFPGATimestamp()*1000;
+        result1_sig.addSample(sampleTime_ms, result1);
+        result2_sig.addSample(sampleTime_ms, result2);
+        result3_sig.addSample(sampleTime_ms, result3);
+        result4_sig.addSample(sampleTime_ms, result4);
+        raiseArmNow_sig.addSample(sampleTime_ms, raiseArmNow);
 
     }
 

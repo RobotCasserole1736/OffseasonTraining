@@ -1,3 +1,5 @@
+package frc.robot;
+
 class LessonThree {
 
     ////////////////////////////////////////////////
@@ -58,7 +60,7 @@ class LessonThree {
         final double SHOOTER_ACCEL_RPM_PER_SEC = 2000;
         final double SHOOTER_DECEL_RPM_PER_SEC = 3000;
 
-        double shooterRunoutRPM = SHOOTER_MAX_RPM * max(min(1,motorCmd),-1);
+        double shooterRunoutRPM = SHOOTER_MAX_RPM * Math.max(Math.min(1.0,motorCmd),-1.0);
         double errFrac = (shooterRunoutRPM - actualSpeed_RPM)/SHOOTER_MAX_RPM;
         if(errFrac > 0.0){
             actualSpeed_RPM += SHOOTER_ACCEL_RPM_PER_SEC * 0.02 * errFrac;
