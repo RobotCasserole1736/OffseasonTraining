@@ -162,7 +162,7 @@ We're going to introduce a few new concepts here to tie `if/else` statements bac
 
 Generally, when shooting a ball into a goal or target, we will launch it using a rubber wheel. Very much like one of those baseball or softball pitching machines.
 
-INSERT PICTURE HERE.
+![](doc/cal_on_field_4.gif)
 
 To shoot the ball consistently and accurately, one key is to ensure the shooter wheel is running at a constant _speed_. 
 
@@ -204,13 +204,11 @@ Be sure to do this inside the indicated code block:
 
 Run the code, and bring up the simulation GUI _and_ the website. Note the robot is disabled:
 
-INSERT PICTURE HERE
+![](doc/sim_disabled.png)
 
 If you added your code in the correct spot, it should start the shooter spinning when you enable the robot:
 
-INSERT ENABLING PICTURE HERE
-
-INSERT "SHOULD GET BIGGER" PICTURE HERE
+![](doc/sim_enabled.png)
 
 What "actual" RPM value do you expect the motor speed to go to once you enable the robot? Does it go there?
 

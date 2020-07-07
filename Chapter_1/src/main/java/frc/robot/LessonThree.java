@@ -1,5 +1,8 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Timer;
+import frc.lib.DataServer.Signal;
+
 class LessonThree {
 
     ////////////////////////////////////////////////
@@ -17,7 +20,11 @@ class LessonThree {
     // ...but before this line.
     ////////////////////////////////////////////////
 
-    //TODO: Signals for debug output
+    Signal dayOfWeek_sig = new Signal("L3 - dayOfWeek", "day idx");
+    Signal actualSpeed_sig = new Signal("L3 - actualSpeed", "RPM");
+    Signal desiredSpeed_sig = new Signal("L3 - desiredSpeed", "RPM");
+    Signal motorCmd_sig = new Signal("L3 - motorCmd", "cmd");
+
 
     void lessonThreeInit(){
 
@@ -35,8 +42,7 @@ class LessonThree {
         // ...but before this line.
         ////////////////////////////////////////////////
 
-        //TODO: Update signal values
-
+        telementyUpdate();
     }
 
     void lessonThreeEnabledUpdate(){
@@ -48,6 +54,7 @@ class LessonThree {
         ////////////////////////////////////////////////
 
         simplePlantUpdate();
+        telementyUpdate();
     }
 
     void lessonThreeDisabledUpdate(){
@@ -67,6 +74,14 @@ class LessonThree {
         } else {
             actualSpeed_RPM += SHOOTER_DECEL_RPM_PER_SEC * 0.02  * errFrac;
         }
+    }
+
+    void telementyUpdate(){
+        double sampleTime_ms = Timer.getFPGATimestamp()*1000;
+        dayOfWeek_sig.addSample(sampleTime_ms, dayOfWeek);
+        actualSpeed_sig.addSample(sampleTime_ms, actualSpeed_RPM);
+        desiredSpeed_sig.addSample(sampleTime_ms, desiredSpeed_RPM);
+        motorCmd_sig.addSample(sampleTime_ms, motorCmd);
     }
 
 }

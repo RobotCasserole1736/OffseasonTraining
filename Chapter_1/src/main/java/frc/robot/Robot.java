@@ -32,6 +32,9 @@ public class Robot extends TimedRobot {
     LoopTiming loopTiming;
     CasseroleRIOLoadMonitor loadMon;
 
+    LessonTwo l2;
+    LessonThree l3;
+
     Signal teleopInitCounterSig;
     int teleopInitCounter = 0;
 
@@ -53,8 +56,11 @@ public class Robot extends TimedRobot {
         dataServer.startServer();
         webserver.startServer();
 
-        LessonTwo l2 = new LessonTwo();
+        l2 = new LessonTwo();
         l2.lessonTwoInit();
+
+        l3 = new LessonThree();
+        l3.lessonThreeInit();
 
         System.out.println("Robot Init completed!");
     }
@@ -87,6 +93,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+      l3.lessonThreeEnabledUpdate();
       telemetryUpdate(); 
   }
 
@@ -102,6 +109,9 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledPeriodic() {
+      l2.lessonTwoInit();
+      l3.lessonThreeInit();
+      l3.lessonThreeDisabledUpdate();
       telemetryUpdate();
   }
 
