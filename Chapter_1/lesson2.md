@@ -59,7 +59,12 @@ The `=` equals sign means "calculate the value on the right side, and store it i
 
 Programming languages have an "order of operations", just in normal math. Just like normal math, you can use `(` and `)` parenthesis to group operations together, changing the order of operations.
 
-NOTE: Chris learned the acronym PEMDAS (pronounced "paehm-dahs") to describe the Math order of operations. (Parenthesis, then exponentiation, then multiplication, then division, then addition, then subtraction). Chris also learned the trigonometric ratios and functions with the pneumonic not as our Native American friend SOH-CAH-TOA, but as "Some Old Hippie Caught Another Hippie Tripping On Acid" This explains a lot about Chris. We'll assume none of these are commonly-used pneumonics, and avoid their usage. But if you happen to know them, well, you can assume you'll turn out like Chris.
+
+<details>
+<summary> Note</summary>
+Chris learned the acronym PEMDAS (pronounced "paehm-dahs") to describe the Math order of operations. (Parenthesis, then exponentiation, then multiplication, then division, then addition, then subtraction). Chris also learned the trigonometric ratios and functions with the pneumonic not as our Native American friend SOH-CAH-TOA, but as "Some Old Hippie Caught Another Hippie Tripping On Acid" This explains a lot about Chris. We'll assume none of these are commonly-used pneumonics, and avoid their usage. But if you happen to know them, well, you can assume you'll turn out like Chris.
+</details>
+
 
 For example:
 
@@ -67,7 +72,7 @@ For example:
 result = 10 *  20 + 30;  
 // result is now 230: First, 10*20 is 200. Then, 200+30 is 230.
 result = 10 * (20 + 30); 
-// result is now 500: FIrst, 20+30 is 50. Then, 50*10 is 500.
+// result is now 500: First, 20+30 is 50. Then, 50*10 is 500.
 ```
 
 ### Logic
@@ -110,15 +115,17 @@ False = !True;
 
 Open a windows file explorer in the folder for the training repo we _cloned_ last practice. Right click in the white-space, and select "Git Extensions Browse".
 
+![](doc/gitext_clone.png)
+
 In the git extensions window that pops up, right click on the latest node you have checked out, and select "Create new branch here".
 
-INSERT PICTURE HERE
+![](doc/gitext_new_branch.png)
 
 Create a unique name for your branch. `yourname_training` is a good way to start, but feel free to get creative!
 
 Default options are fine. Select all the "happy" buttons, hitting "Create" and "OK" until you see your new branch:
 
-INSERT PICTURE HERE
+![](doc/gitext_new_branch_created.png)
 
 ## Problem 1 - Basic math operations.
 
@@ -158,9 +165,16 @@ Remember both `val4` and `val5` _could_ be either `True` or `False` - their valu
 
 What do you want `raiseArmNow` to do? How should it be related to its inputs?
 
-HINT1: "Emergency Stop" means "don't move at all!". If that button is pressed, motion should never occur.
+<details>
+<summary> Hint 1 </summary>
+"Emergency Stop" means "don't move at all!". If that button is pressed, motion should never occur.
+</details>
 
-HINT2: The solution involves using a NOT operator on one of the inputs, then using a single boolean operator to combine that result with the other input. 
+<details>
+<summary> Hint 2 </summary>
+The solution involves using a NOT operator on one of the inputs, then using a single boolean operator to combine that result with the other input. 
+</details>
+
 
 Write a line of code to calculate the value for `raiseArmNow`. Run the code, open the website, and check the results. Change initial values vor `val3` and `val4` to check different _permutations_ of inputs from the user.
 
@@ -180,7 +194,10 @@ Run the code, visit the website, and observe the result.
 
 Try a few new values for val7 and val8, repeating the expected/actual experiment. What is the pattern? What's going on here?
 
-EXPLANATION: In almost all programming languages, integer division _rounds down_ to the nearest lower integer. There are historical processor-hardware-related reasons for this. It's important to know, but generally shouldn't be _leveraged_ as part of making your code work. Or, if you do, definitely put in some comment to indicate that you _rely_ on the round-down integer division behavior.
+<details>
+<summary> Explanation </summary>
+In almost all programming languages, integer division _rounds down_ to the nearest lower integer. There are historical processor-hardware-related reasons for this. It's important to know, but generally shouldn't be _leveraged_ as part of making your code work. Or, if you do, definitely put in some comment to indicate that you _rely_ on the round-down integer division behavior.
+</details>
 
 ## Challenge 1 - XOR from AND/OR/NOT
 
