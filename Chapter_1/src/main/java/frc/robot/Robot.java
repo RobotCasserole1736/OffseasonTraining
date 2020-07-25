@@ -34,6 +34,7 @@ public class Robot extends TimedRobot {
 
     LessonTwo l2;
     LessonThree l3;
+    LessonFour l4;
 
     Signal teleopInitCounterSig;
     int teleopInitCounter = 0;
@@ -62,10 +63,15 @@ public class Robot extends TimedRobot {
         l3 = new LessonThree();
         l3.lessonThreeInit();
 
+        l4 = new LessonFour();
+        l4.lessonFourInit();
+
         System.out.println("Robot Init completed!");
     }
 
-
+  /**
+   * This function is called once as the robot enters autnonmous mode.
+   */
   @Override
   public void autonomousInit() {
 
@@ -80,7 +86,7 @@ public class Robot extends TimedRobot {
   }
 
   /**
-   * This function is called once when teleop is enabled.
+   * This function is called once as the robot enters teleop mode
    */
   @Override
   public void teleopInit() {
@@ -98,7 +104,7 @@ public class Robot extends TimedRobot {
   }
 
   /**
-   * This function is called once when the robot is disabled.
+   * This function is called once as the robot enters disabled mode
    */
   @Override
   public void disabledInit() {
@@ -109,8 +115,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledPeriodic() {
-      l2.lessonTwoInit();
-      l3.lessonThreeInit();
       l3.lessonThreeDisabledUpdate();
       telemetryUpdate();
   }
@@ -132,6 +136,9 @@ public class Robot extends TimedRobot {
   void telemetryUpdate(){
       double sampleTime = Timer.getFPGATimestamp()*1000;
       teleopInitCounterSig.addSample(sampleTime, teleopInitCounter);
+      l2.telemetryUpdate();
+      l3.telementyUpdate();
+      l4.telementyUpdate();
 
   }
 }

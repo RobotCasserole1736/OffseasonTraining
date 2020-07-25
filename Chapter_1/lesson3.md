@@ -107,6 +107,8 @@ The variable `dayStr` is a _String_, which contains three letters representing t
 
 NOTE: A "String" is a sequence of characters, representing some word or sentence. They don't get used much in robot code, so we won't dig too deeply into them here. This exercise will help you briefly discover them.
 
+NOTE: Biggest tip for strings: Anything inside quotation marks (`""`) will be a string. If you forget to use the quotation marks, the compiler will think you're desscribing a variable.... which is generally not what you want.
+
 Write a set of if/else-if/else statements to convert dayStr into an integer "day of week index".  The first day of the week is 0, the last day of the week will be 6. The transformation should be:
 
 ```

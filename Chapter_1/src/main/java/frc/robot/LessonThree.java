@@ -41,20 +41,17 @@ class LessonThree {
 
         // ...but before this line.
         ////////////////////////////////////////////////
-
-        telementyUpdate();
     }
 
     void lessonThreeEnabledUpdate(){
         ////////////////////////////////////////////////
         // Write your new code for PROBLEM 3 after this line...
 
+        motorCmd = 1.0; //Incorrect - Motor always runs. You'll need to change this.
 
         // ...but before this line.
         ////////////////////////////////////////////////
-
         simplePlantUpdate();
-        telementyUpdate();
     }
 
     void lessonThreeDisabledUpdate(){

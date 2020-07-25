@@ -34,13 +34,17 @@ class LessonTwo {
         // ...but before this line.
         ////////////////////////////////////////////////
 
+
+
+    }
+
+    void telemetryUpdate(){
         double sampleTime_ms = Timer.getFPGATimestamp()*1000;
         result1_sig.addSample(sampleTime_ms, result1);
         result2_sig.addSample(sampleTime_ms, result2);
         result3_sig.addSample(sampleTime_ms, result3);
         result4_sig.addSample(sampleTime_ms, result4);
         raiseArmNow_sig.addSample(sampleTime_ms, raiseArmNow);
-
     }
 
 }
