@@ -14,13 +14,31 @@ Yup, it's hard.
 
 The following is just a written-down set of thoughts relating to how these lessons can or should be taught.
 
-In general, the lessons get less hand-holdey over time. THis is intentional: Early on, students need to have easy success to instill the idea that software is within their grasp. 
+In general, the lessons get less hand-holdey over time. This is intentional: Early on, students need to have easy success to instill the idea that software is within their grasp. 
 
 As they progress, it is desireable for them to start to make mistakes. They should learn that just because they wrote something they _thought_ should work, doesn't mean that it actually will. They'll have to think critically about what they've created, understanding how it does or does not meet the objective. 
 
 Ideally, the "training wheels" should be designed to keep them close enough to the correct solution as to not become discouraged into believeing the solution is impossible. As a mentor, you are also a key in keeping them closely aligned with a functional solution. The point is not that they don't make mistakes, but that their mistakes don't drive them so far from the real solution as so that they start to believe a solution is out of their grasp.
 
 The goal is to keep the training wheels on just long enough to master concepts, start to take them off as the concepts get applied to real code, wiht the goal of being "fully off" by the time build season starts. 
+
+## Zen of Teaching Robotics Programming
+
+Ramping a student from zero to productive in an FRC team presents unique challenges over traditional software instructional techniques.
+
+### Toolset-First
+
+Casserole uses the standard Java FRC devleopment environment, which uses a standard set of libraries (WPILib) and development environment (vsCode). Students do not have to understand the _why_ of this to be productive, nor should be expected to be environment polyglots from the get-go. Starting in the environment, with all its assumptions and nuances, reduces "wheel spin" from adjusting to a robot-specific environment from a more general one.
+
+### Modify-First
+
+With the exception of the student who first creates the robot project, students are always picking up a large codebase, making modifications, and submitting them back into the broad project. Traditional programming classes assume students white-paper design every program - this is simply not how FIRST programming works. Training should focus on handing students an existing large codebase, instructing them on how to make and test changes within that codebase. 
+
+### Debug-First
+
+A side-effect of whitepaper training exercises is that the student has written all their code in a small area, and likely can "hold" the full operation of the program in their head at once. FRC programs quickly grow to where this is not possible. Ensuring students start with a modularization mindset is critical, and teaching them the skills to analyze and debug code in this modular fashion is key to success.
+
+Additionally, for retaining students, it is imperitive that each see that the tools exist to solve their problems. It's very discouraging for a student hit to a problem, be unable to comprehend the solution immedeately, but see a fellow student solve it with ease. Instilling the notion that debugging is both a _learned thought process_, as well as a toolset, is critical for retaining student interest.
 
 ## Lesson 1 outcomes
 * Anyone can learn to write software for robots!
@@ -71,3 +89,7 @@ The goal is to keep the training wheels on just long enough to master concepts, 
 * Methods help hide complex functionality behind a meaningful name, making the code easier to understand.
 * There are multiple valid ways to solve a given problem (ex: "middle" can be calculated in a lot of different ways). Your solution doesn't have to look like your neighbor's solution to work.
 * Basic applications and usage of "parity".
+
+## Lesson 5 outcomes
+
+* Main controls and methodologies for manipulating and inspecting robot code exeuction through the built-in single step debugger.
