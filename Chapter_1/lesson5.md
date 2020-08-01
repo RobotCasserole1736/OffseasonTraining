@@ -56,11 +56,11 @@ The debugger is automatically enabled when running software on your PC. Just pre
 
 You've probably seen the controls before, but here's the more detailed explanation of what each button does:
 
-![](doc\dbg_ctrl.png)
+![](doc/dbg_ctrl.png)
 
 Additionally, click the "bug-with-an-X" on the left side of vsCode to open the debug pane:
 
-![](doc\dbg_pane.png)
+![](doc/dbg_pane.png)
 
 The orange bar at the bottom of the window indicates debugging is active right now (blue indicates nothing is running). Additionally, you can see that we launched the `Desktop Debug` routine, as expected.
 
@@ -107,7 +107,7 @@ Finally, you'll see the *Call Stack* in the bottom left. This shows not just whe
 
 One of the main things you'll want to do while the code is stopped is to view the values that are presently stored in each variable. You can click the `>` character next to the `this` portion under the Variables window to expand out a list of all variables in the LessonFive class, and their values:
 
-![](doc\dbg_var_values.png)
+![](doc/dbg_var_values.png)
 
 All are currently zero. This is because we haven't really run any code yet: Remember, we stopped on the first line of the first call to `lessonFiveEnabledUpdate()`. They're still all at their init values. Which, in this case, happens to be zero.
 
@@ -117,7 +117,7 @@ Since we only have one breakpoint in our `periodic` function, execution should c
 
 You should see execution stop on that same line with the breakpoint again, but the variables have now changed values:
 
-![](doc\dbg_var_values1.png)
+![](doc/dbg_var_values1.png)
 
 Congradulations! You've done the most basic form of debugging, which is extremely powerful! Meerly the ability to stop code at a certain point and inspect variable values gives you vast opportunities to understand code behavior, and determine what sorts of things have gone right or wrong.
 
@@ -137,7 +137,7 @@ However, value1, an integer, is getting set to zero usually (remember, integer d
 
 Keep hitting step-over or continue until counter equals six. Ah ha! Finally, some other values.
 
-![](doc\dbg_var_values2.png)
+![](doc/dbg_var_values2.png)
 
 Step again over each line of code, and note how some different values are calculated.
 
@@ -145,11 +145,11 @@ Step again over each line of code, and note how some different values are calcul
 
 One of the times while stepping through code, when you hit the line that has the call to `getRamp()`, try clicking the "Step Into" button.
 
-![](doc\dbg_step_into1.png)
+![](doc/dbg_step_into1.png)
 
 Ah, nifty! This time, rather than _stepping over_ the call to `getRamp()`, we trace execution _into_ the method!
 
-![](doc\dbg_step_into2.png)
+![](doc/dbg_step_into2.png)
 
 You can see in the bottom left how the call stack has one new thing on the top - `LessonFive.getRamp(int)` was called from `LessonFive.lessonFiveEnabledUpdate()`, again as expected.
 
@@ -159,7 +159,7 @@ Finally, when we're done, go ahead and click the red square in the Debugger Cont
 
 ### Problem Solving
 
-We've gon through plenty of examples showing how the debugger can be used to intercept code execution and analyze it. But, we've not done much yet in terms of _using_ it to solve a concrete problem.
+We've gone through plenty of examples showing how the debugger can be used to intercept code execution and analyze it. But, we've not done much yet in terms of _using_ it to solve a concrete problem.
 
 Though the problems you'll see "in the wild" will be varied and 
 
