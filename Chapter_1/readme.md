@@ -1,5 +1,7 @@
 # Chapter 1 - The Beginning
 
+Complete these Lessons in Order, as each one builds on the next.
+
 * [Lesson 1](./lesson1.md)
 * [Lesson 2](./lesson2.md)
 * [Lesson 3](./lesson3.md)

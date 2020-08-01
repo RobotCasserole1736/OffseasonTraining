@@ -1,5 +1,15 @@
 # Instructor Notes
 
+## Goals:
+
+1) Teach the toolbox of software development tools in FRC
+2) Teach how those tools relate to on-robot concepts
+3) Teach how to apply the tools to problem-solving
+
+And, do it all at the same time, in 3 months, in only 6 hours a week.
+
+Yup, it's hard.
+
 ## Overall Methodology
 
 The following is just a written-down set of thoughts relating to how these lessons can or should be taught.

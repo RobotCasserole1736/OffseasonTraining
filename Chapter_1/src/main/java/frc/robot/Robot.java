@@ -35,6 +35,7 @@ public class Robot extends TimedRobot {
     LessonTwo l2;
     LessonThree l3;
     LessonFour l4;
+    LessonFive l5;
 
     Signal teleopInitCounterSig;
     int teleopInitCounter = 0;
@@ -65,6 +66,9 @@ public class Robot extends TimedRobot {
 
         l4 = new LessonFour();
         l4.lessonFourInit();
+
+        l5 = new LessonFive();
+        l5.lessonFiveInit();
 
         System.out.println("Robot Init completed!");
     }
@@ -100,6 +104,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
       l3.lessonThreeEnabledUpdate();
+      l5.lessonFiveEnabledUpdate();
       telemetryUpdate(); 
   }
 

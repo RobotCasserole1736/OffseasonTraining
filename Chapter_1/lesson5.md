@@ -42,5 +42,21 @@ Regardless of what debug tool you happen to be using, the technique for solving 
 
 ## Walk-Through
 
-TODO
+### Launching the Debugger
+
+### Setting Breakpoints
+
+### Stepping through lines of code
+
+#### Over vs. Into
+
+### Viewing Variable Values
+
+### Changing Variable Values
+
+### Problem Solving
+
+Here's what we expect the code to do. Step through it. Observe it doesn't do it. Use debugger to figure out why. Change code so it does do it. Test.
+
+Problem.... maybe a misnaming between variables?
 
