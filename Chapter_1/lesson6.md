@@ -27,7 +27,7 @@ The point is simply: Don't ever get discouraged that others around you seem to b
 
 Every `.java` file we've been reading or editing so far defines a single _class_. The _class_ is the name for a fundamental unit of organization in  java. Just as you previously grouped your code into blocks with `if`/`else` statements, and grouped those into methods, multiple methods will be grouped into _classes_. 
 
-A _class_ is the blueprint for an _object_. It doesn't describe a specific thing, but rather _what that thing might be like_.
+A _class_ is the blueprint for an _object_. It's not a concrete thing itself - rather, it's a _description of what that thing might be like_.
 
 For example, let's say you have two pet cats. In java, you'd describe them in two steps. First, you'd make a generic `Cat` class:
 
@@ -67,7 +67,11 @@ void createCats{
 }
 ```
 
+## Some side thoughts
+
 Often in robots, the line between _class_ and _object_ gets blurred, because there's only ever one drivetrain, or one arm, or one elevator. If you were to make a class for one of these (as we usually do), there should only ever be one _object_... and then it doesn't make a ton of sense to really differentiate. We'll talk about that more when we get to _singleton classese_. Don't worry about it too much for now.... but keep it in mind as we go forward.
+
+Java forces everything to be defined inside a class. Not all programming languages make this assumption. It's something that makes java unique. Just like there many different tools you could use to bend a piece of metal, so too there are many different programming languages which can be used to solve programming problems. All make different assumptions and restrictions
 
 ## Rules for making a Class in Java
 
