@@ -94,6 +94,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopInit() {
+    dataServer.logger.startLoggingTeleop();
     teleopInitCounter++;
     System.out.println("Teleop Init completed!");
   }
@@ -113,6 +114,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledInit() {
+    dataServer.logger.stopLogging();
   }
 
   /**
