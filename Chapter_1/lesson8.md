@@ -85,6 +85,9 @@ When you're writing code that runs in the `update()` function, keep in mind - _t
 
 This action is often called "unrolling" the loop.
 
+### `robotInit()`
+
+There is one more special function called `robotInit()`. This is called one time, right as our code starts running (soon after power is applied to the whole system). Things which need to happen once (ex: init and start the website) will get called here.
 
 ## Problem 1
 

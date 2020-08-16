@@ -93,3 +93,30 @@ Additionally, for retaining students, it is imperitive that each see that the to
 ## Lesson 5 outcomes
 
 * Main controls and methodologies for manipulating and inspecting robot code exeuction through the built-in single step debugger.
+* Basic thought processes for methodical debugging should mirror the scientific process: Make a theory about what your code should do. Design an experiement. Test. Analyze results. Repeat.
+
+## Lesson 6 outcomes
+
+* Everything in Java is organized into a class
+* A class is a blueprint for how to make an object
+* Multiple objects can be made from one class
+* We divide the robot's physical parts and functions into classes
+* Special classes called "singletons" represent objects where we are guarnteeded there will only ever be _one_ of them.
+* Basic air compressor operation
+* Java requires a good chunk of "boilerplate" code to get a class defined. Just copy-paste it from the examples.
+
+## Lesson 7 outcomes
+
+* Signals are a casserole-specific way to interrogate robot behavior. 
+* Signals fall one layer "higher" in the hierarchy of debug methods than using the single-step debugger from lesson 5.
+* Definition of a "timeseries" data. Application of the mathematical "function" concept to data.
+* Signals are viewed in real-time on the website, or after-the-fact from data recordings (.csv files).
+
+## Lesson 8 outcomes
+
+* Software "Architecture" is a dileberate set of choices and constraints on our code to organize it better.
+* Using other people's code usually requires to conform to the assumptiosn of their architecture. FIRST and WPILib push some of these assumptions on to us.
+* Our robot must operate in 3 main modes: Disabled, Teleop, Autonomous
+* Each mode has a 1-time `init` function and a periodic `update` function. Our code gets called from within these.
+* One-time power-on function called `robotInit` is also available.
+
