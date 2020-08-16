@@ -1,13 +1,12 @@
 
 ## Part 2
 
-###############################################################
-# Lesson 1 - Creating a new robot project from scratch
 
 ###############################################################
-# Lesson 2 - Robot Inputs
+# Lesson 2 - Operator Inputs
 
-## Joysticks
+###############################################################
+# Lesson 2 - Sensor Inputs
 
 ## Sensors
 

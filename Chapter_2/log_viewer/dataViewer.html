@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+
+
+<title>FRC Data Log Viewer</title>
+
+<head>
+    <link rel="stylesheet" href="main.css">
+
+    <script src="highcharts/jquery-1.11.0.min.js"></script>
+    <script src="highcharts/highcharts.js"></script>
+    <script src="highcharts/boost.js"></script>
+    <script src="highcharts/exporting.js"></script>
+    <script src="dataViewer.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body onresize="rectifySize()">
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <button id="clear_btn" type="button" onclick="handleClearBtnClick()" >Clear Selection</button>
+        <input type="text" id="filterStringEntry" name="name" size="20" placeholder="Filter" onchange="updateFilter(this)" onkeyup="updateFilter(this)">
+        <div id="signalCheckboxes">
+            No log file loaded yet!
+        </div>
+    </div>
+
+    <div id="main">
+        <div>
+            <p class="alignleft">
+                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Channel List</span>
+            </p>
+            <p class="alignright">
+                    File: <input type="file" id="files" value="../logFileSnagger/downloaded_logs" onchange="handleFileSelect(this.files)" accept=".csv" autofocus="autofocus" />
+            </p>
+        </div>
+
+        <div style="clear: both; height: auto">
+            <div id="container" style="border-style: solid; border-width: 3px; border-color: #999; background-color:black"></div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

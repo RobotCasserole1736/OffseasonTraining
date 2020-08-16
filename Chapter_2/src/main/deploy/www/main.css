@@ -1,0 +1,262 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #111;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+table {
+    border: 1px solid white
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+    color: black;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+img {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Chrome Frame prompt
+   ========================================================================== */
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: black;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+h1 {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+h2 {
+    margin-top: 0.1em;
+    margin-bottom: 0.1em;
+    font-size: 1.3em;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+}
+/*#Comments {
+    break-before: page;
+    break-after: page;
+    margin: 0.5em;
+    width: 600px;
+    height: 250px;
+}*/
+
+body {
+    background: black;
+    /*background-image: url("triangles.png");*/
+    padding: 1em;
+    margin: 0;
+    font-size: 16px;
+    font-family: "Lucida Console", monospace;
+    color: white;
+}
+
+button {
+   background: black;
+   padding: 6.5px 13px;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   border-radius: 3px;
+   color: white;
+   font-size: 14px;
+   font-family: "Lucida Console", monospace;
+   text-decoration: none;
+   vertical-align: middle;
+   cursor:pointer;
+}
+button:hover {
+   background: #444;
+   color: white;
+}
+button:active {
+   background: #333;
+}
+button:disabled {
+   background: black;
+   color: #555;
+}
+
+input[type="text"], input[type="tel"], input[type="number"], input[type="checkbox"], textarea, select {
+    border: 1px solid #111;
+    padding: 0.5em;
+    font-size: 15px;
+    line-height: 1.2em;
+    background: #444;
+    color: white;
+    background: #222
+}
+
+input[type="checkbox"]:disabled{
+    background: #777
+}
+
+textarea {
+    width: 80%;
+    height: 200px;
+    margin: 5px;
+}
+
+
+input[type="number"], button {
+    margin-bottom: 12px;
+}
+
+
+input[type="range"] {
+    -webkit-appearance: none;
+    background-color: black;
+    height: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    top: 0px;
+    z-index: 1;
+    width: 15px;
+    height: 15px;
+    cursor: auto;
+    -webkit-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.6);
+    box-shadow: 0px 6px 5px 0px rgba(0,0,0,0.6);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c00), color-stop(50%,#610000), color-stop(100%,#c00));
+}
+
+input[type="number"] {
+    width: 4.0em;
+}
+
+li {
+    display: inline-block;
+}
+
+
+th, td{
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Common Nav-bar look */
+#navbar {
+    border: 1px solid white;
+    padding-left: 1em;
+}
+a:link{
+    color: white;
+}
+a:visited{
+    color: white;
+}
+a:hover{
+    color: #888;
+}
+a:active{
+    color: #888;
+}
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%;
+}
+
+

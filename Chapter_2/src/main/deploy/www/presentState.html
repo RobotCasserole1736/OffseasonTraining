@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<title>Robot State</title>
+
+<head>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="table_highlight.css">
+</head>
+
+<body>
+
+<h1>Robot State</h1>
+<hr>
+</div>
+<div id="id01">COM Status: Socket Not Yet Opened...</div>
+
+<div id="UserInput">
+<table>
+  <br>
+  <tr><td>
+      <input id="filterTextInput" type="text" placeholder="Name Filter" onkeyup="filterChangeHandler(this.value)">
+    </td></tr>
+</table>
+</div>
+
+<div id="id02"></div>
+
+<br>
+
+<!-- Common navigation bar -->
+<div id="navbar">
+  <p>
+  <a href="index.html">Home</a>
+  <a href="presentState.html">State</a>   
+  <a href="calibration.html">Calibration</a>
+  <a href="driverView.html">Dashboard</a>
+  <a href="driverViewCams.html" target="_blank">Cameras</a>
+  <a href="rtplot.html">RT Plots</a>
+  <a href="robotPose.html">Pose</a>
+  <a href="ControllerMap.html">Controller Map</a>
+  </p>
+</div>
+<!-- END Common navigation bar -->
+
+<script type="text/javascript" src="/presentState.js" >
+</script>
+
+</body>
+</html>
+

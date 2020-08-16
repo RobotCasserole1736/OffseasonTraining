@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+<html>
+<title>Robot Main</title>
+
+<head>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="table_highlight.css">
+</head>
+
+<body>
+
+  <div id="CtrlMapAllTables">
+    <h1>FRC 1736 Robot Casserole</h1>
+    <div>
+      <p>
+        These are the controls for the FRC 1736 robot.
+      </p>
+    </div>
+
+    <hr>
+    <h2>
+      Driver - Xbox Controller
+    </h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Input</th> <th>Function</th> <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>LX Axis</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>LY Axis</td> <td>Fwd/Rev Command</td> <td>Push up to make the robot move forward, down to make it run in reverse.</td>
+        </tr>
+        <tr>
+          <td>LStick Push</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>RX Axis</td> <td>Rotate Command</td> <td>Push left to make the robot spin counter-clockwise, right to spin clockwise</td>
+        </tr>
+        <tr>
+          <td>RY Axis</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>RStick Push</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>L Bumper</td> <td>Reverse Drive Enable</td> <td>Press and hold to make the back of the robot the "front" and vice versa</td>
+        </tr>
+        <tr>
+          <td>R Bumper</td> <td>Snail Speed Enable</td> <td>Hold to move in "slow-mode", with finer control over drivetrain motion.</td>
+        </tr>
+        <tr>
+          <td>R Trigger Axis</td> <td>Vision Align & Shoot Far</td> <td>Hold to auto align to high target from far away and shoot</td>
+        </tr>
+        <tr>
+          <td>L Trigger Axis</td> <td>Vision Align & Shoot Close</td> <td>Hold to auto align to high target from "close" up and shoot</td>
+        </tr>
+        <tr>
+          <td>B Button</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>A Button</td> <td>Angle Lock</td> <td>Hold to enable closed-loop locking of pose angle. Useful for defense or accurate placement.</td>
+        </tr>
+        <tr>
+          <td>Y Button</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>X Button</td> <td>Vision Tgt Align</td> <td>Auto aligns the robot to the high target but does NOT fire</td>
+        </tr>
+        <tr>
+          <td>POV Hat UP</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>POV Hat Right</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>POV Hat Left</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>POV Hat DN</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>Back Button</td>Compressor Disable<td></td> <td>Disables the compressor</td>
+        </tr>
+        <tr>
+          <td>Start Button </td>Compressor Enable<td></td> <td>Enables the compressor</td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <hr>
+
+    <h2>
+      Operator - Xbox Controller
+    </h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Input</th> <th>Function</th> <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>LX Axis</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>LY Axis</td> <td>Climber Speed Control</td> <td>Increases or decreases the speed of the climber</td>
+        </tr>
+        <tr>
+          <td>LStick Push</td> <td></td> <td></td>
+        <tr>
+          <td>RX Axis</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>RY Axis</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>RStick Push</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>L Bumper</td> <td>Unjam Hopper</td> <td>Begins the cycle to unjam the hopper</td> 
+        </tr>
+        <tr>
+          <td>R Bumper</td> <td>Prep to Shoot</td> <td>Commands the shooter to start getting to shooting speed</td>
+        </tr>
+        <tr>
+          <td>R Trigger Axis</td> <td>FIRE (Shoot)</td> <td>Commands balls to be sent into the shooter</td>
+        <tr>
+          <td>L Trigger Axis</td> <td>Intake</td> <td>Hold to run the intake in the "in" direction to intake power cells</td>
+        </tr>
+        <tr>
+          <td>B Button</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>Y Button</td> <td>Rotate Control Panel</td> <td>Commands the control panel manipulator to rotate the panel 3.25 revolutions</td>
+        </tr>
+        <tr>
+          <td>X Button</td> <td></td> <td></td>
+        </tr>
+        <tr>
+
+          <td>POV Hat UP</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>POV Hat Right</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>POV Hat Left</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>POV Hat DN</td> <td></td> <td></td>
+        </tr>
+        <tr>
+          <td>Back Button</td> <td>Eject</td> <td>Press and hold to run the intake in the "out" direction to ensure we don't get power cells</td>
+        </tr>
+        <tr>
+          <td>Start Button </td> <td>Climber Enable</td> <td>Hold down to enable control of the climber</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+<!-- Common navigation bar -->
+<div id="navbar">
+  <p>
+  <a href="index.html">Home</a>
+  <a href="presentState.html">State</a>   
+  <a href="calibration.html">Calibration</a>
+  <a href="driverView.html">Dashboard</a>
+  <a href="driverViewCams.html" target="_blank">Cameras</a>
+  <a href="rtplot.html">RT Plots</a>
+  <a href="robotPose.html">Pose</a>
+  <a href="ControllerMap.html">Controller Map</a>
+  </p>
+</div>
+<!-- END Common navigation bar -->
+
+</body>
+
+</html>

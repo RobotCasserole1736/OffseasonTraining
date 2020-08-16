@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<title>Casserole Realtime Data Plot</title>
+
+<head>
+  <link rel="stylesheet" href="sidebar.css">
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="table_highlight.css">
+</head>
+
+<body>
+
+<h1>Real-Time Data Viewer</h1>
+<hr>
+
+<div/>
+<div id="id01">COM Status: Socket Not Yet Opened...</div>
+<hr>
+
+
+<span style="font-size:24px;cursor:pointer" onclick="openNav()">&#9776; Signals</span> 
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <button id="clear_btn" type="button" onclick="handleClearBtnClick()" >Clear Selection</button>
+    <input id="filterTextInput" type="text" placeholder="Name Filter" onkeyup="filterChangeHandler(this.value)"> 
+    <!-- Table of available signals - generated from data from websocket -->
+    <div id="id02"></div>
+</div>
+
+<br><br>
+
+
+<!-- DAQ Controls -->
+<b>DAQ Control</b>  
+<button id="start_btn" type="button" onclick="handleStartBtnClick()" >Start</button> 
+<button id="stop_btn" type="button" onclick="handleStopBtnClick()" >Stop</button> 
+
+<!-- Plot display -->
+<div id="container" style="width:100%; height:480px; border-style: solid; border-width: 3px; border-color: #999; background-color:black"></div>
+
+<br>
+
+<!-- Common navigation bar -->
+<div id="navbar">
+    <p>
+    <a href="index.html">Home</a>
+    <a href="presentState.html">State</a>   
+    <a href="calibration.html">Calibration</a>
+    <a href="driverView.html">Dashboard</a>
+    <a href="driverViewCams.html" target="_blank">Cameras</a>
+    <a href="rtplot.html">RT Plots</a>
+    <a href="robotPose.html">Pose</a>
+    <a href="ControllerMap.html">Controller Map</a>
+    </p>
+</div>
+<!-- END Common navigation bar -->
+
+
+<script src="/jquery-1.11.0.min.js"></script>
+<script src="/highcharts.js"></script>
+<script src="/boost.js"></script>
+<script src="/exporting.js"></script>
+<script type="text/javascript" src="/rtplot.js" ></script>
+<script type="text/javascript" src="/sidebar.js" ></script>
+
+
+</body>
+</html>
+
