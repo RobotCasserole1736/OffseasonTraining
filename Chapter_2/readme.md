@@ -4,9 +4,9 @@ In Chapter 1, we introduced some of the basics of software writing and the tools
 
 We'll move on to applying those concepts to making software for an actual robot that is at the warehouse!
 
-### Background - the "Theoretical" Robot We will be Programming
+## Background - the "Theoretical" Robot We will be Programming
 
-This background info is pertenant to all lessons in this Chapter, so we put it here.
+This background info is pertenant to all lessons in this Chapter, so we put it here. It's not necessary to have a _complete_ understanding of every word in this section at the moment, but be ready to come back and reference it as needed. Ask questions now, the instructors can help guide you on what knowledge you need to get started.
 
 The robot we will be programming is designed to play (most of) the 2018 game. If you haven't seen it, at least check out [the sumamry release video here](https://www.youtube.com/watch?v=HZbdwYiCY74), and maybe the [full game manual](https://firstfrc.blob.core.windows.net/frc2018/Manual/2018FRCGameSeasonManual.pdf) if interested.
 
@@ -24,12 +24,7 @@ The drivetrain follows a classic "Skid Steer" system in FRC. There are six wheel
 
 This setup is also often referred to "Tank Drive" - this name comes from the fact that [army tanks (at least the non-turret portion) are controled and maneuvered in the same way](https://www.youtube.com/watch?v=u1mH-_h3_1Q). 
 
-Each side is driven by two motors. This means we have four motors to control. We call them:
-
-* Left Front
-* Left Rear
-* Right Front
-* Right Rear
+Each side is driven by two motors. This means we have four motors to control. 
 
 The left motors should always recieve the same command, and the right motors should always recieve the same command (otherwise we start to grind the gears inside the gearbox).
 
@@ -41,14 +36,48 @@ You can combine these two maneuvers to get more complex motion. For example, kee
 
 [Here's a simple example of a small robot with a similar propulsion system.](https://www.youtube.com/watch?v=rpiNZSJoHKw)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rpiNZSJoHKw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 If you're super interested, [there's a lot of math](http://matwbn.icm.edu.pl/ksiazki/amc/amc14/amc1445.pdf) that can be done to analyze exactly how these systems work. Especially with rubber tires, it's far from straightfowrad when you dig into the details. However, understanding the math isn't required to get the basics working.
+
+The motors are all [CIM Motors](https://www.vexrobotics.com/217-2000.html), controlled by [Spark motor controllers](https://www.revrobotics.com/rev-11-1200/) over PWM. 
 
 #### Elevator
 
+The elevator is a set of metal arms which travel up and down. A spool is powered by a motor, and winds rope up onto itself to pull the elevator upward. When the motor runs in the opposite direction, the spool unwinds, allowing the elevator to travel downward.
+
+The number of spool rotations is measured by an _encoder_. By doing some math involving the size of the spool, we can calculate the height of the elevator.
+
+There are also a set of electrical switches which detect when the elevator is at the _top of travel_ and cannot go any higher, as well as when it's at the _bottom of travel_ and cannot go lower.
+
+Due to the location of the switches and the mechanical design constraints, _top of travel_ is detected when _both_ top switches (A and B) are pressed. The bottom only requires a single switch to detect.
+
+The motors are all [CIM Motors](https://www.vexrobotics.com/217-2000.html), controlled by [Spark motor controllers](https://www.revrobotics.com/rev-11-1200/) over PWM. 
+
 #### Cube Grabby Arms
 
+Attached to the elevator is a set of motors and wheels which pull in the gamepiece, or eject it back out. There's only one motor controller. It's specially wired up to the motors to ensure that in one direction, the motors "suck in", while in the other direction they "spit out". 
+
+Once a gamepiece ("power cube") is pulled in by the grabby arms, raising or lowering the elevator will also raise and lower the cube. The two subsystems working together is what allows the robot to pick a cube up off the ground, and drop it off at a higher level.
+
+The motors are all [775 Pro motors](https://motors.vex.com/vexpro-motors/775pro), controlled by [a single Victor SP motor controller](https://www.ctr-electronics.com/downloads/pdf/Victor-SP-Quick-Start-Guide.pdf) over PWM. 
+
+#### IO Summary
+
+Here's a list of the devices attached to the roboRIO that we will have to control. Usually, during the season, this list will be designed and laid out as a joint effort between electrical and SW team on a whiteboard. For now, we'll just give you the table.
+
+| Direction | Subsystem   | Device                 | Name        | Bank | Port Number |
+| ---       | ---         | ---                    | ---         | ---  | ---         |
+| Output    | Drivetrain  | Spark Motor Controller | Left Front  | PWM  | 0           |
+| Output    | Drivetrain  | Spark Motor Controller | Left Rear   | PWM  | 1           |
+| Output    | Drivetrain  | Spark Motor Controller | Right Front | PWM  | 2           |
+| Output    | Drivetrain  | Spark Motor Controller | Right Rear  | PWM  | 3           |
+| Output    | Elevator    | Spark Motor Controller | Elevator    | PWM  | 4           |
+| Input     | Elevator    | Generic Limit Switch   | Top A       | DIO  | 0           |
+| Input     | Elevator    | Generic Limit Switch   | Top B       | DIO  | 1           |
+| Input     | Elevator    | Generic Limit Switch   | Bottom      | DIO  | 2           |
+| Input     | Elevator    | Generic Quad Encoder   | SpoolEnc    | DIO  | 3,4         |
+| Output    | CubeGrabber | Victor SP              | CubeGrabber | PWM  | 5           |
+
+## Lessons
 
 Now, complete these Lessons in Order, as each one builds on the next.
 

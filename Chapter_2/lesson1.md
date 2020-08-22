@@ -1,20 +1,6 @@
 
 ## Lesson 1 - Getting Inputs from Drivers
 
-### Background - the Theoretical Robot We will be Programming
-
-For the 2018 game
-
-Looks very similar to our 2018 bot, because it is.
-
-Electronics reworked
-
-#### Drivetrain
-
-#### Elevator
-
-#### Cube Grabby Arms
-
 
 ### Getting inputs from Operators
 
