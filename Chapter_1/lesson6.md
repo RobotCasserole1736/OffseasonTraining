@@ -1,5 +1,5 @@
 
-# Lesson 6 - New Class
+# Lesson 6 - Dividing Code into Classes
 
 It's time to get classy!
 

@@ -1,7 +1,19 @@
 
-# Lesson 7 - Signals
+# Lesson 7 - Timeseries Data and Signals
 
 On Robot Casserole, we use a special set of classes in a common, "evergreen" library that is reused year to year. The most commonly used classes involve "signals", something you've already had exposure to. We'll dig into these in a bit more detail now.
+
+## Some Thoughts Before We Begin
+
+Learning software is hard.
+
+![Thank you to AbstruseGoose :D](https://abstrusegoose.com/strips/ars_longa_vita_brevis.png)
+
+Especially if you're a new student.... this task is nothing short of hurculean. We're not just looking for you to "know how to write code", but rather how to write _good_ code, in a team, with all sorts of weird time and equipment constraints. On top of that, the literal game changes every year, as does the technology and development environment. It's really hard. If you feel lost, don't worry - it's very reasonable to feel so, and indeed most others will feel the same way more often than they let on.
+
+The key to it, at least in this author's opinion: _take it one step at a time_. As [Michael Feathers](https://www.r7krecon.com/michael-feathers-bio) says, "Programming is the art of doing one thing at a time". 
+
+Unfortunately, we're pushed to take these baby steps rather quickly. But the key is not to skip the steps. Don't try to go faster by taking bigger steps. Keep focusing on the small steps - break the problem down further and further, until the problems are small enough to solve trivially. Build them up into a bigger solution. Don't try to swallow the whole thing in one gulp. As you get good at the small steps, the overall process will start to move faster naturally.
 
 ## What is "Timeseries Data"
 

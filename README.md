@@ -13,4 +13,12 @@ In order, click each link and install the software (following instructions as yo
 
 # Then....
 
-Start with [the Chapter 1 readme.](https://github.com/RobotCasserole1736/OffseasonTraining/blob/master/Chapter_1/readme.md)
+Go through each chapter in order.
+
+Start with [Chapter 1 - Basic Robot Programming Concepts & Tools](Chapter_1/readme.md).
+
+After that, move on to [Chapter 2 - Writing Software for a Simple Robot](Chapter_2/readme.md).
+
+# For Instructers and Nosy Students
+
+Take a look at [the instructor notes](instructorNotes.md) for pedagogical background on this set of training.

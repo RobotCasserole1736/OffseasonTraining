@@ -22,6 +22,20 @@ Ideally, the "training wheels" should be designed to keep them close enough to t
 
 The goal is to keep the training wheels on just long enough to master concepts, start to take them off as the concepts get applied to real code, wiht the goal of being "fully off" by the time build season starts. 
 
+### Lesson Contents, Layout, and Pace
+
+Each written lesson should have a few parts:
+
+1) Basic words of encouragement to help set the tone and mindset of the lesson.
+2) Written critical information for students who prefer to learn by reading.
+3) Problems or Activites to allow students to apply what they learned themselves.
+
+Chapter 1 focuses on core principles and usage of the tools. Chapter 2 focuses on applying those to creating software for a specific robot.
+
+In all cases, 15-30 minutes of lecturing should be prepared to ensure students see other people presenting the information, and at least 30 minutes reserved for question answering. Ongoing Q/A should continue via Discord or some equivilant service, in an attempt to keep students engaged and used to the "problem-solve, ask, get answer" cycle.
+
+To complete all lessons, students will need to work at a pace of about 1.5 lessons per week. As of the 2020 offseason, it's not quite certain how feasible this is... and it will change year to year, depending on the student population. The tentative strategy is to target two lessons per week, but as students encounter difficult concepts, insert "catch-up days" every other week to even things out.
+
 ## Zen of Teaching Robotics Programming
 
 Ramping a student from zero to productive in an FRC team presents unique challenges over traditional software instructional techniques.
@@ -32,7 +46,7 @@ Casserole uses the standard Java FRC devleopment environment, which uses a stand
 
 ### Modify-First
 
-With the exception of the student who first creates the robot project, students are always picking up a large codebase, making modifications, and submitting them back into the broad project. Traditional programming classes assume students white-paper design every program - this is simply not how FIRST programming works. Training should focus on handing students an existing large codebase, instructing them on how to make and test changes within that codebase. 
+With the exception of the student who first creates the robot project, students are always picking up a large codebase, making modifications, and submitting them back into the broad project. Traditional programming classes assume students white-paper design every program - this is simply not how FIRST programming works. Training should focus on handing students an existing large codebase, instructing them on how to make and test changes at specific locations within that codebase. 
 
 ### Debug-First
 
@@ -40,7 +54,9 @@ A side-effect of whitepaper training exercises is that the student has written a
 
 Additionally, for retaining students, it is imperitive that each see that the tools exist to solve their problems. It's very discouraging for a student hit to a problem, be unable to comprehend the solution immedeately, but see a fellow student solve it with ease. Instilling the notion that debugging is both a _learned thought process_, as well as a toolset, is critical for retaining student interest.
 
-## Lesson 1 outcomes
+## Desired Outcomes - Chapter 1
+
+### Lesson 1 
 * Anyone can learn to write software for robots!
   * Real-time controls software, written in a team, is a different beast than what otherwised-experienced students may have seen in the past.
 * Basic terminology
@@ -52,7 +68,7 @@ Additionally, for retaining students, it is imperitive that each see that the to
 * The robot website is a key tool for understanding how code is functioning.
 * `println` is another available mechanism for "instrumenting" code behavior.
 
-## Lesson 2 outcomes
+### Lesson 2 
 * Basic software math and boolean operations
 * "Nominal" git branch usage
 * Code can be edited to add or change functionality.
@@ -64,7 +80,7 @@ Additionally, for retaining students, it is imperitive that each see that the to
 * Challenge 1 => Knowledge that there is more than one way to solve even a simple problem. Knowledge of a "boolean-complete" set of operations.
 * Reading code comments (they provide clear instruction as to where to put the code)
 
-## Lesson 3 outcomes
+### Lesson 3 
 * Comparison operations produce booleans from numbers
 * Basic name formating conventions - CAPITALIZATION CarriesMeaning
 * Code is organized into blocks dilimted by `{}`
@@ -81,7 +97,7 @@ Additionally, for retaining students, it is imperitive that each see that the to
   * Sensors and motor controllers are important, but the code "in-between" is also important. And, ideally, seperable from the hardware-specific code.
 * For time-varying code, you have to click the "Teleop Enable" button to get it to run.
 
-## Lesson 4 outcomes
+### Lesson 4 
 * Code is further organized into methods (ie functions)
 * Methods can be called with inputs and produce 0 to 1 outputs
 * Methods must be _declared_ once, and _called_ 1 or more times.
@@ -90,12 +106,12 @@ Additionally, for retaining students, it is imperitive that each see that the to
 * There are multiple valid ways to solve a given problem (ex: "middle" can be calculated in a lot of different ways). Your solution doesn't have to look like your neighbor's solution to work.
 * Basic applications and usage of "parity".
 
-## Lesson 5 outcomes
+### Lesson 5 
 
 * Main controls and methodologies for manipulating and inspecting robot code exeuction through the built-in single step debugger.
 * Basic thought processes for methodical debugging should mirror the scientific process: Make a theory about what your code should do. Design an experiement. Test. Analyze results. Repeat.
 
-## Lesson 6 outcomes
+### Lesson 6 
 
 * Everything in Java is organized into a class
 * A class is a blueprint for how to make an object
@@ -105,14 +121,14 @@ Additionally, for retaining students, it is imperitive that each see that the to
 * Basic air compressor operation
 * Java requires a good chunk of "boilerplate" code to get a class defined. Just copy-paste it from the examples.
 
-## Lesson 7 outcomes
+### Lesson 7 
 
 * Signals are a casserole-specific way to interrogate robot behavior. 
 * Signals fall one layer "higher" in the hierarchy of debug methods than using the single-step debugger from lesson 5.
 * Definition of a "timeseries" data. Application of the mathematical "function" concept to data.
 * Signals are viewed in real-time on the website, or after-the-fact from data recordings (.csv files).
 
-## Lesson 8 outcomes
+### Lesson 8 
 
 * Software "Architecture" is a dileberate set of choices and constraints on our code to organize it better.
 * Using other people's code usually requires to conform to the assumptiosn of their architecture. FIRST and WPILib push some of these assumptions on to us.
@@ -120,3 +136,4 @@ Additionally, for retaining students, it is imperitive that each see that the to
 * Each mode has a 1-time `init` function and a periodic `update` function. Our code gets called from within these.
 * One-time power-on function called `robotInit` is also available.
 
+## Lesson Outcomes - Chapter 2

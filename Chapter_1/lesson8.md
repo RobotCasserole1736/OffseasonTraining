@@ -1,4 +1,14 @@
-# Lesson 8 - Structure of a Robot Project
+# Lesson 8 - Basic Robot Code Architecture
+
+## Some Thoughts Before We Begin
+
+Just some humor today. You don't have to read it all now - maybe just bookmark it for a rainy day.
+
+[How to Write Unmaintainable Code](https://github.com/Droogans/unmaintainable-code)
+
+AKA how to make everyone around you hate you.
+
+Want to be a good software developer? Just do the opposite of everything in that link :).
 
 ## The Match Cycle
 
