@@ -64,18 +64,18 @@ The motors are all [775 Pro motors](https://motors.vex.com/vexpro-motors/775pro)
 
 Here's a list of the devices attached to the roboRIO that we will have to control. Usually, during the season, this list will be designed and laid out as a joint effort between electrical and SW team on a whiteboard. For now, we'll just give you the table.
 
-| Direction | Subsystem   | Device                 | Name        | Bank | Port Number |
-| ---       | ---         | ---                    | ---         | ---  | ---         |
-| Output    | Drivetrain  | Spark Motor Controller | Left Front  | PWM  | 0           |
-| Output    | Drivetrain  | Spark Motor Controller | Left Rear   | PWM  | 1           |
-| Output    | Drivetrain  | Spark Motor Controller | Right Front | PWM  | 2           |
-| Output    | Drivetrain  | Spark Motor Controller | Right Rear  | PWM  | 3           |
-| Output    | Elevator    | Spark Motor Controller | Elevator    | PWM  | 4           |
-| Input     | Elevator    | Generic Limit Switch   | Top A       | DIO  | 0           |
-| Input     | Elevator    | Generic Limit Switch   | Top B       | DIO  | 1           |
-| Input     | Elevator    | Generic Limit Switch   | Bottom      | DIO  | 2           |
-| Input     | Elevator    | Generic Quad Encoder   | SpoolEnc    | DIO  | 3,4         |
-| Output    | CubeGrabber | Victor SP              | CubeGrabber | PWM  | 5           |
+| Direction | Subsystem   | Device                 | Name        | Bank | Port Number | Notes |
+| ---       | ---         | ---                    | ---         | ---  | ---         | ---   |
+| Output    | Drivetrain  | Spark Motor Controller | Left Front  | PWM  | 0           | Due to mechanical construction, _negative_ motor command produces forward motion. |
+| Output    | Drivetrain  | Spark Motor Controller | Left Rear   | PWM  | 1           | Due to mechanical construction, _negative_ motor command produces forward motion. |
+| Output    | Drivetrain  | Spark Motor Controller | Right Front | PWM  | 2           |       |
+| Output    | Drivetrain  | Spark Motor Controller | Right Rear  | PWM  | 3           |       |
+| Output    | Elevator    | Spark Motor Controller | Elevator    | PWM  | 4           |       |
+| Input     | Elevator    | Generic Limit Switch   | Top A       | DIO  | 0           |       |
+| Input     | Elevator    | Generic Limit Switch   | Top B       | DIO  | 1           |       |
+| Input     | Elevator    | Generic Limit Switch   | Bottom      | DIO  | 2           |       |
+| Input     | Elevator    | Generic Quad Encoder   | SpoolEnc    | DIO  | 3,4         | 1024 counts per foot of elevator travel |
+| Output    | CubeGrabber | Victor SP              | CubeGrabber | PWM  | 5           |       |
 
 ## Lessons
 

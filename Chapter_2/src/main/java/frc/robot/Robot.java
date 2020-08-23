@@ -11,10 +11,9 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import frc.lib.Calibration.CalWrangler;
 import frc.lib.DataServer.CasseroleDataServer;
-import frc.lib.DataServer.Signal;
 import frc.lib.LoadMon.CasseroleRIOLoadMonitor;
 import frc.lib.WebServer.CasseroleWebServer;
-
+import frc.sim.RobotModel;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,53 +24,38 @@ import frc.lib.WebServer.CasseroleWebServer;
  */
 public class Robot extends TimedRobot {
 
-    // Website utilities
-    CasseroleWebServer webserver;
-    CalWrangler wrangler;
-    CasseroleDataServer dataServer;
-    LoopTiming loopTiming;
-    CasseroleRIOLoadMonitor loadMon;
+  // Website utilities
+  CasseroleWebServer webserver;
+  CalWrangler wrangler;
+  CasseroleDataServer dataServer;
+  LoopTiming loopTiming;
+  CasseroleRIOLoadMonitor loadMon;
 
-    LessonTwo l2;
-    LessonThree l3;
-    LessonFour l4;
-    LessonFive l5;
+  // Robot Subsystems
+  CubeGrabberControl cgc;
+  ElevatorControl ec;
+  DriverInterface di;
 
-    Signal teleopInitCounterSig;
-    int teleopInitCounter = 0;
+  /**
+   * This function is run when the robot is first started up and should be used
+   * for any initialization code.
+   */
+  @Override
+  public void robotInit() {
 
-    /**
-     * This function is run when the robot is first started up and should be used
-     * for any initialization code.
-     */
-    @Override
-    public void robotInit() {
+    /* Init website utilties */
+    webserver = new CasseroleWebServer();
+    wrangler = new CalWrangler();
+    dataServer = CasseroleDataServer.getInstance();
+    loadMon = new CasseroleRIOLoadMonitor();
 
-        /* Init website utilties */
-        webserver = new CasseroleWebServer();
-        wrangler = new CalWrangler();
-        dataServer = CasseroleDataServer.getInstance();
-        loadMon = new CasseroleRIOLoadMonitor();
+    cgc = new CubeGrabberControl();
+    ec = new ElevatorControl();
+    di = new DriverInterface();
 
-        teleopInitCounterSig = new Signal("Teleop Init Count", "count");
-
-        dataServer.startServer();
-        webserver.startServer();
-
-        l2 = new LessonTwo();
-        l2.lessonTwoInit();
-
-        l3 = new LessonThree();
-        l3.lessonThreeInit();
-
-        l4 = new LessonFour();
-        l4.lessonFourInit();
-
-        l5 = new LessonFive();
-        l5.lessonFiveInit();
-
-        System.out.println("Robot Init completed!");
-    }
+    dataServer.startServer();
+    webserver.startServer();
+  }
 
   /**
    * This function is called once as the robot enters autnonmous mode.
@@ -86,7 +70,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
-      telemetryUpdate();
+    periodicCommon();
   }
 
   /**
@@ -95,8 +79,6 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopInit() {
     dataServer.logger.startLoggingTeleop();
-    teleopInitCounter++;
-    System.out.println("Teleop Init completed!");
   }
 
   /**
@@ -104,9 +86,19 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-      l3.lessonThreeEnabledUpdate();
-      l5.lessonFiveEnabledUpdate();
-      telemetryUpdate(); 
+    di.update();
+
+    if (di.getCubeEjectDesired()) {
+      cgc.setEjectDesired();
+    } else if (di.getCubeIntakeDesired()) {
+      cgc.setIntakeDesired();
+    } else {
+      cgc.setStopDesired();
+    }
+
+    ec.setRaiseLowerManualCmd(di.getElevatorRaiseLowerCmd());
+
+    periodicCommon();
   }
 
   /**
@@ -122,8 +114,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledPeriodic() {
-      l3.lessonThreeDisabledUpdate();
-      telemetryUpdate();
+    cgc.setStopDesired();
+    periodicCommon();
   }
 
   /**
@@ -140,12 +132,54 @@ public class Robot extends TimedRobot {
   public void testPeriodic() {
   }
 
-  void telemetryUpdate(){
-      double sampleTime = Timer.getFPGATimestamp()*1000;
-      teleopInitCounterSig.addSample(sampleTime, teleopInitCounter);
-      l2.telemetryUpdate();
-      l3.telementyUpdate();
-      l4.telementyUpdate();
-
+  void periodicCommon() {
+    ec.update();
+    cgc.update();
+    telemetryUpdate();
   }
+
+  void telemetryUpdate() {
+    double sampleTime = Timer.getFPGATimestamp() * 1000;
+    ec.updateTelemetry(sampleTime);
+    cgc.updateTelemetry(sampleTime);
+    di.updateTelemetry(sampleTime);
+  }
+
+
+  /*=========================================================================*/
+  /*=========================================================================*/
+
+  /*
+   * This set of functions is for simulation only, and is not called on the real
+   * robot. Put plant-model related functionality here. For training purposes,
+   * students should not have to modify this functionality.
+   */
+
+  // Simple robot plant model for simulation purposes
+  RobotModel simModel;
+
+  @Override
+  public void simulationInit() {
+    simModel = new RobotModel();
+  }
+
+  @Override
+  public void simulationPeriodic() {
+
+    /* Reset sim model whenever we're disabled */
+    /*
+     * Note this doesn't quite work for the normal match sequence of
+     * disabled->auto->disabled->teleop->disabled
+     */
+    /* But this is just training for now, so what the hey. */
+
+    if (isDisabled()) {
+      simModel.reset();
+    }
+    simModel.update();
+  }
+
+  /*=========================================================================*/
+  /*=========================================================================*/
+
 }

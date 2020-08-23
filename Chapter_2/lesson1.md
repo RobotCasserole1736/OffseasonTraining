@@ -4,13 +4,23 @@
 
 ### Getting inputs from Operators
 
-#### To start- the Controller
+#### Background
 
-In order to really be able to test our code, we're going to start to need a bit of hardware.
+This lesson, we're going to focus on how we get input _commands_ from the driver.
 
-Use any USB controller you ahve around the house
+Generally, the driver will be holding some sort of a video game controller. They will move joysticks and push buttons to indicate a _desire_ or _command_ for the robot to do something. In software, we have to write code to read the data off of the video game controller, and _interpret_ it into a _command_ from the driver.
 
-Maybe buy one, they're useful for lots of things, and fairly cheap.
+Often the transform is trivial: "button pushed" is the same as "intake desired". However, the change of name is signifigant. In doing so, we add a layer of _abstraction_. We isolate the _specific_ button on the controller from the _desire_ the operator has. 
+
+This allows us to write our code in a more flexible way. For example, if we want to move the intake command from the A button to the B button, it's simple - just change the function that calcualtions the "intake desired" command to look at a different button. Everything else downstream stays the same.
+
+Note, you don't technically _have_ to do this just to get robot code "working". This is a particular _architecture_ choice we make to isolate _what_ driver wants, from _how_ they specifically provide the input. We make this decision conciously: The answer to "What" is driven by the sorts of things that are on the robot - this is unlikely to change. However, the answer to "How" is driven by driver preferences and available controllers. This is much more likely to change over time. By keeping the translation from specific input method to generic _desire_ in its own isolated class, we reduce the difficulty of making changes later on.
+
+#### To start - the Controller
+
+In order to really be able to test our code, we're going to start to need a bit of hardware. We'll need some  USB game controller just like the driver would use to test our code. This is because, unfortunately, there is no built-in "virtualization" solution yet.
+
+You can use any windows-compatible USB controller you ahve around the house. If you don't have one, you could buy one - they're not super expensive, and useful for things beyond robots. Here's three options:
 
 https://www.amazon.com/Controller-EasySMX-Joystick-Dual-Vibration-Trigger/dp/B06XBX1R55/ref=sr_1_6?dchild=1&keywords=usb+joystick&qid=1597606693&sr=8-6
 
