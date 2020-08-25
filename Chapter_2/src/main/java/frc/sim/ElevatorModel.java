@@ -19,7 +19,7 @@ class ElevatorModel {
 
     final int MOTOR_CONTROLLER_PORT = 4;
     final double SPOOL_MAX_SPEED_RPM = 180;
-    final double ACCEL_TIME_CONSTANT = 0.1; //Fudge to taste to roughly simulate the intertia/friction/whateves that changes the rate at which the mechanism approaches steady state.
+    final double ACCEL_TIME_CONSTANT = 0.3; //Fudge to taste to roughly simulate the intertia/friction/whateves that changes the rate at which the mechanism approaches steady state.
     final double STALL_CURRENT_A = 95; // Roughly analogous to 1 CIM motor
     
     final double ELEV_MAX_HEIGHT_FT = 6.5; //Upper mechanical stop. Bottom assumed to be zero.
@@ -56,8 +56,10 @@ class ElevatorModel {
         double loadFactor = 0.0;
         if(elevPos_ft >= ELEV_MAX_HEIGHT_FT & spdCmd > 0){
             loadFactor = 1.0; //At upper mechanical stop
+            elevPos_ft = ELEV_MAX_HEIGHT_FT;
         } else if (elevPos_ft <= 0.0 & spdCmd < 0) {
             loadFactor = 1.0; //At lower mechanical stop
+            elevPos_ft = 0.0;
         } else if( elevVertSpeed_ftps > 0){
             loadFactor = 0.2; //Going up and fighting gravity.
         } //Else - going down or stopped, nominal behavior at 0.0 load factor.
