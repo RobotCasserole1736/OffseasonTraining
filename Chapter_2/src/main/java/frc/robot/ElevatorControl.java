@@ -1,16 +1,16 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.VictorSP;
 import frc.lib.DataServer.Signal;
 
 class ElevatorControl {
 
-    Spark mainMotor;
+    VictorSP mainMotor;
 
     Encoder spoolEncoder;
 
-    double elevHeight_ft = 0; //TODO: get elevator height from encoder.
+    double elevHeight_ft = 0;
 
     double curRaiseLowerCmd = 0;
 
@@ -18,7 +18,7 @@ class ElevatorControl {
 
 
     public ElevatorControl(){
-        mainMotor = new Spark(4);
+        mainMotor = new VictorSP(6);
         elevHeight_sig = new Signal("Elevator Height", "ft");
         spoolEncoder = new Encoder(3,4);
         spoolEncoder.setDistancePerPulse(1.0/1024.0); //1024 pulses per foot

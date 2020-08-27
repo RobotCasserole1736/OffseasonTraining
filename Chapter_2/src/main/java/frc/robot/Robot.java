@@ -34,6 +34,7 @@ public class Robot extends TimedRobot {
   // Robot Subsystems
   CubeGrabberControl cgc;
   ElevatorControl ec;
+  DrivetrainControl dt;
   DriverInterface di;
 
   /**
@@ -51,6 +52,7 @@ public class Robot extends TimedRobot {
 
     cgc = new CubeGrabberControl();
     ec = new ElevatorControl();
+    dt = new DrivetrainControl();
     di = new DriverInterface();
 
     dataServer.startServer();
@@ -135,6 +137,7 @@ public class Robot extends TimedRobot {
   void periodicCommon() {
     ec.update();
     cgc.update();
+    dt.update();
     telemetryUpdate();
   }
 

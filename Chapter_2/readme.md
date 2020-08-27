@@ -24,7 +24,7 @@ The drivetrain follows a classic "Skid Steer" system in FRC. There are six wheel
 
 This setup is also often referred to "Tank Drive" - this name comes from the fact that [army tanks (at least the non-turret portion) are controled and maneuvered in the same way](https://www.youtube.com/watch?v=u1mH-_h3_1Q). 
 
-Each side is driven by two motors. This means we have four motors to control. 
+Each side is driven by three motors. This means we have six total motors to control. 
 
 The left motors should always recieve the same command, and the right motors should always recieve the same command (otherwise we start to grind the gears inside the gearbox).
 
@@ -50,32 +50,35 @@ There are also a set of electrical switches which detect when the elevator is at
 
 Due to the location of the switches and the mechanical design constraints, _top of travel_ is detected when _both_ top switches (A and B) are pressed. The bottom only requires a single switch to detect.
 
-The motors are all [CIM Motors](https://www.vexrobotics.com/217-2000.html), controlled by [Spark motor controllers](https://www.revrobotics.com/rev-11-1200/) over PWM. 
+The motor is a [Mini CIM](https://www.vexrobotics.com/217-3371.html), controlled by [a single Victor SP motor controller](https://www.ctr-electronics.com/downloads/pdf/Victor-SP-Quick-Start-Guide.pdf) over PWM. 
 
 #### Cube Grabby Arms
 
-Attached to the elevator is a set of motors and wheels which pull in the gamepiece, or eject it back out. There's only one motor controller. It's specially wired up to the motors to ensure that in one direction, the motors "suck in", while in the other direction they "spit out". 
+Attached to the elevator is a set of motors and wheels which pull in the gamepiece, or eject it back out. There's two motor controllers, one for each side. 
 
 Once a gamepiece ("power cube") is pulled in by the grabby arms, raising or lowering the elevator will also raise and lower the cube. The two subsystems working together is what allows the robot to pick a cube up off the ground, and drop it off at a higher level.
 
-The motors are all [775 Pro motors](https://motors.vex.com/vexpro-motors/775pro), controlled by [a single Victor SP motor controller](https://www.ctr-electronics.com/downloads/pdf/Victor-SP-Quick-Start-Guide.pdf) over PWM. 
+The motors are all [775 Pro motors](https://motors.vex.com/vexpro-motors/775pro), each controlled by a spark max.
 
 #### IO Summary
 
 Here's a list of the devices attached to the roboRIO that we will have to control. Usually, during the season, this list will be designed and laid out as a joint effort between electrical and SW team on a whiteboard. For now, we'll just give you the table.
 
-| Direction | Subsystem   | Device                 | Name        | Bank | Port Number | Notes |
-| ---       | ---         | ---                    | ---         | ---  | ---         | ---   |
-| Output    | Drivetrain  | Spark Motor Controller | Left Front  | PWM  | 0           | Due to mechanical construction, _negative_ motor command produces forward motion. |
-| Output    | Drivetrain  | Spark Motor Controller | Left Rear   | PWM  | 1           | Due to mechanical construction, _negative_ motor command produces forward motion. |
-| Output    | Drivetrain  | Spark Motor Controller | Right Front | PWM  | 2           |       |
-| Output    | Drivetrain  | Spark Motor Controller | Right Rear  | PWM  | 3           |       |
-| Output    | Elevator    | Spark Motor Controller | Elevator    | PWM  | 4           |       |
-| Input     | Elevator    | Generic Limit Switch   | Top A       | DIO  | 0           |       |
-| Input     | Elevator    | Generic Limit Switch   | Top B       | DIO  | 1           |       |
-| Input     | Elevator    | Generic Limit Switch   | Bottom      | DIO  | 2           |       |
-| Input     | Elevator    | Generic Quad Encoder   | SpoolEnc    | DIO  | 3,4         | 1024 counts per foot of elevator travel |
-| Output    | CubeGrabber | Victor SP              | CubeGrabber | PWM  | 5           |       |
+| Direction | Subsystem   | Device                 | Name              | Bank | Port Number | Integration Notes |
+| ---       | ---         | ---                    | ---               | ---  | ---         | ---   |
+| Output    | Drivetrain  | Spark Motor Ctrl       | Left Front        | PWM  | 0           | Due to mechanical construction, _negative_ motor command produces forward motion. |
+| Output    | Drivetrain  | Spark Motor Ctrl       | Left Mid          | PWM  | 1           | Due to mechanical construction, _negative_ motor command produces forward motion. |
+| Output    | Drivetrain  | Spark Motor Ctrl       | Left Rear         | PWM  | 2           | Due to mechanical construction, _negative_ motor command produces forward motion. |
+| Output    | Drivetrain  | Spark Motor Ctrl       | Right Front       | PWM  | 3           | Positive command produces forward motion |
+| Output    | Drivetrain  | Spark Motor Ctrl       | Right Mid         | PWM  | 4           | Positive command produces forward motion |
+| Output    | Drivetrain  | Spark Motor Ctrl       | Right Rear        | PWM  | 5           | Positive command produces forward motion |
+| Output    | Elevator    | Victor SP Motor Ctrl   | Elevator          | PWM  | 6           | Positive command produces upward motion |
+| Input     | Elevator    | Generic Limit Switch   | Top A             | DIO  | 0           | True when the mechanism is in contact with the switch, false otherwise |
+| Input     | Elevator    | Generic Limit Switch   | Top B             | DIO  | 1           | True when the mechanism is in contact with the switch, false otherwise |
+| Input     | Elevator    | Generic Limit Switch   | Bottom            | DIO  | 2           | True when the mechanism is in contact with the switch, false otherwise |
+| Input     | Elevator    | Generic Quad Encoder   | SpoolEnc          | DIO  | 3,4         | 1024 counts per foot of elevator travel |
+| Output    | CubeGrabber | Spark Motor Ctrl       | CubeGrabber Left  | PWM  | 7           | Due to mechanical construction, _negative_ motor command produces intaking motion. |
+| Output    | CubeGrabber | Spark Motor Ctrl       | CubeGrabber Right | PWM  | 8           | Positive command produces intaking motion |
 
 ## Lessons
 

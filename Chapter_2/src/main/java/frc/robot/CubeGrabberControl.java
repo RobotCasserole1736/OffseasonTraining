@@ -1,11 +1,12 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.VictorSP;
+import edu.wpi.first.wpilibj.Spark;
 import frc.lib.DataServer.Signal;
 
 class CubeGrabberControl {
 
-    VictorSP mainMotor;
+    Spark lhMotor;
+    Spark rhMotor;
 
     double elevHeight_ft = 0;
 
@@ -18,7 +19,8 @@ class CubeGrabberControl {
 
 
     public CubeGrabberControl(){
-        mainMotor = new VictorSP(5);
+        lhMotor = new Spark(7);
+        rhMotor = new Spark(8);
         cubeIntakeMotorCmd_sig = new Signal("Cube Intake Motor Cmd", "cmd");
     }
 
@@ -35,7 +37,8 @@ class CubeGrabberControl {
     }
 
     public void update(){
-        mainMotor.set(curMotorCmd);
+        lhMotor.set(-1.0 * curMotorCmd);
+        rhMotor.set(curMotorCmd);
     }
 
     public void updateTelemetry(double time){
