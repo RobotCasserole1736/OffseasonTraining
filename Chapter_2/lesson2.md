@@ -3,6 +3,8 @@
 
 ### Background
 
+We'll now move on to creating a portion of the logic to control the elevator. For this robot, the elevator is the most complex system, because it has multiple _sensors_ which help constrain its motion.
+
 _Sensors_ are devices which measure physical quantities, and report them back to the software. We can use sensors to display information, or control behavior. 
 
 ### Limit Switch
