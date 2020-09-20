@@ -79,5 +79,49 @@ A _gyroscope_ is a sensor we use commonly. It's part of a broader class of senso
 ![IMU.jpg](doc/img/IMU.jpg)
 
 
+### What to Implement
+
+We'll be starting the work of implementing our elevator routine - just the breadcrumbs to read sensors and get input from the user. We'll save our actual logic for next time.
+
+Create a new `.java` file to hold our new class, `ElevatorControl`.
+
+Add the following methods:
+
+```java
+    public ElevatorControl(){
+        // Initialize all required variables & objects here
+    }
+
+    public void setRaiseLowerManualCmd(double cmd){
+        // Recieve a manual up/down command from the 
+    }
+
+    public void update(){
+        // 20ms main periodic update
+        // read all sensors, 
+        // calculate an elevator motor command
+        // Send that command to the motor
+    }
+
+    public void updateTelemetry(double time){
+        //Update all signals
+    }
+```
+
+Add code to the class and it's methods to implement the following:
+
+#### Encoder
+
+Add a [WPILib Encoder](https://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/Encoder.html) to the class. Init it in the constructor, read its value into a class-scope variable in the class in the update function. Use class-scope globals to hold the height of the elevator as necessary.
+
+Add a new signal named `elevHeight_sig`. Init it in the constructor, and use it to send the value of the encoder to the website for viewing and debug. It should report the elevator height in feet.
+
+Add Three new [WPILib Digital Inputs](https://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/DigitalInput.html) to the class. These will read the value of the two top and one bottom limit switches. Init them all in the constructor. Read their values in the periodic update function. Use class-scope globals to hold the state of the limit switches as necessary.
+
+Add three new signals to hold the value of each of these digital inputs. Add the new samples in `updateTelemetry()`. 
+
 ### How to Test
 
+Run your code, ensure nothing crashes, and all new signals show up on the website, with meaningful values.
+
+We will need to be able to move the elevator up and down to test the full functionality. For now, we will delay this testing till a future lesson. However, keep in mind we may have to wrap back around to this lesson and its contents.
