@@ -1,8 +1,18 @@
 ## Lesson 3 - Outputs
 
+We're nearing the end of our basic robot software! As a final major component, we're going to add code to actually command and control some output devices on the robot
+
 ### Motor Controllers
 
+The majority of the mechanisms on the robot are moved by _motors_. A motor is a device which converts electrical energy into rotational force and motion. By applying more electrical energy (more voltage), you get more force, and therefor more rotation. You can reverse the direction of the voltage to reverse the direction of force and rotation.
+
+Motor Controllers are the electronic devices which sit between the battery and the motor, and are what our software actually controls. They're like little "gate keepers" on the batery's electrical power - releaseing slowly and as-commanded to the motor.
+
+Motor controllers can communicate with the roboRIO in different ways. There are two main classes: PWM and CAN.
+
 #### PWM-Based 
+
+PWM motor controllers get connected to the 
 
 #### CAN-Based "Smart" 
 
