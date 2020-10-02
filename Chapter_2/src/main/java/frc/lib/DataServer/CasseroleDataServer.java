@@ -1,6 +1,21 @@
 package frc.lib.DataServer;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import static java.util.Map.entry;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.*;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 /*
  *******************************************************************************************
@@ -26,6 +41,7 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
+import edu.wpi.first.wpilibj.Timer;
 import frc.lib.Util.CrashTracker;
 
 /**
@@ -140,5 +156,60 @@ public class CasseroleDataServer {
         serverThread.setPriority(10);
         serverThread.start();
     }
+
+    Set<Field> registeredFields;
+    Map<Field, Signal> autoRegisteredSignals;
+
+    public void getAllFields(Class klass, List<Field> exploredFields, List<Field> logCandidateFields) {
+        
+        if(klass.getPackage().toString().contains("frc.robot")){
+            //If the class was user defined....
+            for(Field field : klass.getDeclaredFields()) {
+                if(field.getType().isPrimitive()){
+                    logCandidateFields.add(field);
+                } else {
+                    if(exploredFields.contains(field)){
+                        return;
+                    } else {
+                        exploredFields.add(field);
+                        getAllFields(field.getType(), exploredFields, logCandidateFields);
+                    }
+                }
+            }
+        } 
+    }
+
+
+    // Special thanks to oblarg and his oblog for help on impelmenting this.
+    public void registerSignals(Object rootContainer) {
+        Class rootClass = rootContainer.getClass();
+
+        List<Field> exploredFields = new ArrayList<Field>();
+        List<Field> logCandidateFields = new ArrayList<Field>();
+
+        getAllFields(rootClass, exploredFields, logCandidateFields);
+
+        autoRegisteredSignals = new HashMap<>();
+        registeredFields = new HashSet<>();
+
+        // Process fields...
+        for (Field field : logCandidateFields) {
+  
+           if(field.isAnnotationPresent(frc.lib.DataServer.Annotations.Signal.class)){
+                autoRegisteredSignals.put(field, new Signal("Test", "testunit"));
+                registeredFields.add(field);
+           }
+        }
+    }
+
+    public void sampleAllSignals(){
+        double sampleTime = Timer.getFPGATimestamp() * 1000;
+        for(Field field : autoRegisteredSignals.keySet()){
+
+        }
+    }
+
+
+
 
 }
