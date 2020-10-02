@@ -60,9 +60,4 @@ class DrivetrainControl {
         }
     }
 
-    public void updateTelemetry(double time){
-
-    }
-
-
 }

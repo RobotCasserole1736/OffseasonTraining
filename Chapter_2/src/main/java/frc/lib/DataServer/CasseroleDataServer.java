@@ -157,55 +157,47 @@ public class CasseroleDataServer {
         serverThread.start();
     }
 
-    Set<Field> registeredFields;
-    Map<Field, Signal> autoRegisteredSignals;
+    Set<AutoDiscoveredSignal> autoSig;
 
-    public void getAllFields(Class klass, List<Field> exploredFields, List<Field> logCandidateFields) {
-        
-        if(klass.getPackage().toString().contains("frc.robot")){
-            //If the class was user defined....
-            for(Field field : klass.getDeclaredFields()) {
+    public void findAllAnnotatedSignals(Object root, String prefix){
+        Class rootClass = root.getClass();
+
+        if(rootClass.getPackage().toString().contains("frc.robot")){
+            for(Field field : rootClass.getDeclaredFields()){
+                String newName = prefix + (prefix.length() > 0 ? "." : "") + field.getName();
                 if(field.getType().isPrimitive()){
-                    logCandidateFields.add(field);
+                    if(field.isAnnotationPresent(frc.lib.DataServer.Annotations.Signal.class)){
+                        autoSig.add(new AutoDiscoveredSignal(field, root, newName, "None"));
+                    }
                 } else {
-                    if(exploredFields.contains(field)){
-                        return;
-                    } else {
-                        exploredFields.add(field);
-                        getAllFields(field.getType(), exploredFields, logCandidateFields);
+                    Object childObj = null;
+                    try{
+                        field.setAccessible(true);
+                        childObj = field.get(root);
+                    }  catch(IllegalAccessException e) {
+                        System.out.println("WARNING: skipping " + field.getName());
+                        System.out.println(e);
+                    }
+                    if(childObj != null){
+                        findAllAnnotatedSignals(childObj, newName);
                     }
                 }
             }
-        } 
+        }
     }
+
 
 
     // Special thanks to oblarg and his oblog for help on impelmenting this.
     public void registerSignals(Object rootContainer) {
-        Class rootClass = rootContainer.getClass();
-
-        List<Field> exploredFields = new ArrayList<Field>();
-        List<Field> logCandidateFields = new ArrayList<Field>();
-
-        getAllFields(rootClass, exploredFields, logCandidateFields);
-
-        autoRegisteredSignals = new HashMap<>();
-        registeredFields = new HashSet<>();
-
-        // Process fields...
-        for (Field field : logCandidateFields) {
-  
-           if(field.isAnnotationPresent(frc.lib.DataServer.Annotations.Signal.class)){
-                autoRegisteredSignals.put(field, new Signal("Test", "testunit"));
-                registeredFields.add(field);
-           }
-        }
+        autoSig = new HashSet<>();
+        findAllAnnotatedSignals(rootContainer, "");
     }
 
     public void sampleAllSignals(){
         double sampleTime = Timer.getFPGATimestamp() * 1000;
-        for(Field field : autoRegisteredSignals.keySet()){
-
+        for(AutoDiscoveredSignal sig : autoSig){
+            sig.addSample(sampleTime);
         }
     }
 

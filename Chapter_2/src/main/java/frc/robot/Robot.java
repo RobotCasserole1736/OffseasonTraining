@@ -143,16 +143,8 @@ public class Robot extends TimedRobot {
     ec.update();
     cgc.update();
     dt.update();
-    telemetryUpdate();
-  }
-
-  void telemetryUpdate() {
-    double sampleTime = Timer.getFPGATimestamp() * 1000;
-    ec.updateTelemetry(sampleTime);
-    cgc.updateTelemetry(sampleTime);
-    di.updateTelemetry(sampleTime);
+    loopCounter++;
     dataServer.sampleAllSignals();
-
   }
 
 
