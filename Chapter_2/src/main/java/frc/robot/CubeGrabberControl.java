@@ -8,9 +8,7 @@ class CubeGrabberControl {
     Spark lhMotor;
     Spark rhMotor;
 
-    double elevHeight_ft = 0;
-
-    @Signal
+    @Signal(units = "cmd")
     double curMotorCmd = 0;
 
     final double INTAKE_MOTOR_CMD = 0.75;

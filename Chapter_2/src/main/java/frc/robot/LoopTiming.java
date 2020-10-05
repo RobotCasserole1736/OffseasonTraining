@@ -32,10 +32,10 @@ public class LoopTiming{
     double prevLoopStartTime;
     double prevLoopEndTime;
 
-    @Signal
+    @Signal(units = "sec")
     double loopPeriodSec;
 
-    @Signal
+    @Signal(units = "sec")
     double loopDurationSec;
 
     /* Singleton stuff */

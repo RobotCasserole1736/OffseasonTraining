@@ -10,14 +10,11 @@ class ElevatorControl {
 
     Encoder spoolEncoder;
 
-    @Signal
+    @Signal(units = "ft")
     double elevHeight_ft = 0;
 
-    @Signal
+    @Signal(units = "cmd")
     double curRaiseLowerCmd = 0;
-
-    Signal elevHeight_sig;
-
 
     public ElevatorControl(){
         mainMotor = new VictorSP(6);
