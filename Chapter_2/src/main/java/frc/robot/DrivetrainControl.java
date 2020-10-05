@@ -1,7 +1,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Spark;
-import frc.lib.DataServer.Signal;
+import frc.lib.DataServer.Annotations.Signal;
 
 class DrivetrainControl {
 
@@ -12,14 +12,14 @@ class DrivetrainControl {
     Spark rhMotor2;
     Spark rhMotor3;
 
+    
     double curFwdRevCmd;
     double curRotateCmd;
 
+    @Signal(units = "cmd")
     double lhSideCmd = 0;
+    @Signal(units = "cmd")
     double rhSideCmd = 0;
-
-    Signal lhSideCmd_sig;
-    Signal rhSideCmd_sig;
 
     public DrivetrainControl(){
         lhMotor1 = new Spark(0);
@@ -28,8 +28,6 @@ class DrivetrainControl {
         rhMotor1 = new Spark(3);
         rhMotor2 = new Spark(4);
         rhMotor3 = new Spark(5);
-        lhSideCmd_sig = new Signal("DT Lh Motor Cmd", "cmd");
-        rhSideCmd_sig = new Signal("DT Rh Motor Cmd", "cmd");
     }
 
     public void setFwdRevCmd(double cmd){
@@ -61,11 +59,5 @@ class DrivetrainControl {
             return in;
         }
     }
-
-    public void updateTelemetry(double time){
-        lhSideCmd_sig.addSample(time, lhSideCmd);
-        rhSideCmd_sig.addSample(time, rhSideCmd);
-    }
-
 
 }

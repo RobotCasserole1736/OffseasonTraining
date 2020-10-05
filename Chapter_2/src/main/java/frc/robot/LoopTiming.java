@@ -21,7 +21,7 @@ package frc.robot;
  */
 
 import edu.wpi.first.wpilibj.Timer;
-import frc.lib.DataServer.Signal;
+import frc.lib.DataServer.Annotations.Signal;
 
 public class LoopTiming{
 
@@ -32,12 +32,11 @@ public class LoopTiming{
     double prevLoopStartTime;
     double prevLoopEndTime;
 
+    @Signal(units = "sec")
     double loopPeriodSec;
 
-    double loopDelta;
-
-    Signal loopDurationSig;
-    Signal loopPeriodSig;
+    @Signal(units = "sec")
+    double loopDurationSec;
 
     /* Singleton stuff */
     private static LoopTiming loopTiming = null;
@@ -48,21 +47,19 @@ public class LoopTiming{
     }
 
     private LoopTiming(){
-        loopDurationSig = new Signal("Main Loop Process Duration", "sec");
-        loopPeriodSig = new Signal("Main Loop Call Period", "sec");
+
     }
 
     public void markLoopStart(){
         prevLoopStartTime = loopStartTime;
         loopStartTime = Timer.getFPGATimestamp();
         loopPeriodSec = loopStartTime - prevLoopStartTime;
-        loopDurationSig.addSample(prevLoopStartTime*1000, loopEndTime - prevLoopStartTime);
-        loopPeriodSig.addSample(loopStartTime*1000, loopPeriodSec);
     }
 
     public void markLoopEnd(){
         prevLoopEndTime = loopEndTime;
         loopEndTime = Timer.getFPGATimestamp();
+        loopDurationSec = loopEndTime - loopStartTime;
     }
 
     public double getLoopStartTimeSec(){

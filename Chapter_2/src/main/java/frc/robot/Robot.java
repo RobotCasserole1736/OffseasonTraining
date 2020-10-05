@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import frc.lib.Calibration.CalWrangler;
 import frc.lib.DataServer.CasseroleDataServer;
+import frc.lib.DataServer.Annotations.Signal;
 import frc.lib.LoadMon.CasseroleRIOLoadMonitor;
 import frc.lib.WebServer.CasseroleWebServer;
 import frc.sim.RobotModel;
@@ -37,6 +38,9 @@ public class Robot extends TimedRobot {
   DrivetrainControl dt;
   DriverInterface di;
 
+  @Signal
+  int loopCounter = 0;
+
   /**
    * This function is run when the robot is first started up and should be used
    * for any initialization code.
@@ -55,6 +59,7 @@ public class Robot extends TimedRobot {
     dt = new DrivetrainControl();
     di = new DriverInterface();
 
+    dataServer.registerSignals(this);
     dataServer.startServer();
     webserver.startServer();
   }
@@ -138,14 +143,8 @@ public class Robot extends TimedRobot {
     ec.update();
     cgc.update();
     dt.update();
-    telemetryUpdate();
-  }
-
-  void telemetryUpdate() {
-    double sampleTime = Timer.getFPGATimestamp() * 1000;
-    ec.updateTelemetry(sampleTime);
-    cgc.updateTelemetry(sampleTime);
-    di.updateTelemetry(sampleTime);
+    loopCounter++;
+    dataServer.sampleAllSignals();
   }
 
 

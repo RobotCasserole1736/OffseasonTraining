@@ -2,33 +2,26 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
-import frc.lib.DataServer.Signal;
+import frc.lib.DataServer.Annotations.Signal;
 
 class DriverInterface {
 
     XboxController driverCtrl;
 
+    @Signal(units = "cmd")
     double elevatorRaiseLowerCmd;
+    @Signal(units = "cmd")
     boolean cubeIntakeDesired;
+    @Signal(units = "cmd")
     boolean cubeEjectDesired;
+    @Signal(units = "cmd")
     double fwdRevCmd;
+    @Signal(units = "cmd")
     double rotateCmd;
-
-
-    Signal elevatorRaiseLowerCmdSig;
-    Signal cubeIntakeDesiredSig;
-    Signal cubeEjectDesiredSig;
-    Signal fwdRevCmdSig;
-    Signal rotateCmdSig;
 
 
     public DriverInterface(){
         driverCtrl = new XboxController(0);
-        elevatorRaiseLowerCmdSig = new Signal("Driver Input Elevator Raise Lower Cmd", "cmd");
-        cubeIntakeDesiredSig = new Signal("Driver Input Cube Intake Desired", "cmd");
-        cubeEjectDesiredSig = new Signal("Driver Input Cube Eject Desired", "cmd");
-        fwdRevCmdSig = new Signal("Driver Input Drivetrain FwdRev Cmd", "cmd");
-        rotateCmdSig = new Signal("Driver Input Drivetrain Rotate Cmd", "cmd");
     }
 
     public void update(){
@@ -54,15 +47,6 @@ class DriverInterface {
     }
     double getRotateCmd(){
         return rotateCmd;
-    }
-
-
-    public void updateTelemetry(double time){
-        elevatorRaiseLowerCmdSig.addSample(time, elevatorRaiseLowerCmd);
-        cubeIntakeDesiredSig.addSample(time, cubeIntakeDesired);
-        cubeEjectDesiredSig.addSample(time, cubeEjectDesired);
-        fwdRevCmdSig.addSample(time, fwdRevCmd);
-        rotateCmdSig.addSample(time, rotateCmd);
     }
 
 
