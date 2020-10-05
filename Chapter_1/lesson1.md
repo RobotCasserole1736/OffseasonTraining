@@ -111,7 +111,7 @@ Click the `State` link, and you should see another webpage. Two things to note:
 ![](doc/state_webpage.png)
 
 1. The RX Count should be ticking up fairly quickly. This means that the webpage is getting data updates from the robot! Good!
-2. There is a single *signal* named `Teleop Init Count`, with units of `count`, and value `0`.
+2. There is a variable for counting the number of times we've called `telopInit()`, marked to be a `@Signal`.
 
 We'll come back to this soon.
 

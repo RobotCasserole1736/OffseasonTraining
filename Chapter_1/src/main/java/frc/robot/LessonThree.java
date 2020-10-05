@@ -1,7 +1,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Timer;
-import frc.lib.DataServer.Signal;
+import frc.lib.DataServer.Annotations.Signal;
 
 class LessonThree {
 
@@ -12,19 +12,17 @@ class LessonThree {
     int BSideLen = 4;
     int CSideLen = 5;
 
+    @Signal(units = "RPM")
     double actualSpeed_RPM = 0;
+    @Signal(units = "RPM")
     double desiredSpeed_RPM = 2000;
 
+    @Signal
     int dayOfWeek;
+    @Signal
     double motorCmd = 0;
     // ...but before this line.
     ////////////////////////////////////////////////
-
-    Signal dayOfWeek_sig = new Signal("L3 - dayOfWeek", "day idx");
-    Signal actualSpeed_sig = new Signal("L3 - actualSpeed", "RPM");
-    Signal desiredSpeed_sig = new Signal("L3 - desiredSpeed", "RPM");
-    Signal motorCmd_sig = new Signal("L3 - motorCmd", "cmd");
-
 
     void lessonThreeInit(){
 
@@ -73,12 +71,5 @@ class LessonThree {
         }
     }
 
-    void telementyUpdate(){
-        double sampleTime_ms = Timer.getFPGATimestamp()*1000;
-        dayOfWeek_sig.addSample(sampleTime_ms, dayOfWeek);
-        actualSpeed_sig.addSample(sampleTime_ms, actualSpeed_RPM);
-        desiredSpeed_sig.addSample(sampleTime_ms, desiredSpeed_RPM);
-        motorCmd_sig.addSample(sampleTime_ms, motorCmd);
-    }
 
 }

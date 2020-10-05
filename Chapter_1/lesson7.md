@@ -74,7 +74,7 @@ Again, the details aren't super important here, but good to keep in mind.
 
 # Problem 1 - Add a new signal
 
-Look at the patterns for signals in the other files. Add one new signal within `LessonTwo.java` which outputs the _sum_ of `result1`, `result2`, and `result4`. Visit the website and confirm the value shows up, and has the expected value. Be sure to toggle the 
+Look at the patterns for signals in the other files. Add one new variable within `LessonTwo.java` which outputs the _sum_ of `result1`, `result2`, and `result4`. Mark it as a signal with units `result`. Visit the website and confirm the value shows up, and has the expected value. Be sure to toggle the 
 
 # Problem 2 - Analyzing the log file
 

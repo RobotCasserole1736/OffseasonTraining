@@ -8,15 +8,15 @@ class DriverInterface {
 
     XboxController driverCtrl;
 
-    @Signal
+    @Signal(units = "cmd")
     double elevatorRaiseLowerCmd;
-    @Signal
+    @Signal(units = "cmd")
     boolean cubeIntakeDesired;
-    @Signal
+    @Signal(units = "cmd")
     boolean cubeEjectDesired;
-    @Signal
+    @Signal(units = "cmd")
     double fwdRevCmd;
-    @Signal
+    @Signal(units = "cmd")
     double rotateCmd;
 
 

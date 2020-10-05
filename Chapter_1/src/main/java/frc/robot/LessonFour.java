@@ -1,30 +1,29 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.Timer;
-import frc.lib.DataServer.Signal;
+import frc.lib.DataServer.Annotations.Signal;
+
 
 class LessonFour {
 
     ////////////////////////////////////////////////
     // Declare new variables after this line...
+    @Signal
     double output1 = 0;
+    @Signal
     double output2 = 0;
 
     boolean switch_NC_state = false; //Modify these values for testing problem 2
     boolean switch_NO_state = true;
 
-
+    @Signal(units = "bool")
     boolean switch_pressed;
+
+    @Signal(units = "bool")
     boolean switch_faulted;
 
     // ...but before this line.
     ////////////////////////////////////////////////
-
-    Signal ouput1_sig = new Signal("L4 - output1", "val");
-    Signal ouput2_sig = new Signal("L4 - output2", "val");
-    Signal switch_pressed_sig = new Signal("L4 - switch_pressed", "bool");
-    Signal switch_faultedsig = new Signal("L4 - switch_faulted", "bool");
-
     void lessonFourInit(){
         //Nothing here yet....
     }
@@ -62,11 +61,5 @@ class LessonFour {
 
     // ...but before this line.
     ////////////////////////////////////////////////
-
-    void telementyUpdate(){
-        double sampleTime_ms = Timer.getFPGATimestamp()*1000;
-        ouput1_sig.addSample(sampleTime_ms, output1);
-        ouput2_sig.addSample(sampleTime_ms, output2);
-    }
 
 }

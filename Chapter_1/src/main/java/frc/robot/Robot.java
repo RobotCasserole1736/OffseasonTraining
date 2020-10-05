@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import frc.lib.Calibration.CalWrangler;
 import frc.lib.DataServer.CasseroleDataServer;
-import frc.lib.DataServer.Signal;
+import frc.lib.DataServer.Annotations.Signal;
 import frc.lib.LoadMon.CasseroleRIOLoadMonitor;
 import frc.lib.WebServer.CasseroleWebServer;
 
@@ -37,7 +37,7 @@ public class Robot extends TimedRobot {
     LessonFour l4;
     LessonFive l5;
 
-    Signal teleopInitCounterSig;
+    @Signal
     int teleopInitCounter = 0;
 
     /**
@@ -53,11 +53,6 @@ public class Robot extends TimedRobot {
         dataServer = CasseroleDataServer.getInstance();
         loadMon = new CasseroleRIOLoadMonitor();
 
-        teleopInitCounterSig = new Signal("Teleop Init Count", "count");
-
-        dataServer.startServer();
-        webserver.startServer();
-
         l2 = new LessonTwo();
         l2.lessonTwoInit();
 
@@ -69,6 +64,10 @@ public class Robot extends TimedRobot {
 
         l5 = new LessonFive();
         l5.lessonFiveInit();
+
+        dataServer.registerSignals(this);
+        dataServer.startServer();
+        webserver.startServer();
 
         System.out.println("Robot Init completed!");
     }
@@ -141,11 +140,6 @@ public class Robot extends TimedRobot {
   }
 
   void telemetryUpdate(){
-      double sampleTime = Timer.getFPGATimestamp()*1000;
-      teleopInitCounterSig.addSample(sampleTime, teleopInitCounter);
-      l2.telemetryUpdate();
-      l3.telementyUpdate();
-      l4.telementyUpdate();
-
+    dataServer.sampleAllSignals();
   }
 }
