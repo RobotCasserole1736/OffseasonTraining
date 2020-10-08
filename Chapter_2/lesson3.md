@@ -51,7 +51,70 @@ We'll now go add some code for outputs to our robot. This will allow our inputs 
 
 ### Drivetrain
 
+
+#### Code Changes
+
+To add output control logic to the drivetrain, we'll first create the objects to command the motor controllers.
+
+Find a class approprate to the spark motor controllers in the [WPILib Docs](https://first.wpi.edu/FRC/roborio/release/docs/java/). Instantiate six of them in the drivetrain class - three for the left, three for the right.
+
+Add logic to recieve command inputs. The two things we can command our drivetrain to do are go forward and backward, or rotate. Something like this:
+
+```java
+    public void setFwdRevCmd(double cmd){
+        //Assume 1.0 = go forward, 0.0 = stop, -1.0 = go reverse
+        //TODO: store cmd somewhere to be used during the update() function
+    }
+
+    public void setRotateCmd(double cmd){
+        //Assume 1.0 = rotate right,  0.0 = stop, -1.0 = rotate left
+        //TODO: store cmd somewhere to be used during the update() function
+    }
+```
+
+We know all the left-hand motors will be commanded to the same speed. Likewise, all the right-hand motors will be commanded the same way.
+
+Add two new variables to the drivetrain class to track the left and right side commands. Make them signals as well:
+
+```java
+    //1.0 = left side full speed fwd, 0.0 = left side stop, -1.0 = left side full speed reverse
+    @Signal(units = "cmd")
+    double lhSideCmd = 0; 
+
+    //1.0 = right side full speed fwd, 0.0 = right side stop, -1.0 = right side full speed reverse
+    @Signal(units = "cmd")
+    double rhSideCmd = 0;
+```
+
+Now, we'll add code to the `update()` method to perform the calculations required to convert our two input commands.
+
+[Here's a quick video showing the types of motion the drivetrain can do as a response to both fwd/rev and rotate commands](https://www.youtube.com/watch?v=UCY77DnNxvA).
+
+Think through how different values of your left/right side commands should be set in order to achieve motion. Think about how the different input commands determine what motion should be happening.
+
+In `update()`, create a set of math statements and if/else statements to calculate the left/right side commands from the input commands.
+
+Add logic to `Robot.java` to do the following:
+
+1. Instantiate your drivetrain class
+2. Call its update function periodically in teleop.
+3. Read the driver commands and pass them to the drivetrain.
+
+#### Testing
+
+Run the code, open the website. On your USB controller, sweep the joysticks forward and backward, left and right. Do you see the signals changing value in the website?
+
+Do the commands work correctly when applied independently? Do they work correctly when applied together?
+
 ### Elevator
 
+#### Code Changes
+
+#### Testing
+
 ### Intake
+
+#### Code Changes
+
+#### Testing
 
