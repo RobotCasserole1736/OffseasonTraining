@@ -17,9 +17,9 @@ Go through each chapter in order.
 
 Start with [Chapter 1 - Basic Robot Programming Concepts & Tools](Chapter_1/readme.md).
 
-CHAPTER 2 IS STILL A WORK IN PROCESS.
+Then, move on to [Chapter 2 - Writing Software for a Simple Robot](Chapter_2/readme.md). 
 
-[Chapter 2 - Writing Software for a Simple Robot](Chapter_2/readme.md). 
+Finally, look into [Chapter 3 - Introduction to Advanced Robot Topics](Chapter_3/readme.md). This is still a work in progress.
 
 # For Instructers and Nosy Students
 

@@ -137,3 +137,39 @@ Additionally, for retaining students, it is imperitive that each see that the to
 * One-time power-on function called `robotInit` is also available.
 
 ## Lesson Outcomes - Chapter 2
+
+### Lesson 1
+
+* Driver inputs are the primary way humans pass their intentions to the robot
+* How to read values from a USB joystic
+* Driver input class provides the formal abstraction from "axis on a joystick" to "command of driver intention"
+* Increased autonomy of making a brand new class from scratch with fairly little input.
+
+### Lesson 2
+
+* Sensors are the other main form of input the robot gets
+* Introduction to the different types of sensors available
+* How to write code to read values from common sensors
+* Sensor values should be converted to physically-meaningful units (like ft or RPM).
+
+### Lesson 3 
+
+* Basics of the types of output devices that are available
+* How to write code for some PWM-based motor controllers
+* Creatively thinking through how to combine math & IF statements to convert arcade-drive style inputs to motor commands.
+
+### Lesson 4
+
+* Reinforcement of lesson 3 output creation
+* Combining sensor inputs and driver commands to create motor outputs
+* Additional freeform class creation with little specific guidance
+
+### Lesson 5
+
+* Carefully-designed software can help reduce the cogantive load on the driver, allowing the robot to operate faster and the driver to focus more on strategy.
+* Using sensor feedback in a closed-loop fashion to move the elevator to preset heights
+
+### Lesson 6
+
+* Avoiding magic-constants in code
+* Usage of Calibrations for increasing development velocity

@@ -100,7 +100,10 @@ Now, complete these Lessons in Order, as each one builds on the next.
 
 * [Lesson 1 - Getting Input from the Driver](./lesson1.md)
 * [Lesson 2 - Getting Input from the Outside World](./lesson2.md)
-* [Lesson 3 - Controlling Outputs](./lesson3.md)
+* [Lesson 3 - Controlling Outputs - Part 1 - Drivetrain](./lesson3.md)
+* [Lesson 4 - Controlling Outputs - Part 2 - Elevator & Intake](./lesson4.md)
+* [Lesson 5 - Automating Tasks - Elevator Preset Heights](./lesson5.md)
+* [Lesson 6 - Constants and Calibrations](./lesson6.md)
 
 ## Appendix: More Pictures
 
