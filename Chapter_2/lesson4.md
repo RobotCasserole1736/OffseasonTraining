@@ -1,72 +1,68 @@
-## Lesson 4 - Automation
+## Lesson 4 - Outputs (Part 2)
 
-### Background
+### Elevator
 
-Reducing stress on the driver is key. The more time they can be thinking about strategy, the better. We can help this by automating some robot tasks.
+The elevator is the next major system we'll tackle. 
 
-In the game, the cube is picked up at about 0.5 ft off the ground, but released at about 3 ft off the ground. 
+#### Code Changes
 
-We'll add the ability for the driver to command the elevator to go to one of these two fixed positions. We assume pushing X or Y indicates these commands. We'll add logic to move the elevator to that position.
+We'll start with some basic logic, and add more complex logic in the future.
 
-### Bang Bang controller
+For now, our code will simply read a raise or lower command from the operator, and send it to a motor.
 
-See (the other chapter 1 lesson you did on this). The logic will be basic:
+We'll need to add new logic to `ElevatorControl.java` to do the following:
 
-1) Based on button presses, calculate the desired height
-2) Read the encoder to detect the actual height
-3) If you are too high, go down.
-4) Else If you are too low, go up.
-5) Else, if you're pretty close, stop.
+In the constructor, instantiate a new motor controller object approprate to the type being used on the robot (see the readme.md file for more info).
 
-### Code Updates - Driver Input
+In the `update()` function, use the values read in from the limit switches and the value passed into the `setRaiseLowerManualCmd()` method to calculate the command for the motor. Consider the description of the system in the readme.md file to determine how to calcualte the motor command.
 
-#### What to Change
+Add code to pass the value you calculate for the motor command to the new motor controller you instantiated.
 
-Add new logic to read the X/Y buttons and interpret as elevator fixed-position commands
+Add logic as needed in `Robot.java` to ensure that `update()` is getting called, and the value from the driver command is passed into `ElevatorControl`'s `setRaiseLowerManualCmd()` input function.
 
-Add new signals and getters.
+#### Testing
 
-#### What to Test
+Push the joystick for the elevator up, ensure the motor turns such that the elevator moves upward. Push the joystic for the elevator down, ensure the motor turns such that the elevator moves downward.
 
-Verify that the signals reflect the input commands from the driver
+Run the elevator all the way to the top and bottom of the range of travel - ensure the motor turns off when you hit the upper/lower stops.
 
-### Code Updates - Elevator
+### Intake (ie "CubeGrabber)
 
-comment out (Disconnect) your logic from the old joystick-method to start.
+This is probably the simplest subsystem to write code for. 
 
-Add logic to implement the bang-bang controller above.
+#### Code Changes
 
-Add signal for desired height.
+We'll have to make a new class, since we don't have one yet. Make a new class named `CubeGrabberControl`, with the following methods:
 
-#### What to Test
+```java
+    public void setIntakeDesired(){
+        //TODO: record that the intake should be running in the inward direction.
+    }
 
-Run the code, press the buttons.
+    public void setEjectDesired(){
+        //TODO: record that the intake should be running in the outward direction.
+    }
 
-Ensure the elevator starts moving in the right direction
+    public void setStopDesired(){
+        //TODO: record that the intake should stop running
+    }
 
-Ensure it stops at the 3ft and 0.5 ft marks.
+    public void update(){
+        //TODO: Calculate the motor command and send it to the motor.
+    }
+```
 
-### Code Changes - Arbitration
+Instantiate new motor controllers approprate to the hardware on the robot (see readme.md).
 
-The driver may still need to manually adjust the height of the elevator. The old driver input should be able to do this.
+Add code inside each of the methods to fulfill the `//TODO` comments. Add signals as needed to help ensure the code you write is functional.
 
-We have to _arbitrarte_ between these two inputs. There's tons of ways to do this, but we'll choose the following logic:
+Add code to `Robot.java` to instantiate the new class. Pass commands from the driver to the `CubeGrabberControl` class in the approprate `*Periodic()` methods. Add code to call the `CubeGrabberControl`'s `update()` function at the approprate times.
 
-1) Usually, the automatic height control is "in power".
-2) However, any time the driver manual command is _non-zero_, it should take control
-3) When in manual mode, set the desired height to the actual height every loop
+#### Testing
 
-#3 is designed to ensure that when the control mode flips back from manual to automatic, the automatic control keeps the elevator in place (and doesn't attempt to return to a different height)
+Run the code, ensure any new signals you created show up in the website.
 
-Arbitration between multiple command sources is a thing that happens quite a bit on robots. We're walking you through this logic now because we want to show you an exmple of how to think through the problem. Likely, on the real robot, the problem statement will be different and we'll have to think through it a lot. Don't worry too much about it, we'll think through it as a team and define a clear strategy, which in turn will help you write the code.
+Ensure that when enabled, normally, the intake is not running. Ensure that when you press the intake and eject buttons on the joystick, the CubeGrabber motors run in the correct directions.
 
-#### What to Test
-
-Manually move the elevator up and down to ensure you still have control. 
-
-Move the elevator to the middle. 
-
-Hit one of the preset buttons, make sure the elevator goes to the preset height.
-
-Repeat for the other preset button.
+What happens when you press both buttons at the same time? Is it what you expect? What _should_ the robot do when both buttons are pressed?
 

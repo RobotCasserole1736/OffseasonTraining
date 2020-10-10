@@ -99,14 +99,40 @@ This action is often called "unrolling" the loop.
 
 There is one more special function called `robotInit()`. This is called one time, right as our code starts running (soon after power is applied to the whole system). Things which need to happen once (ex: init and start the website) will get called here.
 
+## How We Divide Up Code
+
+The following is a general description of the _architecure_ our code usually follows. None of it is "required" to get functional code. However, when you are writing big code projects (especially with a team), it's best to have a plan for how you're going to keep things consistent. 
+
+Keeping things consistent makes it easiest to understand what's going on - this in turn makes modifying the codebase easier, faster, and less error prone. 
+
+Keep in mind: Different teams will do this differently, and what we're laying out here is one pattern that has worked well for Casserole in the past. There are many other options - the key is that you have to choose one as a team and stick to it.
+
+### General Guidelines
+
+ * Each major component or subsystem on the robot gets its own class
+ * `Robot.java` declares and instantiates these subsystem classes as needed
+ * Humans (via USB controllers) or autonomous control classes generate _commands_
+   * Commands come from methods whose name starts with `get` - ex: `getFwdRevCmd()`.
+ * Subsystem classes recieve these commands to use as part of their calculations.
+   * Commands are consumed by methods whose name starts with `set` - ex: `setFwdRevCmd()`.
+ * Generally, commands are passed from their source to the subsystem inside of one of the `*Periodic()` methods in `Robot.java`
+ * Each subsystem class is responsible for declaring and instantiating all sensors and outputs which are part of that physical component of the robot.
+ * Subsystem classes generally have `update()` methods which do the following:
+   * Read all sensors
+   * Perform calculations based on sensors and commands
+   * Send the calculation results to output devices or signals.
+
+Again, there's a time and place to do something that goes against these guidelines - nothing is set in stone. The key is to be intentional about it: Don't do it because "I'm a hacker lolz" or "I'm feeling lazy" - do it because it makes the code more understandable, and faster/easier to maintain.
+
+
 ## Problem 1
 
 This week's problem is pretty small.
 
 Add some new code inside of `Robot.java`. The code should do the following:
 
-1. Create a new signal with a unique name that starts with `L8 - <your name here>`
-2. Make a new class-scope integer, have the signal report its value every loop.
+1. Create new class-scope integer variable which has `l8` and your given name (ex: `Joe`) in it. 
+2. Annotate the variable to be a `Signal` with units of `taco`.
 3. Set the integer to be 1 when in autonomous, 2 in teleop, and 3 if disabled.
 
 Run the code, open the webiste, confirm the signal changes in value as you flip between the modes.

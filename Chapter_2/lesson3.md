@@ -1,4 +1,4 @@
-## Lesson 3 - Outputs
+## Lesson 3 - Outputs (Part 1)
 
 We're nearing the end of our basic robot software! As a final major component, we're going to add code to actually command and control some output devices on the robot
 
@@ -51,6 +51,7 @@ We'll now go add some code for outputs to our robot. This will allow our inputs 
 
 ### Drivetrain
 
+We'll start with the subsystem requiring the most complex set of processing and outputs.
 
 #### Code Changes
 
@@ -106,15 +107,5 @@ Run the code, open the website. On your USB controller, sweep the joysticks forw
 
 Do the commands work correctly when applied independently? Do they work correctly when applied together?
 
-### Elevator
 
-#### Code Changes
-
-#### Testing
-
-### Intake
-
-#### Code Changes
-
-#### Testing
 
