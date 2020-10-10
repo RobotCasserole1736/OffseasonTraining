@@ -32,12 +32,6 @@ public class Robot extends TimedRobot {
   LoopTiming loopTiming;
   CasseroleRIOLoadMonitor loadMon;
 
-  // Robot Subsystems
-  CubeGrabberControl cgc;
-  ElevatorControl ec;
-  DrivetrainControl dt;
-  DriverInterface di;
-
   @Signal
   int loopCounter = 0;
 
@@ -54,10 +48,6 @@ public class Robot extends TimedRobot {
     dataServer = CasseroleDataServer.getInstance();
     loadMon = new CasseroleRIOLoadMonitor();
 
-    cgc = new CubeGrabberControl();
-    ec = new ElevatorControl();
-    dt = new DrivetrainControl();
-    di = new DriverInterface();
 
     dataServer.registerSignals(this);
     dataServer.startServer();
@@ -93,17 +83,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
-    di.update();
-
-    if (di.getCubeEjectDesired()) {
-      cgc.setEjectDesired();
-    } else if (di.getCubeIntakeDesired()) {
-      cgc.setIntakeDesired();
-    } else {
-      cgc.setStopDesired();
-    }
-
-    ec.setRaiseLowerManualCmd(di.getElevatorRaiseLowerCmd());
 
     periodicCommon();
   }
@@ -121,7 +100,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledPeriodic() {
-    cgc.setStopDesired();
+
     periodicCommon();
   }
 
@@ -140,9 +119,7 @@ public class Robot extends TimedRobot {
   }
 
   void periodicCommon() {
-    ec.update();
-    cgc.update();
-    dt.update();
+
     loopCounter++;
     dataServer.sampleAllSignals();
   }
