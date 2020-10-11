@@ -173,3 +173,9 @@ Additionally, for retaining students, it is imperitive that each see that the to
 
 * Avoiding magic-constants in code
 * Usage of Calibrations for increasing development velocity
+
+## Lesson Outcomes - Chapter 3
+
+For now, Chapter 3 is almost an appendix to the other training sessions. There's little hands-on content: it's more of a data-download to wet the appetite of the hungry student.
+
+Hopefully we can come up with some more interactive things in the future. But, for now, the goal is moreso to introduce enough topics so that, when the opportunity arises on the robot, the students will have a basic idea where to look for answers.

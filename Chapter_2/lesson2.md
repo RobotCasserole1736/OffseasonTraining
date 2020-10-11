@@ -111,13 +111,13 @@ Add code to the class and it's methods to implement the following:
 
 Add a [WPILib Encoder](https://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/Encoder.html) to the class. Init it in the constructor, read its value into a class-scope variable in the class in the update function. Use class-scope globals to hold the height of the elevator as necessary.
 
-Add a new signal named `elevHeight_sig`. Init it in the constructor, and use it to send the value of the encoder to the website for viewing and debug. It should report the elevator height in feet.
+Read the "engineering-units" value of the encoder into a class-scope variable. It should report the elevator height in feet. Mark this variable as a signal with the proper units.
 
 #### Switches
 
 Add Three new [WPILib Digital Inputs](https://first.wpi.edu/FRC/roborio/release/docs/java/edu/wpi/first/wpilibj/DigitalInput.html) to the class. These will read the value of the two top and one bottom limit switches. Init them all in the constructor. Read their values in the periodic update function. Use class-scope globals to hold the state of the limit switches as necessary.
 
-Add three new signals to hold the value of each of these digital inputs. Add the new samples in `updateTelemetry()`. 
+Add three new signals to hold the value of each of these digital inputs. Read their values into class-scope booleans (with `true` representing "Pressed" and `false` representing "unpressed"). Mark each boolean as a signal.
 
 ### How to Test
 

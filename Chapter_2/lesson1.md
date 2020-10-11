@@ -41,7 +41,7 @@ Or, the $0.00 option, install and configure vJoy - http://vjoystick.sourceforge.
 
 #### Picking Buttons and Axes for Driver Inputs
 
-Normally, as a team, we'll go throught the following throught process around week 1 or 2:
+Normally, as a team, we'll go throught the following throught process around week 2 or 3:
 
 1) What sorts of information do the driver(s) need to communicate to the robot?
 2) How would it be best to map those inputs to intuitive buttons, knobs, switches, and joysticks?
@@ -55,6 +55,8 @@ For the sake of brevity, we have the result of this discussion, on an XBOX 360 c
 3) The triggers on the back of the back of the joystick indicate command for raising or lowering the elevator.
 4) The A button indicates that cube intake is commanded.
 5) The B button indicates that cube eject is commanded.
+
+If you have a different controller at home that's fine, feel free to make up your own scheme! Just remember that when reading this chapter, we're assuming the mapping above, and you'll have to translate to your own.
 
 #### The Driver Input Class
 
@@ -119,7 +121,7 @@ Add signals to track the values of each driver command.
 
 # How to Test
 
-Declare a new instance of `DriverInterface` in `Robot.java`'s, and instantiate it in the `RobotInit` method. Call the update method in the periodic loops.
+Declare a new instance of `DriverInterface` in `Robot.java`'s `Robot` class, and instantiate it in the `robotInit()` method. Call the Driver Interface's update method in the periodic loops.
 
 Run the code in simulation, open the web browser interface, navigate to the `State` page to view the signals.
 
