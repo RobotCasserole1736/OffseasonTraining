@@ -50,6 +50,34 @@ One key difference for real-robot development: From your desktop PC, rather than
 
 Thankfully, all of this is automated and (as long as you're on the robot's Wifi network, not the warehouse's), it'll all be pretty straightforward. However, it's good to be aware of the process.
 
+#### Web Addresses
+
+Since the roboRIO is a different computer than your laptop, it has a different IP address.
+
+When you are running simulation, you'll notice that the website you have to go to is:
+
+```
+http://localhost:5805
+```
+
+The `localhost` portion is a keyword which means "same IP address as this computer". This makes sense in simulation, as the code (hence the website) is indeed running on your own computer. 
+
+When running on the real robot, you swap it out for the robot's IP address. In almost all cases, this means:
+
+```
+http://10.17.36.2:5805
+```
+
+The `10.17.36.2` portion is the roboRIO's fixed IP address. It is formed by the following:
+
+ * `10` is fixed, always
+ * `17` and `36` is our team number, split in half.
+ * `2` is the roboRIO.
+
+You'll notice other devices on the robot have siimlar IP addresses, with only the last number changing.
+
+For example, `10.17.36.1` is the wifi radio & router. `10.17.36.11` is usually a vision processor.
+
 #### Safety
 
 The biggest thing to keep in mind while developing on the robot: Be safe. If code hasn't been tested, assume it is going to be dangerous. Make sure people have their hands out of the way, and aren't anywhere in the "line of fire" if a robot mechanism moves unexpectedly.

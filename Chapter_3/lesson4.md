@@ -47,3 +47,26 @@ It's admiteddly a lot of work to create one of these systems from scratch. Thank
 **PhotonVision** is another more-recent option which does a lot of the hard software work, but requires you bring your own hardware.
 
 Depending on the year, and the skillset on the team, different options might be better than others. It'll just depend.
+
+### Hands-On Demonstration
+
+Grab yourself the following things:
+
+ 1. Something bright, colorful, and uniform - like a post-it note!
+ 2. A computer with a webcam
+ 3. [Install GRIP](https://docs.wpilib.org/en/stable/docs/software/vision-processing/grip/introduction-to-grip.html), a tool for experimenting with vision processing algorithms
+
+Fire up GRIP, and put together a pipline to detect your bright colored thing.
+
+If you're looking for a good starting point, use:
+ 
+ 1. Webcam Input
+ 2. HSV Threshoold
+ 3. Find Contours
+ 4. Filter Contours
+
+Verify output from start to end, debugging as you go. HSV Threshold should be tuned to detect just the color you're looking for. Filter the contours to detect only the thing you're looking for.
+
+Try with other objects, and use more complex detection strategies and pipelines.
+
+GRIP isn't 100% useful for on-robot work, but is a good platform to explore some of the basics of how vision processing works.
