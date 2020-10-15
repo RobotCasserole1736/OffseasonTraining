@@ -36,7 +36,7 @@ You may be prompted for your github username and password - enter it if needed.
 
 Afterward, you should see a new folder named `OffseasonTraining`.
 
-Congradulations, you now have some software on your computer, which you can begin to edit.
+Huzzah! You now have some software on your computer, which you can begin to edit.
 
 ### Part 2 - Running Software
 
