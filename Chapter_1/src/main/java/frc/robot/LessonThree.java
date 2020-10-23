@@ -12,10 +12,13 @@ class LessonThree {
     int BSideLen = 4;
     int CSideLen = 5;
 
+    boolean cond1 = false;
+    boolean cond2 = true;
+
     @Signal(units = "RPM")
     double actualSpeed_RPM = 0;
     @Signal(units = "RPM")
-    double desiredSpeed_RPM = 2000;
+    double desiredSpeed_RPM = 2500;
 
     @Signal
     int dayOfWeek;
@@ -29,6 +32,23 @@ class LessonThree {
         ////////////////////////////////////////////////
         // Write your new code for PROBLEM 1 after this line...
 
+        if(dayStr == "Sun"){
+            dayOfWeek = 0;
+        }else if(dayStr == "Mon"){
+            dayOfWeek = 1;
+        }else if(dayStr == "Tue"){
+            dayOfWeek = 2;
+        }else if(dayStr == "Wed"){
+            dayOfWeek = 3;
+        }else if(dayStr == "Thr"){
+            dayOfWeek = 4;
+        }else if(dayStr == "Fri"){
+            dayOfWeek = 5;
+        }else if(dayStr == "Sat"){
+            dayOfWeek = 6;
+        }else{
+            System.out.println("Invalid input for day of the week. Please input a day of the week.");
+        }
 
         // ...but before this line.
         ////////////////////////////////////////////////
@@ -36,6 +56,11 @@ class LessonThree {
         ////////////////////////////////////////////////
         // Write your new code for PROBLEM 2 after this line...
 
+        if(CSideLen > 0 && BSideLen > 0 && ASideLen > 0 && CSideLen != ASideLen && CSideLen != BSideLen){
+            if(Math.sqrt(CSideLen) == Math.sqrt(ASideLen) + Math.sqrt(BSideLen)){
+                System.out.println("It's a right triangle!");
+            }
+        }
 
         // ...but before this line.
         ////////////////////////////////////////////////
@@ -45,7 +70,11 @@ class LessonThree {
         ////////////////////////////////////////////////
         // Write your new code for PROBLEM 3 after this line...
 
-        motorCmd = 1.0; //Incorrect - Motor always runs. You'll need to change this.
+        if(actualSpeed_RPM < desiredSpeed_RPM){
+            motorCmd = 1.0;
+        }else{
+            motorCmd = 0;
+        }
 
         // ...but before this line.
         ////////////////////////////////////////////////
