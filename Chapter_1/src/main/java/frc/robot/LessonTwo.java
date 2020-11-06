@@ -11,12 +11,19 @@ class LessonTwo {
     int sampleInt = 42;
     double sampleDouble = -1736.930;
     
-    double val1;
+    double val1; 
     double val2;
     double val3;
     double val4;
     double val5;
     double val6;
+
+    int val7 = 25;
+    int val8 = 4;
+
+    boolean armRaiseButt = false;
+    boolean emerStop = false;
+    boolean actualRaiseArm = false;
 
     @Signal
     double result1;
@@ -56,6 +63,20 @@ class LessonTwo {
         } else {
             result3 = false;
         }
+        
+        if(armRaiseButt == true && emerStop == true) {
+            actualRaiseArm = false;
+        } else if (armRaiseButt == true&& emerStop == false){
+            actualRaiseArm = false;
+        } else if (armRaiseButt=true) {
+            actualRaiseArm = true;
+        }  else {
+            actualRaiseArm = false;
+        }
+
+        result4 = val7/val8;
+
+
         // ...but before this line.
         ////////////////////////////////////////////////
 
