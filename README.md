@@ -8,8 +8,9 @@ In order, click each link and install the software (following instructions as yo
 
 1. [WPILIB + VSCode](https://docs.wpilib.org/en/stable/docs/getting-started/getting-started-frc-control-system/wpilib-setup.html)
 2. [NI FRC Game Tools](https://docs.wpilib.org/en/stable/docs/getting-started/getting-started-frc-control-system/frc-game-tools.html)
-3. [Git Extensions](http://gitextensions.github.io/)
-4. [Python](https://www.python.org/)
+3. [Git for Windows](https://git-scm.com/downloads)
+4. [Git Extensions](http://gitextensions.github.io/)
+5. [Python](https://www.python.org/)
 
 # Then....
 
