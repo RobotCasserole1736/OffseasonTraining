@@ -51,14 +51,14 @@ class DrivetrainControl {
     double rhSideCmd = 0;
 
     public DrivetrainControl(){
-        lhMotor1 = new Spark(0);
-        lhMotor2 = new Spark(1);
-        lhMotor3 = new Spark(2);
-        rhMotor1 = new Spark(3);
-        rhMotor2 = new Spark(4);
-        rhMotor3 = new Spark(5);
+        lhMotor1 = new Spark(7);
+        lhMotor2 = new Spark(8);
+        lhMotor3 = new Spark(9);
+        rhMotor1 = new Spark(4);
+        rhMotor2 = new Spark(5);
+        rhMotor3 = new Spark(6);
 
-        rotateKp = new Calibration("Drivetrain Vision Rotation kP", 0);
+        rotateKp = new Calibration("Drivetrain Vision Rotation kP", 0.025);
         fwdRevKp = new Calibration("Drivetrain Vision FwdRev kP", 0);
         shootSetpointAngle = new Calibration("Drivetrain Vision Rotation Setpoint", 0, -90, 90);
         shootSetpointRange = new Calibration("Drivetrain Vision Range Setpoint (ft)", 25, 0, 90);
@@ -82,9 +82,8 @@ class DrivetrainControl {
 
         PhotonPipelineResult result = camera.getLatestResult();
         targetVisible = result.hasTargets();
+        camera.getLEDMode(); //Need to do this to ensure our set's always work below.
         if(curVisionAutoAlignCmd){
-            curFwdRevCmd = 0;
-
 
             if(targetVisible){
                 curAngleToTgt = result.getBestTarget().getYaw();
@@ -92,11 +91,11 @@ class DrivetrainControl {
                     kCameraHeight, kTargetHeight, Math.toRadians(kCameraPitch), Math.toRadians(result.getBestTarget().getPitch()));
 
 
-                double rotateError = shootSetpointAngle.get() - curAngleToTgt;
-                double rangeError  = shootSetpointRange.get() - curRangeToTgt;
+                double rotateError = curAngleToTgt - shootSetpointAngle.get();
+                double rangeError  = curRangeToTgt - shootSetpointRange.get();
 
                 curRotateCmd = rotateError * rotateKp.get();
-                curFwdRevCmd = rangeError * fwdRevKp.get();
+                //curFwdRevCmd = rangeError * fwdRevKp.get();
 
             } else {
                 curRotateCmd = 0;

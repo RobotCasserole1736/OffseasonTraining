@@ -16,8 +16,8 @@ class CubeGrabberControl {
 
 
     public CubeGrabberControl(){
-        lhMotor = new Spark(7);
-        rhMotor = new Spark(8);
+        lhMotor = new Spark(0);
+        rhMotor = new Spark(1);
     }
 
     public void setIntakeDesired(){

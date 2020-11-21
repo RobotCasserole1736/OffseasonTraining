@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import frc.lib.Calibration.CalWrangler;
@@ -58,8 +60,8 @@ public class Robot extends TimedRobot {
   public void robotInit() {
 
     /* Init website utilties */
-    CasseroleDriverView.newWebcam("main1", "http://photonvision.local:1181/stream.mjpg", 0, 0);
-    CasseroleDriverView.newWebcam("main2", "http://photonvision.local:1182/stream.mjpg", 0, 0);
+    CasseroleDriverView.newWebcam("visionProc", "http://photonvision.local:1181/stream.mjpg", 0, 0);
+    CasseroleDriverView.newWebcam("driver", "http://photonvision.local:1184/stream.mjpg", 0, 0);
     CasseroleDriverView.newDial("Tgt Dist", 0, 70, 5, 20, 30);
     CasseroleDriverView.newDial("Tgt Angle", -45, 45, 5, -5, 5);
 
@@ -76,6 +78,8 @@ public class Robot extends TimedRobot {
     dataServer.registerSignals(this);
     dataServer.startServer();
     webserver.startServer();
+
+    //NetworkTableInstance.getDefault().setUpdateRate(0.01); //Ensure we're updating at 10ms to flush out controls data as fast as possible.
 
   }
 
@@ -117,6 +121,10 @@ public class Robot extends TimedRobot {
     } else {
       cgc.setStopDesired();
     }
+
+    dt.setFwdRevCmd(di.getFwdRevCmd());
+    dt.setRotateCmd(di.getRotateCmd());
+    dt.setVisionAutoAlignCmd(di.getVisionAlignCmd());
 
     ec.setRaiseLowerManualCmd(di.getElevatorRaiseLowerCmd());
 

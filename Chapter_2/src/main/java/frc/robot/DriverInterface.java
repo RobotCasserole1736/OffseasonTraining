@@ -18,6 +18,8 @@ class DriverInterface {
     double fwdRevCmd;
     @Signal(units = "cmd")
     double rotateCmd;
+    @Signal(units = "cmd")
+    boolean visionAlignCmd;
 
 
     public DriverInterface(){
@@ -26,12 +28,31 @@ class DriverInterface {
 
     public void update(){
         elevatorRaiseLowerCmd = driverCtrl.getTriggerAxis(Hand.kLeft) - driverCtrl.getTriggerAxis(Hand.kRight);
-        fwdRevCmd = -1.0 * driverCtrl.getY(Hand.kLeft);
-        rotateCmd = driverCtrl.getX(Hand.kRight);
+        fwdRevCmd = applyDeadband( -1.0 * driverCtrl.getY(Hand.kLeft));
+        rotateCmd = applyDeadband( driverCtrl.getX(Hand.kRight));
+
+        
 
         cubeIntakeDesired = driverCtrl.getAButton();
         cubeEjectDesired = driverCtrl.getBButton();
+
+        visionAlignCmd = driverCtrl.getBumper(Hand.kRight);
     }
+
+    public double applyDeadband(double in){
+        boolean inputIsNegative = (in<0);
+        double DEADBAND_HALF_WIDTH = 0.2;
+
+        in = Math.abs(in);
+        if(in < DEADBAND_HALF_WIDTH){
+            in = 0;
+        } else {
+            in = (1.0) * (in - DEADBAND_HALF_WIDTH)/(1.0 - DEADBAND_HALF_WIDTH);
+        }
+
+        return inputIsNegative ? -1.0*in : in; 
+    }
+
 
     double getElevatorRaiseLowerCmd(){
         return elevatorRaiseLowerCmd;
@@ -47,6 +68,9 @@ class DriverInterface {
     }
     double getRotateCmd(){
         return rotateCmd;
+    }
+    boolean getVisionAlignCmd(){
+        return visionAlignCmd;
     }
 
 

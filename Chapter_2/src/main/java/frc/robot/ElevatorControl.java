@@ -30,7 +30,7 @@ class ElevatorControl {
 
 
     public ElevatorControl(){
-        mainMotor = new VictorSP(6);
+        mainMotor = new VictorSP(2);
         spoolEncoder = new Encoder(3,4);
         spoolEncoder.setDistancePerPulse(1.0/1024.0); //1024 pulses per foot
 
