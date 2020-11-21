@@ -13,7 +13,10 @@ import frc.lib.Calibration.CalWrangler;
 import frc.lib.DataServer.CasseroleDataServer;
 import frc.lib.DataServer.Annotations.Signal;
 import frc.lib.LoadMon.CasseroleRIOLoadMonitor;
+import frc.lib.WebServer.CasseroleDriverView;
 import frc.lib.WebServer.CasseroleWebServer;
+import frc.lib.WebServer.DriverViewDial;
+import frc.lib.WebServer.DriverViewWebcam;
 import frc.sim.RobotModel;
 
 /**
@@ -32,8 +35,20 @@ public class Robot extends TimedRobot {
   LoopTiming loopTiming;
   CasseroleRIOLoadMonitor loadMon;
 
+  // Robot Subsystems
+  CubeGrabberControl cgc;
+  ElevatorControl ec;
+  DrivetrainControl dt;
+  DriverInterface di;
+
   @Signal
   int loopCounter = 0;
+
+
+  DriverViewWebcam cam1;
+  DriverViewWebcam cam2;
+  DriverViewDial   distDial;
+  DriverViewDial   angleDial;
 
   /**
    * This function is run when the robot is first started up and should be used
@@ -43,15 +58,25 @@ public class Robot extends TimedRobot {
   public void robotInit() {
 
     /* Init website utilties */
+    CasseroleDriverView.newWebcam("main1", "http://photonvision.local:1181/stream.mjpg", 0, 0);
+    CasseroleDriverView.newWebcam("main2", "http://photonvision.local:1182/stream.mjpg", 0, 0);
+    CasseroleDriverView.newDial("Tgt Dist", 0, 70, 5, 20, 30);
+    CasseroleDriverView.newDial("Tgt Angle", -45, 45, 5, -5, 5);
+
     webserver = new CasseroleWebServer();
     wrangler = new CalWrangler();
     dataServer = CasseroleDataServer.getInstance();
     loadMon = new CasseroleRIOLoadMonitor();
 
+    cgc = new CubeGrabberControl();
+    ec = new ElevatorControl();
+    dt = new DrivetrainControl();
+    di = new DriverInterface();
 
     dataServer.registerSignals(this);
     dataServer.startServer();
     webserver.startServer();
+
   }
 
   /**
@@ -83,6 +108,17 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    di.update();
+
+    if (di.getCubeEjectDesired()) {
+      cgc.setEjectDesired();
+    } else if (di.getCubeIntakeDesired()) {
+      cgc.setIntakeDesired();
+    } else {
+      cgc.setStopDesired();
+    }
+
+    ec.setRaiseLowerManualCmd(di.getElevatorRaiseLowerCmd());
 
     periodicCommon();
   }
@@ -100,7 +136,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledPeriodic() {
-
+    cgc.setStopDesired();
     periodicCommon();
   }
 
@@ -119,9 +155,14 @@ public class Robot extends TimedRobot {
   }
 
   void periodicCommon() {
-
+    ec.update();
+    cgc.update();
+    dt.update();
     loopCounter++;
     dataServer.sampleAllSignals();
+
+    CasseroleDriverView.setDialValue("Tgt Dist", dt.curRangeToTgt);
+    CasseroleDriverView.setDialValue("Tgt Angle", dt.curAngleToTgt);
   }
 
 
