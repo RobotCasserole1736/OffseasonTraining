@@ -1,8 +1,10 @@
 package frc.sim;
 
-import edu.wpi.first.hal.sim.DIOSim;
-import edu.wpi.first.hal.sim.EncoderSim;
-import edu.wpi.first.hal.sim.PWMSim;
+import java.util.NoSuchElementException;
+
+import edu.wpi.first.wpilibj.simulation.DIOSim;
+import edu.wpi.first.wpilibj.simulation.EncoderSim;
+import edu.wpi.first.wpilibj.simulation.PWMSim;
 
 class ElevatorModel {
 
@@ -39,7 +41,12 @@ class ElevatorModel {
         upperLimitSwitchA = new DIOSim(0);
         upperLimitSwitchB = new DIOSim(1);
         lowerLimitSwitch = new DIOSim(2);
-        spoolEnc = new EncoderSim(0);
+        try{
+            spoolEnc = EncoderSim.createForChannel(0);
+        } catch (NoSuchElementException e){
+            System.out.println("No spool encoder has been instantiated in code, so its values won't be reported.");
+            spoolEnc = null;
+        }
     }
 
     public void modelReset(){
@@ -76,9 +83,12 @@ class ElevatorModel {
         lowerLimitSwitch.setValue(elevPos_ft <= ELEV_BOTTOM_STAGE_LS_HEIGHT_FT);
 
         //Handle Encoder
-        spoolEnc.setCount((int)(elevPos_ft * ELEV_ENC_POS_TO_COUNTS));
-        spoolEnc.setPeriod( (Math.abs(elevVertSpeed_ftps) > 0.01) ? (1.0/(elevVertSpeed_ftps * ELEV_ENC_POS_TO_COUNTS)) : (0.0) );
-        spoolEnc.setDirection((elevVertSpeed_ftps > 0));
+        if(spoolEnc != null){
+            spoolEnc.setCount((int)(elevPos_ft * ELEV_ENC_POS_TO_COUNTS));
+            spoolEnc.setPeriod( (Math.abs(elevVertSpeed_ftps) > 0.01) ? (1.0/(elevVertSpeed_ftps * ELEV_ENC_POS_TO_COUNTS)) : (0.0) );
+            spoolEnc.setDirection((elevVertSpeed_ftps > 0));
+        }
+
 
     }
 

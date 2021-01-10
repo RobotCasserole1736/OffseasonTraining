@@ -1,6 +1,6 @@
 package frc.sim;
 
-import edu.wpi.first.hal.sim.PWMSim;
+import edu.wpi.first.wpilibj.simulation.PWMSim;
 
 class CubeGrabberModel {
 

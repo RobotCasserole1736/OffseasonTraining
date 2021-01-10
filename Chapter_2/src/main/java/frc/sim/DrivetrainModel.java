@@ -1,6 +1,7 @@
 package frc.sim;
 
-import edu.wpi.first.hal.sim.PWMSim;
+import edu.wpi.first.wpilibj.simulation.PWMSim;
+import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.geometry.Pose2d;
 import edu.wpi.first.wpilibj.geometry.Twist2d;
 import frc.lib.DataServer.Signal;
@@ -25,6 +26,13 @@ class DrivetrainModel {
 
     Signal xPosFtSig;
     Signal yPosFtSig;
+    Signal tRotDegSig;
+
+    Signal xPosDesFtSig;
+    Signal yPosDesFtSig;
+    Signal tRotDesDegSig;
+
+    Field2d field;
 
     public DrivetrainModel(){
         lhMotorCtrl1 = new PWMSim(0);
@@ -35,9 +43,15 @@ class DrivetrainModel {
         rhMotorCtrl3 = new PWMSim(5);
         lhSide = new SimpleMotorWithMassModel("DT Left", FtPerSectoRPM(DT_MAX_SPEED_FT_PER_SEC), 0.1, 250);
         rhSide = new SimpleMotorWithMassModel("DT Right", FtPerSectoRPM(DT_MAX_SPEED_FT_PER_SEC), 0.1, 250);
-        xPosFtSig = new Signal("SIM DT X Position", "ft");
-        yPosFtSig = new Signal("SIM DT Y Position", "ft");
+        xPosFtSig  = new Signal("botActPoseX", "ft");
+        yPosFtSig  = new Signal("botActPoseY", "ft");
+        tRotDegSig = new Signal("botActPoseT", "deg");
+        xPosDesFtSig  = new Signal("botDesPoseX", "ft");
+        yPosDesFtSig  = new Signal("botDesPoseY", "ft");
+        tRotDesDegSig = new Signal("botDesPoseT", "deg");
+
         drivetrainPosition = new Pose2d();
+        field = new Field2d();
     }
 
     public void modelReset(){
@@ -73,8 +87,13 @@ class DrivetrainModel {
     public void updateTelemetry(double time){
         lhSide.updateTelemetry(time);
         rhSide.updateTelemetry(time);
-        xPosFtSig.addSample(time, drivetrainPosition.getTranslation().getX());
-        yPosFtSig.addSample(time, drivetrainPosition.getTranslation().getY());
+        xPosFtSig.addSample(time,  drivetrainPosition.getTranslation().getX());
+        yPosFtSig.addSample(time,  drivetrainPosition.getTranslation().getY());
+        tRotDegSig.addSample(time, drivetrainPosition.getRotation().getDegrees());
+        xPosFtSig.addSample(time,  0);
+        yPosFtSig.addSample(time,  0);
+        tRotDegSig.addSample(time, 0);
+        field.setRobotPose(drivetrainPosition);
     }
 
 }
