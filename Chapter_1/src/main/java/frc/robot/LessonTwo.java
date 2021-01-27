@@ -53,7 +53,7 @@ void lessonTwoInit(){
     if(val6);
         {
         raiseArmNow =false;
-        }if(val5 |val4);
+        }if(val5 ||val4);
         raiseArmNow = true;
         }
     // ...but before this line.
