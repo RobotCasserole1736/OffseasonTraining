@@ -19,27 +19,24 @@ class LessonTwo {
     int val7= 50;
     int val8= 25;
 
-}
 
 @Signal
 double result1;
-double result1= (val1+val2+val3);
 
 @Signal
 double result2;
-double result2= ((val1/val2)*val3)*-4;
+
 
 @Signal
 boolean result3;
-boolean result3= val4||val6;
+
 
 @Signal
 boolean raiseArmNow;
-boolean raiseArmNow=false;
+
 
 @Signal
-int result4;
-int result4= val7/val8;
+double result4;
 
 // ...but before this line.
 ////////////////////////////////////////////////
@@ -48,19 +45,28 @@ void lessonTwoInit(){
 
     ////////////////////////////////////////////////
     // Write your new code after this line...
-    
-    
-    if(val6);
+    double result1= (val1+val2+val3);
+
+    double result2= ((val1/val2)*val3)*-4;
+
+    boolean result3= val4||val6;
+
+    boolean raiseArmNow=false;
+
+    double result4= val7/val8;
+
+    if(val6)
         {
-        raiseArmNow =false;
-        }if(val5 ||val4);
+        raiseArmNow = false;
+        }else if (val5 ||val4)
         raiseArmNow = true;
-        }
+        
+
     // ...but before this line.
     ////////////////////////////////////////////////
-
-
-
+    }
 }
 
-}
+
+
+
