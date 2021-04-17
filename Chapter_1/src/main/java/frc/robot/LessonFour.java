@@ -1,6 +1,5 @@
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Timer;
 import frc.lib.DataServer.Annotations.Signal;
 
 
@@ -47,7 +46,7 @@ class LessonFour {
     }
 
     ////////////////////////////////////////////////
-    // Write your new code to DECLARE methods 
+    // Write your new code to DECLARE new methods 
     // for PROBLEM 1 after this line...
 
 
@@ -55,7 +54,7 @@ class LessonFour {
     ////////////////////////////////////////////////
 
     ////////////////////////////////////////////////
-    // Write your new code to DECLARE methods 
+    // Write your new code to DECLARE new methods 
     // for PROBLEM 2 after this line...
 
 
