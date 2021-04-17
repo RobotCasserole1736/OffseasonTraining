@@ -1,7 +1,7 @@
 
 # Lesson 2.1: Variables and Math
 
-## First Concepts
+## Facts You'll Need to Know
 
 ### Variables & Types
 
@@ -142,18 +142,28 @@ Default options are fine. Select all the "happy" buttons, hitting "Create" and "
 
 ## Problem 1 - Basic math operations.
 
-Create three new variables, named `val1`, `val2`, and `val3`. All should be the type "floating point". Pick any initial values you want, but make sure at least one is negative, and one has some fractional part (ie, `10.5`).
+Open the file `lessonTwo.java`. 
 
-Calculate the sum of `val1`, `val2`, and `val3`, and store the result into `result1`. 
+Find the comment blocks which indicate `Declare new variables after this line...`, and `... but before this line`.
 
-What do you expect the result to be?
+Between those comment,: create three new variables, named `val1`, `val2`, and `val3`. 
 
-Run your code, visit the website, and confirm the result matches your expectations.
+All should be the "floating point" type, `double`. Pick any initial values you want, but make sure at least one is negative (ie, `-1736`), and one has some fractional part (ie, `10.5`).
+
+Find the comment blocks which indicate `Add your problem-solution code after this line...`, and `... but before this line`. 
+
+Write **one** new line of code to calculate the **sum** of `val1`, `val2`, and `val3`, and store the result into `result1`. 
+
+Before you run your code, think through what it should do. What number do you expect the result to be?
+
+Run your code, verifying no syntax errors occur in the Terminal output window. Fix any that do happen, and re-run.
+
+Visit the website, and confirm the result matches your expectations.
 
 ## Problem 2 - More math operations.
 
-Create a new line of code which uses `val1`, `val2`, and `val3`, and does some math on them. It should also use parenthesis, division, and subtraction. Store the result into `result2`. Constant values (like `23.67`) are allowed.
+Create a new line of code which uses `val1`, `val2`, and `val3`, and does some math on them. It should also use parenthesis, division, and subtraction. Store the result into `result2`. Constant values (like `23.67`) are allowed. 
 
-Ensure that, with your choice of line of operations, `result2` ends up having a value between 40.0 and 50.0.
+Ensure that, with your choice of math operations, `result2` ends up having a value between 40.0 and 50.0.
 
 Calculate the value you expect your line to be. Run your code, visit the website, and confirm the result matches your expectations.

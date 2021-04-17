@@ -31,7 +31,7 @@ class LessonTwo {
     void lessonTwoInit(){
 
         ////////////////////////////////////////////////
-        // Write your new code after this line...
+        // Add your problem-solution code after this line...
 
 
         // ...but before this line.
