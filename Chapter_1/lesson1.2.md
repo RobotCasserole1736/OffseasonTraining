@@ -1,5 +1,5 @@
 
-### Lession 1.2: Running Software
+# Lession 1.2: Running Software
 
 Before making changes to any software that allready exists, you should generally check that it is working and functional, and familiarize yourself with its contents. That's what we'll do now.
 
@@ -27,7 +27,7 @@ We will now attempt to run the code on our desktop computer.
 
 Hit the `F5` key on your keyboard. This should start a sequence of events where the computer takes your source code files and turns them into a `.jar` file, which it attempts to run. This is where you might see some errors if you've written code that the computer can't understand. However, since we haven't changed anything yet, the code should compile without error.
 
-You may get a prompt about using `halsim_gui.dll` - that's ok, check all boxes and hit OK.
+You will get a prompt about using `halsim_gui.dll` - that's ok, check all boxes and hit OK.
 
 ![](doc/run_hal.png)
 

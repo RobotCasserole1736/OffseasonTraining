@@ -1,7 +1,7 @@
 
-## Lesson 1.3: Interacting with Robot Code
+# Lesson 1.3: Interacting with Robot Code
 
-### Robot Website
+## Robot Website
 
 Our software produces a *website* we can view and use to interact with the software.
 
@@ -22,7 +22,7 @@ We'll come back to this soon.
 
 You can click through the other pages too if you want, though there's not much there now. That'll change soon enough!
 
-### Changing Robot State
+## Changing Robot State
 
 Go ahead and open the `State` page on the robot website, and bring up the Robot Simulation GUI so you can see both at the same time. 
 
@@ -50,7 +50,7 @@ That's all for today. When you're done exploring, you can stop the code by click
 
 ![](doc/stop_button.png)
 
-### Simulation GUI
+## Simulation GUI
 
 Obviously, there's no robot that the software is controlling, but we can still interact with it. 
 
