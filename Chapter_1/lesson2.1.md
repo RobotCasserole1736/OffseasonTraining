@@ -57,7 +57,7 @@ Programming languages have an "order of operations", just in normal math. Just l
 
 
 <details>
-<summary> Note</summary>
+<summary> Note </summary>
 Chris learned the acronym PEMDAS (pronounced "paehm-dahs") to describe the Math order of operations. (Parenthesis, then exponentiation, then multiplication, then division, then addition, then subtraction). Chris also learned the trigonometric ratios and functions with the pneumonic not as our Native American friend SOH-CAH-TOA, but as "Some Old Hippie Caught Another Hippie Tripping On Acid" This explains a lot about Chris. We'll assume none of these are commonly-used pneumonic devices, and avoid their usage. But if you happen to know them, well, you can assume you'll turn out like Chris.
 </details>
 
@@ -71,9 +71,62 @@ result = 10 * (20 + 30);
 // result is now 500: First, 20+30 is 50. Then, 50*10 is 500.
 ```
 
+### Code Comments
+
+It's often useful to leave notes to the other human beings inside of code. These help tell the other humans what the code is intended to do, or why it is the way it is.
+
+In these lessons, we also use code comments to help guide you on where to type your code as you start off. Kind of a "training wheels" of sorts.
+
+Code comments are ignored by the computer. You can type whatever you want in them, the computer always ignores it. They're for human consumption only.
+
+```java
+
+// Two leading slashes (//) in the line means "this line is a comment"
+
+boolean thisIsActualCode = true;
+
+// But this is another comment.
+
+If we forget to put slashes in front, the computer will complain and throw "syntax" errors on this line.
+
+```
+
+<details>
+<summary> Note </summary>
+
+```java
+/* Slash-star sequences surrounding text is also a comment */
+
+double anotherPieceOfRealCode = 123.456;
+
+/**
+ * Code comments may
+ * also take up more than
+ * one line if you use the
+ * slash-star format
+ */ 
+
+```
+</details>
+
+In particular, in each lesson `.java` file, you'll see things like this:
+
+```java
+
+    ////////////////////////////////////////////////
+    // Declare new variables after this line...
+
+    int yourNewVariable = 42;
+
+    // ...but before this line.
+    ////////////////////////////////////////////////
+```
+
+Pay attention to the comments as you go through each problem! They will help guide you on where to declare your variable, or where to type code
+
 ## Problem 0 - Starting off.
 
-Open a windows file explorer in the folder for the training repo we _cloned_ last practice. Right click in the white-space, and select "Git Extensions Browse".
+Open a windows file explorer in the folder for the training repo we _cloned_ last lesson. Right click in the white-space, and select "Git Extensions Browse".
 
 ![](doc/gitext_clone.png)
 
