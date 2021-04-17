@@ -62,5 +62,19 @@ What do you want `raiseArmNow` to do? How should it be related to its inputs?
 The solution involves using a NOT operator on one of the inputs, then using a single boolean operator to combine that result with the other input. 
 </details>
 
+<details>
+<summary> Hint 3 </summary>
+The "AND" operation could be thought of as a "Force False" operation. Consider the following:
+
+```java
+result = control & ( other_expr );
+```
+
+If `control` is `false`, then `result` will always be `false`, regardless of what `( other expr )` is.
+
+However, if `control` is `true`, then `result` is just equal to whatever `( other expr )` is.
+
+</details>
+
 
 Write a line of code to calculate the value for `raiseArmNow`. Run the code, open the website, and check the results. Change initial values vor `val3` and `val4` to check different _permutations_ of inputs from the user.
