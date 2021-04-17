@@ -28,7 +28,7 @@ Additionally, ensure you have a github account which is associated with the team
 * [3.0 - Thoughts and Words of Encouragement](./lesson3.0.md)
 * [3.1 - Comparison Operations](./lesson3.1.md)
 * [3.2 - Making Decisions with `if` and `else`](./lesson3.2.md)
-* [3.3 - Bang Bang" Shooter Wheel Control](./lesson3.3.md)
+* [3.3 - "Bang Bang" Shooter Wheel Control](./lesson3.3.md)
 
 ##  Lesson 4
 

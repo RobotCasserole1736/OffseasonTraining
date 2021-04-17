@@ -8,9 +8,9 @@ Generally, when shooting a ball into a goal or target, we will launch it using a
 
 ![](doc/cal_on_field_4.gif)
 
-To shoot the ball consistently and accurately, one key is to ensure the shooter wheel is running at a constant _speed_. 
+To shoot the ball consistently and accurately, one key is to ensure the shooter wheel is **running at a constant _speed_**. 
 
-There are sensors which can measure the wheel's _actual_ speed (usually in units "revolutions per minute", or RPM). From prototyping, we'll determine some _desired_ speed - also in RPM. Usually this will be around 2000.
+There are sensors which can measure the wheel's _actual_ speed (usually in units "revolutions per minute", or RPM). From prototyping, we'll know some _desired_ speed - also in RPM. Usually this will be around 2000.
 
 The shooter wheel is powered by an electric motor. Motors receive electrical power over wires, and convert it into spinny motion.
 
@@ -28,11 +28,23 @@ A very simple strategy for doing this involves a simple if/else statement. The l
 1) If the shooter wheel is too slow, apply full forward motor power.
 2) If the shooter wheel is too fast, apply no motor power.
 
-Your task will be to write the software to control a simple simulated shooter wheel.
-
 ## Problem 
 
-Use the above information to write code to compare `actualSpeed_RPM` and `desiredSpeed_RPM`, and assign some value to `motorCmd`. 
+Your task will be to write the software to control a simple simulated shooter wheel.
+
+Right now, `motorCmd` is set to an unchanging value of `1.0`, which always runs the shooter wheel at full power. 
+
+```java
+        motorCmd = 1.0; //Incorrect - Motor always runs. You'll need to change this.
+```
+
+Run the code without modification to verify this. Open the website, go to the Robot State page, and then enable the robot in Teleoperated.
+
+When enabled, `desiredSpeed_RPM` will exceed `actualSpeed_RPM` by a lot. 
+
+As the comment notes, this is incorrect - the ball will launch too far. We will need to remove this line of code, and replace it with the correct logic.
+
+Use the above information to write new code to compare `actualSpeed_RPM` and `desiredSpeed_RPM`, and assign some value to `motorCmd`. Use your new code to replace the incorrect line of logic.
 
 Don't worry about how values get put into `actualSpeed_RPM`, or where they go after you write to `motorCmd`. Someone else has already taken care of that, and we'll discuss more about it later in the season. For now, just do some comparison on your actual/desired speeds, and (using the results of that comparison) write the results into `motorCmd`.
 
@@ -41,7 +53,7 @@ Be sure to do this inside the indicated code block:
 ```java
     void lessonThreeEnabledUpdate(){
         ////////////////////////////////////////////////
-        // Write your new code for PROBLEM 3 after this line...
+        // Write your new code for Lesson 3.3 after this line...
 
 
         // ...but before this line.
@@ -60,4 +72,11 @@ What "actual" RPM value do you expect the motor speed to go to once you enable t
 
 Change the initial value of `desiredSpeed_RPM` and see how the "actual" RPM value changes.
 
-NOTE: The name "bang-bang" comes from how the software manipulates the `motorCmd` variable. It slams it to full on, then full off, then back on again, then off.... It's actually not the best for robots and motors, as we'll learn later in the year. However, for things like rockets, it's the only real strategy you have for control, because rockets can only ever be on or off.
+<details>
+<summary> Note </summary>
+
+The name "bang-bang" comes from how the software manipulates the `motorCmd` variable. It slams it to full on, then full off, then back on again, then off.... It's actually not the best for robots and motors, as we'll learn later in the year. 
+
+However, for things like rockets, it's the only real strategy you have for control, because rockets can (usually) only be on or off.
+
+</details>
