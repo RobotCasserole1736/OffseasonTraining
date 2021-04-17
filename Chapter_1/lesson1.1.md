@@ -17,7 +17,12 @@ Perform the following steps:
 
 ![](doc/in_file_explorer.png)
 
-2. Create the folder `C:\Users\<username>\SwDev\`, if it does not yet exist. Open that folder in the file browser. Here's one set of steps to accomplish that:
+2. Create the folder `C:\Users\<username>\SwDev\`, if it does not yet exist. Open that folder in the file browser. 
+
+<details>
+<summary> Hint</summary>
+
+Here's one set of steps to accomplish that:
 
 Select the `C:\` drive:
 
@@ -35,7 +40,10 @@ Type in the approprate name for the new folder:
 
 ![](doc/new_folder_name.png)
 
-3. Right click in the white space in the folder to get the context menu, and select `GitExt Clone`.
+</details>
+
+
+3. Right click in the empty space in the folder to get the context menu, and select `GitExt Clone`.
 
 ![](doc/gitext_clone.png)
 
