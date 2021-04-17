@@ -38,13 +38,16 @@ Additionally, ensure you have a github account which is associated with the team
 
 ##  Lesson 5
 
-* [5 - Thoughts and Words of Encouragements](./lesson5.0.md)
-* [5 - Using the Debugger](./lesson5.1.md)
-* [5 - Problem Solving with the Debugger](./lesson5.2.md)
+* [5.0 - Thoughts and Words of Encouragements](./lesson5.0.md)
+* [5.1 - Using the Debugger](./lesson5.1.md)
+* [5.2 - Problem-Solving with the Debugger](./lesson5.2.md)
 
 ##  Lesson 6
 
-* [6 - Dividing Code into Classes](./lesson6.md)
+* [6.0 - Thoughts and Words of Encouragements](./lesson6.0.md)
+* [6.1 - Dividing Code into Classes](./lesson6.1.md)
+* [6.2 - Problem-Solving with Classes](./lesson6.2.md)
+* [6.3 - Singleton Classes](./lesson6.3.md)
 
 ##  Lesson 7
 
