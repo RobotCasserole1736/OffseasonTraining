@@ -1,7 +1,7 @@
 
 ## Lesson 1.1: Acquiring Software
 
-More than likely, you're reading this online, in a web browser now. You can click around to see other files, make small modifications. This is a very nice feature of *Github*, the website where we we keep our software.
+More than likely, you're reading this online, in a web browser now. You can click around to see other files, make small modifications. This is a very nice feature of *Github*, the website on the internet where we we keep our software.
 
 However, to run the code, and make bigger changes, you'll want the software on your computer.
 
@@ -9,18 +9,33 @@ However, to run the code, and make bigger changes, you'll want the software on y
 
 As a one-time, first step, we will use the `clone` operation to do a first-time acquisition of software from github. Later, we will use other commands to `push` and `pull` changes from our local `repository` of software.
 
-Motivation: In a team-based software development environment, you rarely start writing all your code from sractch (in fact, exactly one student does this once per build season). More frequrently, you are starting your development _based on_ the work someone else already did. You take their content, modify it, add your own things, and submit it back for the next person to work on. Multiply this by 10+ people, and you've got a team developing a singular codebase! THe reason we need tools like Git and Github are to ensure that all people can contribute their changes without "stepping" on each other, using different computers. It additionaly ensures that, as a team, we have a singluar notion of what the "correct" or "most recent" software is. All of this is key to ensuring the software we provide is high-quality, and defect-free.
+
+<details>
+<summary> But why do all this? </summary>
+
+In a team-based software development environment, you rarely start writing all your code from scratch (in fact, exactly one student does this once per build season). 
+
+More frequently, you are starting your development _based on_ the work someone else already did. You take their content, modify it, add your own things, and submit it back for the next person to work on. Multiply this by 10+ people, and you've got a team developing a singular codebase! 
+
+The reason we need tools like Git and Github are to ensure that all people can contribute their changes without "stepping" on each other, using different computers. 
+
+It additionaly ensures that, as a team, we have a singluar notion of what the "correct" or "most recent" software is. 
+
+All of this is key to ensuring the software we make is high-quality, and defect-free.
+
+<details>
+
 
 Perform the following steps:
 
-1. Open the *windows file exploere* 
+1. Open the *Windows file explorer* 
 
-![](doc/in_file_explorer.png)
+![](doc/win_file_explorer.png)
 
 2. Create the folder `C:\Users\<username>\SwDev\`, if it does not yet exist. Open that folder in the file browser. 
 
 <details>
-<summary> Hint</summary>
+<summary> If you're new to this sort of thing... </summary>
 
 Here's one set of steps to accomplish that:
 
