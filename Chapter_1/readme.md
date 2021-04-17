@@ -32,7 +32,9 @@ Additionally, ensure you have a github account which is associated with the team
 
 ##  Lesson 4
 
-* [4 - Dividing Code into Methods](./lesson4.md)
+* [4.0 - Thoughts and Words of Encouragements](./lesson4.0.md)
+* [4.1 - Dividing Code into Methods](./lesson4.1.md)
+* [4.2 - Methods Application - Parity Switch](./lesson4.2.md)
 
 ##  Lesson 5
 

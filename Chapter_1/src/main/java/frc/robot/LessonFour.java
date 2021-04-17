@@ -12,7 +12,7 @@ class LessonFour {
     @Signal
     double output2 = 0;
 
-    boolean switch_NC_state = false; //Modify these values for testing problem 2
+    boolean switch_NC_state = false; //Modify these values for testing Lesson 4.2
     boolean switch_NO_state = true;
 
     @Signal(units = "bool")
@@ -30,15 +30,8 @@ class LessonFour {
     void lessonFourEnabledUpdate(){
         ////////////////////////////////////////////////
         // Write your new code to CALL methods 
-        // for PROBLEM 1 after this line...
+        // after this line...
 
-
-        // ...but before this line.
-        ////////////////////////////////////////////////
-
-        ////////////////////////////////////////////////
-        // Write your new code to CALL methods 
-        // for PROBLEM 2 after this line...
 
 
         // ...but before this line.
@@ -47,15 +40,8 @@ class LessonFour {
 
     ////////////////////////////////////////////////
     // Write your new code to DECLARE new methods 
-    // for PROBLEM 1 after this line...
+    // after this line...
 
-
-    // ...but before this line.
-    ////////////////////////////////////////////////
-
-    ////////////////////////////////////////////////
-    // Write your new code to DECLARE new methods 
-    // for PROBLEM 2 after this line...
 
 
     // ...but before this line.
