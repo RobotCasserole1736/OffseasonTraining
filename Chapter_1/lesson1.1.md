@@ -15,25 +15,25 @@ Perform the following steps:
 
 1. Open the *windows file exploere* 
 
-![](win_file_explorer.png)
+![](doc/in_file_explorer.png)
 
 2. Create the folder `C:\Users\<username>\SwDev\`, if it does not yet exist. Open that folder in the file browser. Here's one set of steps to accomplish that:
 
     a. Select the `C:\` drive:
 
-![](c_drive.png)
+![](doc/c_drive.png)
 
     b. Select the `Users` folder, followed by your username:
 
-![](c_users_folder.png)
+![](doc/c_users_folder.png)
 
     c. Right Click in the empty space, hover over `New`, and make a new folder:
 
-![](make_new_folder.png)
+![](doc/make_new_folder.png)
 
     d. Type in the approprate name for the new folder
 
-![](new_folder_name.png)
+![](doc/new_folder_name.png)
 
 3. Right click in the white space in the folder to get the context menu, and select `GitExt Clone`.
 
