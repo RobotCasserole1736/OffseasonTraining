@@ -89,6 +89,8 @@ boolean thisIsActualCode = true;
 
 If we forget to put slashes in front, the computer will complain and throw "syntax" errors on this line.
 
+int someMoreRealCode = 23; // Comments can also happen after real code.
+
 ```
 
 <details>

@@ -28,7 +28,7 @@ NOTE: This challenge problem is more of a "think about it and test" thing. It's 
 
 The "Exclusive OR" operator is another commonly-defined logic operation.
 
-`&`, or "XOR", returns true _if exactly one input is true_.
+`^`, or "XOR", returns true _if exactly one input is true_.
 
 Create a few lines of code which calculates `result5 = val9 ^ val10`, without using the `^` operator. Use only basic logic operators (`!`, `|`, `&`) and grouping symbols `(` and `)`. Prove it works the same way as the `^` operator.
 

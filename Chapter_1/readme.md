@@ -2,7 +2,7 @@
 
 In Chapter 1, we introduce the basics of software-writing concepts that are relevant to creating robot code. We'll be focused on core-concepts and tools, while making some hints to robot-specific behaviors and patterns.
 
-Complete these Lessons in Order, as each one builds on the next.
+Complete these lessons in order, as each one builds on the next.
 
 ### Prerequisites
 
@@ -25,7 +25,10 @@ Additionally, ensure you have a github account which is associated with the team
 
 ##  Lesson 3
 
-* [3 - Comparisons and If/Else](./lesson3.md)
+* [3.0 - Thoughts and Words of Encouragement](./lesson3.0.md)
+* [3.1 - Comparison Operations](./lesson3.1.md)
+* [3.2 - Making Decisions with `if` and `else`](./lesson3.2.md)
+* [3.3 - Bang Bang" Shooter Wheel Control](./lesson3.3.md)
 
 ##  Lesson 4
 

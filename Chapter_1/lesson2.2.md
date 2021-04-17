@@ -36,9 +36,13 @@ false = !true;          // NOT true  returns false
 
 Create three new variables, `val4`, `val5`, and `val6`. All of them should be `boolean` type. Pick any starting values you want, as long as at least 1 of them is `false`.
 
+Remember that the declaration of variables should happen between the comment blocks indicating it's the area to declare variables.
+
 Create some line of code that uses two of the values and the `|` operator, and produces a result which is `true`. Store that value into `result3`.
 
-Run your code and ensure the output is `true`.
+Remember that the lines of code which manipulate variables also need to be between the "problem-solution" comment blocks.
+
+Run your code, visit the website, and ensure the output to `result3` is `true`.
 
 ## Problem 2 - Boolean Application.
 

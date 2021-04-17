@@ -6,7 +6,6 @@ class LessonThree {
 
     ////////////////////////////////////////////////
     // Declare new variables after this line...
-    String dayStr = "Mon"; //Other values could be Sun, Tue, Thr, Wed, Sat, Fri, etc.
     int ASideLen = 3;
     int BSideLen = 4;
     int CSideLen = 5;
@@ -16,8 +15,6 @@ class LessonThree {
     @Signal(units = "RPM")
     double desiredSpeed_RPM = 2000;
 
-    @Signal
-    int dayOfWeek;
     @Signal
     double motorCmd = 0;
     // ...but before this line.
@@ -42,14 +39,20 @@ class LessonThree {
 
     void lessonThreeEnabledUpdate(){
         ////////////////////////////////////////////////
-        // Write your new code for PROBLEM 3 after this line...
+        // Write your new code for Lesson 3.3 after this line...
 
         motorCmd = 1.0; //Incorrect - Motor always runs. You'll need to change this.
 
         // ...but before this line.
         ////////////////////////////////////////////////
+
         simplePlantUpdate();
     }
+
+    ////////////////////////////////////////////////
+    // The code after this line is to help make lesson 3.3
+    // act like a realistic robot. You shouldn't try to
+    // change it, and can ignore it for now.
 
     void lessonThreeDisabledUpdate(){
         motorCmd = 0;
