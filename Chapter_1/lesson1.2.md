@@ -1,17 +1,25 @@
 
-# Lession 1.2: Running Software
+# Lesson 1.2: Running Software
 
-Before making changes to any software that allready exists, you should generally check that it is working and functional, and familiarize yourself with its contents. That's what we'll do now.
+Before making changes to any software that already exists, you should generally check that it is working and functional, and familiarize yourself with its contents. That's what we'll do now.
 
-To start, we'll need to open *Visual Studio Code* (or, *VSCode*). This is the tool we will use to modify, run, and test our software. It's one of many tools that can do it, but happens to be the "offically supported" one for FRC. So we use it.
+To start, we'll need to open *Visual Studio Code* (or, *VSCode*). This is the tool we will use to modify, run, and test our software. It's one of many tools that can do it, but happens to be the "officially supported" one for FRC. So we use it.
 
 Start VSCode by double-clicking the desktop icon. 
+
+![](doc/desktop_icon.png)
 
 You should be greeted with a basic user interface. You'll want to go open the folder containing the code we just got from Github.
 
 In the `File` menu, select `Open Folder`, then navigate and select the folder `C:\Users\<userid>\SwDev\OffseasonTraining\Chapter_1`. 
 
-You should now see some files in the left hand side. It's just showing you the folders and files that are on your hard drive, in that folder we selected. You can click through the `src`, then `main`, then `java`, then `frc`, then `robot` folders to find the core of the code we'll be editing and changing. The other folders have useful content too, but we can ignore them for now. 
+![](doc/vsCode_open_folder.png)
+
+You should now see some files in the left hand side. It's just showing you the folders and files that are on your hard drive, in that folder we selected. The little `>` and `v` carats can be clicked to show or hide the content of each folder.
+
+You can click through the `src`, then `main`, then `java`, then `frc`, then `robot` folders to find the core of the code we'll be editing and changing. The other folders have useful content too, but we can ignore them for now. 
+
+![](doc/vsCode_side_file_explorer.png)
 
 Double click the `Robot.java` file to open it. This is the "entry-point" file - the first file that runs from the code that we write for the robot. A lot of the code writing will happen in this file. Glance through it, notice how it has different chunks of code for `Init`, `Teleop`, and `Autonomous`. It's actually fairly empty right now, we'll be filling content later to define the robot's behavior during `Init`, `Teleop`, and `Autonomous` operation.
 
@@ -39,6 +47,6 @@ Note how the contents of the line matches with this line of code:
 
 ![](doc/print_source.png)
 
-That `System.out.println("Your message here!");` code will put messages into the terminal output, and is a very useful way to understand what order different pieces of code happen in.
+That `System.out.println("Some text goes here!");` code will put messages into the terminal output, and is a very useful way to understand what order different pieces of code happen in.
 
-At this point, your robot code is running in the background on your computer! Congradulations!
+At this point, your robot code is running in the background on your computer! Congratulations!

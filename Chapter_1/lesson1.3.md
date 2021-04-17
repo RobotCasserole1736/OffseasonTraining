@@ -42,7 +42,7 @@ Let's look at this hunk of the code, which happens to run once every time we sta
 
 ![](doc/teleopInit_code.png)
 
-The first line: `teleopInitCounter++;` - this ticks up the value in the "Teleop Init Counter" by 1. Every time this code runs, that `++` operator makes the value inside of the variable `teleopInitCounter` _incriment_, or increase by one. The second line is like what we saw before: `System.out.println()` code injects custom messages into the Terminal.
+The first line: `teleopInitCounter++;` - this ticks up the value in the "Teleop Init Counter" by 1. Every time this code runs, that `++` operator makes the value inside of the variable `teleopInitCounter` _increment_, or increase by one. The second line is like what we saw before: `System.out.println()` code injects custom messages into the Terminal.
 
 Don't worry too much if that doesn't make much sense now, we'll dig into it more later. But the key connection to make for now: The website is displaying numbers and data that come from our code. Because of this, we can use the website to understand how our code is working. This is important, because it's the tool that is used to determine whether the code is working like we want it to - both on and off the robot!
 

@@ -72,3 +72,5 @@ Afterward, you should see a new folder named `OffseasonTraining`.
 
 Huzzah! You now have some software on your computer, which you can begin to edit.
 
+Feel free to go poking around inside the new `OffseasonTraining` folder. You should see many `.java` files containing our source code, some `.md` files for documentation, and a host of other supporting files.
+
