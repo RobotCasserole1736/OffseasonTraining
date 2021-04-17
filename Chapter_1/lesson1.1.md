@@ -23,7 +23,7 @@ It additionaly ensures that, as a team, we have a singluar notion of what the "c
 
 All of this is key to ensuring the software we make is high-quality, and defect-free.
 
-<details>
+</details>
 
 
 Perform the following steps:
