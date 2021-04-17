@@ -1,24 +1,5 @@
-# Lesson 5 - Using the Debugger
 
-## Some Thoughts Before We Begin
-
-Don Knuth is one of the great pioneers of software engineering. He once stated something very true: 
-
-_Software is, first and foremost, meant to be read by human beings. Only incidentally does it get executed by a machine._
-
-This is something that is good to keep in mind for any software writing, but especially when writing code in a team environment. The software is intended to _communicate to other team members_ what your _intent_ for the robot's functionality is. It just so happens we use this "java" thing to express that intent, so that the robot can eventually run that software too.
-
-Intent is best-expressed by:
-
-1) Choosing good, meaningful names for your variables and methods.
-2) Applying liberal code comments to explain the "why" 
-3) Keeping "like" code in one spot (ie: Don't put arm code into the shooter.java file)
-4) Splitting out code into meaningful sub-chunks (ie: break long segements of code into methods with cohesive outcomes)
-5) Don't Repeat Yourself (DRY) (ie: use methods to re-use code chunks, don't copy-paste)
-
-The good news is you've already learned most of the organizational tools needed to write good code. The bad news is that it still takes practice to become proficient at using those tools. But fear not! The very fact you are reading this means you're already on the path to becoming more proficient! Keep up the hard work, and you'll be amazed where it will take you!
-
-## The Debugger
+# Lesson 5.1 - Using the Debugger
 
 Up till now, the pieces of code we've written are pretty small. Small enough that _by just staring at the code_, you can probably predict how it will work.
 
@@ -72,7 +53,7 @@ Remember that a computer executes a program line by line, starting at the top, g
 
 A "breakpoint" is a flag sent to the program to tell it to stop execution once code reaches the start of a certain line. "Setting" a breakpoint is the act of setting that flag on a particular line of code.
 
-To set a breakpoint in vsCode, simply click in the space to the left of the line numbers in a particualr file. 
+To set a breakpoint in vsCode, simply click in the space to the left of the line numbers in a particular file. 
 
 ![](doc/dbg_breakpoint_col.png)
 
@@ -97,9 +78,9 @@ As soon as you do this, `lessonFiveEnabledUpdate()` will get called, and we shou
 
 ![](doc/dbg_breakpoint_hit.png)
 
-The most obvsious indicator is the yellow highlights on the breakpoint and line. It indicates the program is currently stopped on this line of code.
+The most obvious indicator is the yellow highlights on the breakpoint and line. It indicates the program is currently stopped on this line of code.
 
-You'll additionally see our previous "Pause" icon in the debugger controlls has changed to a play button. Since the code is now stopped, we have a few options for what we can do, including continuing execution until the next breakpoint.
+You'll additionally see our previous "Pause" icon in the debugger controls has changed to a play button. Since the code is now stopped, we have a few options for what we can do, including continuing execution until the next breakpoint.
 
 Finally, you'll see the *Call Stack* in the bottom left. This shows not just where we're currently at in the code, but some info about _how we got here_. Specifically, you can see that `LessonFive.lelssonFiveEnabledUpdate()` (where we're at) got called from `Robot.teleopPeriodic()`, as expected. Below that, `Robot.teleopPeriodic()` got called from other code that's internal to WPIlib, and can be ignored.
 
@@ -119,7 +100,7 @@ You should see execution stop on that same line with the breakpoint again, but t
 
 ![](doc/dbg_var_values1.png)
 
-Congradulations! You've done the most basic form of debugging, which is extremely powerful! Meerly the ability to stop code at a certain point and inspect variable values gives you vast opportunities to understand code behavior, and determine what sorts of things have gone right or wrong.
+Congratulations! You've done the most basic form of debugging, which is extremely powerful! Merely the ability to stop code at a certain point and inspect variable values gives you vast opportunities to understand code behavior, and determine what sorts of things have gone right or wrong.
 
 ### Stepping through lines of code
 
@@ -156,71 +137,3 @@ You can see in the bottom left how the call stack has one new thing on the top -
 You can see we also have a new variable visible, `counter_in`. This was our input argument. Step through the two lines of code, and past the end of this method. Notice how it returns to the previous call point.
 
 Finally, when we're done, go ahead and click the red square in the Debugger Controls to stop the debug session.
-
-### Problem Solving
-
-We've gone through plenty of examples showing how the debugger can be used to intercept code execution and analyze it. But, we've not done much yet in terms of _using_ it to solve a concrete problem.
-
-Though the problems you'll see "in the wild" can be varied and complex, but all should be discoverable through these same set of techniques we introduced above.
-
-Before we begin, read some general advice from [Harvard's CS161 course notes](https://www.eecs.harvard.edu/~cs161/resources/gdb.html)
-
-#### Tip 1: Check your beliefs about the program
-
-So how do you actually approach debugging? When you have a bug in a program, it means that you have a particular belief about how your program should behave, and somewhere in the program this belief is violated. For example, you may believe that a certain variable should always be 0 when you start a "for" loop, or a particular pointer can never be NULL in a certain "if statement". To check such beliefs, set a breakpoint in the debugger at a line where you can check the validity of your belief. And when your program hits the breakpoint, ask the debugger to display the value of the variable in question.
-
-#### Tip 2: Narrow down your search
-
-If you have a situation where a variable does not have the value you expect, and you want to find a place where it is modified, instead of walking through the entire program line by line, you can check the value of the variable at several points in the program and narrow down the location of the misbehaving code.
-
-#### Tip 3: Walk through your code
-
-Steve Maguire (the author of Writing Solid Code) recommends using the debugger to step through every new line of code you write, at least once, in order to understand exactly what your code is doing. It helps you visually verify that your program is behaving more or less as intended. With judicious use, the step, next and finish commands can help you trace through complex code quickly and make it possible to examine key data structures as they are built. 
-
-With that in mind, let's try a problem-solving exercise.
-
-### Problem Solving Exercise
-
-Lets add a new line of code, and run with the debugger to see how to detect the error and correct for it.
-
-Add the following code within, but near the end of, `lessonFiveEnabledUpdate()`:
-
-```java
-//Find ratio between values 1 and 2, as an integer.
-int value12Ratio = (int) value2 / value1;
-```
-
-Remove any existing breakpoints, we won't need them just yet.
-
-Now, go run the code, and enable in teleop. What's happening? The program stopps running as soon as you go to teleop! Whaaaa....
-
-The actual error that caused java to give up shows up in the log console:
-
-![](doc/dbg_err.png)
-
-There's a couple things to note here:
-
-`Error` is the main indicator that something is wrong. The description `Unhandled Exception` and `/ by zero` should start to give you some hints as to what was wrong.
-
-`LessonFiveEnabledUpdate` points to our new line of code we just added, which makes sense (since the code was just working, and that was the _only_ thing we changed).
-
-Finally, as indicated by the error message, `Robots should not quit, but yours did!`. This warning is real - if we were to do this on the field, we'd be stuck dead in the w water for a solid 30 seconds until everything rebooted. Definitely bad, and needs fixed.
-
-Now, the astute student might be looking at our new line of code, and know what went wrong right away. Regardless of whether you think you know the answer, let's hook up the debugger to at least confirm.
-
-Since we know the line of code where the error happened, let's put a breakpoint on it. This should stop program execution right before the error happens.
-
-Place the breakpoint and re-run, enabling in teleop.
-
-We should now stop right on the line, before an error happens. Inspect the variable values. Which variables are involved in this line of code?
-
-Hopefully, `value1` catches your eye. On this first loop, it has a value of `0`. This, as you would probably expect, does not work well when used in the denominator of a division operation. You can hit continue - it should produce the same error we saw earlier.
-
-You have determined root cause of the problem, excellent! But now what?
-
-Usually, for something like this, you have to go back to the drawing board. We knew we wanted to calculate the ratio between values 1 and 2.... but we forgot `value1` sometimes goes to zero. Huh. 
-
-For the sake of this exercise, let's assume the following: If `value1` is zero, just set the ratio to zero as well. Otherwise, calcualte it as normal.
-
-Add some new code with `if`/`else` statements to perform this operation. Walk through your new code line by line and verify it works for cases where value1 is both zero and nonzero.
-

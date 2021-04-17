@@ -38,7 +38,9 @@ Additionally, ensure you have a github account which is associated with the team
 
 ##  Lesson 5
 
-* [5 - Using the Debugger](./lesson5.md)
+* [5 - Thoughts and Words of Encouragements](./lesson5.0.md)
+* [5 - Using the Debugger](./lesson5.1.md)
+* [5 - Problem Solving with the Debugger](./lesson5.2.md)
 
 ##  Lesson 6
 
