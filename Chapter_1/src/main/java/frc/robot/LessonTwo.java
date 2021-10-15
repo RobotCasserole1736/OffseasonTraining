@@ -25,6 +25,10 @@ class LessonTwo {
     @Signal
     int result4;
 
+    double val1 = -1736;
+    double val2 = 20.3;
+    double val3 = 40;
+
     // ...but before this line.
     ////////////////////////////////////////////////
 
@@ -32,7 +36,10 @@ class LessonTwo {
 
         ////////////////////////////////////////////////
         // Add your problem-solution code after this line...
+        
+        result1 = val1 + val2 + val3;
 
+        result2 = (val1 * -val2) / (val3 * 20);
 
         // ...but before this line.
         ////////////////////////////////////////////////
