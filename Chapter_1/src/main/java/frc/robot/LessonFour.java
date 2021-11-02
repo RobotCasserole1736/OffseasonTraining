@@ -31,9 +31,9 @@ class LessonFour {
         ////////////////////////////////////////////////
         // Write your new code to CALL methods 
         // after this line...
+        double Middlenumber = FindMiddle(-99,23,6007);
 
-
-
+        System.out.println(Middlenumber);
         // ...but before this line.
         ////////////////////////////////////////////////
     }
@@ -41,10 +41,32 @@ class LessonFour {
     ////////////////////////////////////////////////
     // Write your new code to DECLARE new methods 
     // after this line...
+    double FindMiddle(double inputA, double inputB, double inputC){
+        if(inputA > inputB && inputA > inputC){
+            if(inputB > inputC){
+                return inputB;
+            } else{
+                return inputC;
+            }
+        }   else if(inputB > inputA && inputB > inputC){
+                if(inputA > inputC){
+                return inputA;
+            } else{
+                return inputC;   
+            }   
+        } else{
+                if(inputB > inputA){
+                    return inputB;
+                } else{
+                    return inputA;
+                }
+            }
+        }
+    }
 
+    
 
 
     // ...but before this line.
     ////////////////////////////////////////////////
 
-}

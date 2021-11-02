@@ -103,6 +103,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
       l3.lessonThreeEnabledUpdate();
+      l4.lessonFourEnabledUpdate();
       l5.lessonFiveEnabledUpdate();
       telemetryUpdate(); 
   }

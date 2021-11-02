@@ -31,6 +31,8 @@ public class Robot extends TimedRobot {
   LoopTiming loopTiming;
   CasseroleRIOLoadMonitor loadMon;
 
+  Driverinterface di;
+
   @Signal
   int loopCounter = 0;
 
@@ -47,6 +49,7 @@ public class Robot extends TimedRobot {
     dataServer = CasseroleDataServer.getInstance();
     loadMon = new CasseroleRIOLoadMonitor();
 
+    di = new Driverinterface();
 
     dataServer.registerSignals(this);
     dataServer.startServer();
@@ -118,6 +121,8 @@ public class Robot extends TimedRobot {
   }
 
   void periodicCommon() {
+
+    di.update();
 
     loopCounter++;
     dataServer.sampleAllSignals();
