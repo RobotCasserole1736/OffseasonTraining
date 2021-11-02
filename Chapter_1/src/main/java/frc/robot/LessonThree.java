@@ -24,7 +24,16 @@ class LessonThree {
 
         ////////////////////////////////////////////////
         // Write your new code for PROBLEM 1 after this line...
+        boolean cond1 = false;
+        boolean cond2 = true;
 
+        if(cond1){
+            System.out.println("Ran IF");
+        } else if (cond2) {
+            System.out.println("Ran ELSE IF");
+        } else {
+            System.out.println("Ran ELSE");
+    }
 
         // ...but before this line.
         ////////////////////////////////////////////////
@@ -32,6 +41,7 @@ class LessonThree {
         ////////////////////////////////////////////////
         // Write your new code for PROBLEM 2 after this line...
 
+        
 
         // ...but before this line.
         ////////////////////////////////////////////////
