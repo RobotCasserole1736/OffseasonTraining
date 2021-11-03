@@ -7,6 +7,7 @@ import frc.lib.DataServer.Annotations.Signal;
 public class DriverInterface {
 
     XboxController driverController;
+
     @Signal
     double curFwdRevCmd;
     @Signal
@@ -19,39 +20,30 @@ public class DriverInterface {
     }
 
     public void update(){
-        curFwdRevCmd = -1 * driverController.getY(Hand.kLeft);
-        curRotCmd = -1 * driverController.getX(Hand.kRight);
+        curFwdRevCmd = -1.0 * driverController.getY(Hand.kLeft);
+        curRotCmd = -1.0 * driverController.getX(Hand.kRight);
     }
-    
 
-    double getFwdRevCmnd(){
+    /**
+     * Gets the driver command for fwd/rev
+     * 1.0 means "fast as possible forward"
+     * 0.0 means stop
+     * -1.0 means "fast as possible reverse"
+     * @return 
+     */
+    double getFwdRevCmd(){
         return curFwdRevCmd;
-     /**
-     * The variables return a number between -1 and 1.
-     * 1.0 means "fast as posssible forward."
-     * 0.0 means going nowhere (AKA "stop").
-     * -1.0 means "fast as possible reversing."
-     */
     }
 
-    double getRotateCmnd(){
+    /**
+     * Gets the driver command for rotate
+     * 1.0 means "fast as possible to the left"
+     * 0.0 means stop
+     * -1.0 means "fast as possible to the right"
+     * @return 
+     */
+    double getRotateCmd(){
         return curRotCmd;
-     /**
-     * The variables return a number between -1 and 1.
-     * 1.0 means "fast as posssible to the left."
-     * 0.0 means going nowhere (AKA "stop").
-     * -1.0 means "fast as possible to the right."
-     */
-    }
-
-    public void setFwdRevCmd(double cmd){
-        //1.0 is go forward, 0.0 is stop, -1.0 is reverse
-        //To do = store cmd somewhere to be used during update()
     }
     
-    public void setRotateCmd(double cmd){
-        //1.0 is left, 0.0 is stop, -1.0 is right
-        //To do = store cmd somewhere to be used during update()
-    }
-  
 }

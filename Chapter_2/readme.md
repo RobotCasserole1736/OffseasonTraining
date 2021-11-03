@@ -80,19 +80,19 @@ Here's a list of the devices attached to the roboRIO that we will have to contro
 
 | Direction | Subsystem   | Device                 | Name              | Bank | Port Number | Integration Notes |
 | ---       | ---         | ---                    | ---               | ---  | ---         | ---   |
-| Output    | Drivetrain  | Spark Motor Ctrl       | Left Front        | PWM  | 0           | Due to mechanical construction, _negative_ motor command produces forward motion. |
-| Output    | Drivetrain  | Spark Motor Ctrl       | Left Mid          | PWM  | 1           | Due to mechanical construction, _negative_ motor command produces forward motion. |
-| Output    | Drivetrain  | Spark Motor Ctrl       | Left Rear         | PWM  | 2           | Due to mechanical construction, _negative_ motor command produces forward motion. |
-| Output    | Drivetrain  | Spark Motor Ctrl       | Right Front       | PWM  | 3           | Positive command produces forward motion |
-| Output    | Drivetrain  | Spark Motor Ctrl       | Right Mid         | PWM  | 4           | Positive command produces forward motion |
-| Output    | Drivetrain  | Spark Motor Ctrl       | Right Rear        | PWM  | 5           | Positive command produces forward motion |
-| Output    | Elevator    | Victor SP Motor Ctrl   | Elevator          | PWM  | 6           | Positive command produces upward motion |
+| Output    | Drivetrain  | Spark Motor Ctrl       | Left Front        | PWM  | 7           | Due to mechanical construction, _negative_ motor command produces forward motion. |
+| Output    | Drivetrain  | Spark Motor Ctrl       | Left Mid          | PWM  | 8           | Due to mechanical construction, _negative_ motor command produces forward motion. |
+| Output    | Drivetrain  | Spark Motor Ctrl       | Left Rear         | PWM  | 9           | Due to mechanical construction, _negative_ motor command produces forward motion. |
+| Output    | Drivetrain  | Spark Motor Ctrl       | Right Front       | PWM  | 4           | Positive command produces forward motion |
+| Output    | Drivetrain  | Spark Motor Ctrl       | Right Mid         | PWM  | 5           | Positive command produces forward motion |
+| Output    | Drivetrain  | Spark Motor Ctrl       | Right Rear        | PWM  | 6           | Positive command produces forward motion |
+| Output    | Elevator    | Victor SP Motor Ctrl   | Elevator          | PWM  | 2           | Positive command produces upward motion |
 | Input     | Elevator    | Generic Limit Switch   | Top A             | DIO  | 0           | True when the mechanism is in contact with the switch, false otherwise |
 | Input     | Elevator    | Generic Limit Switch   | Top B             | DIO  | 1           | True when the mechanism is in contact with the switch, false otherwise |
 | Input     | Elevator    | Generic Limit Switch   | Bottom            | DIO  | 2           | True when the mechanism is in contact with the switch, false otherwise |
 | Input     | Elevator    | Generic Quad Encoder   | SpoolEnc          | DIO  | 3,4         | 1024 counts per foot of elevator travel |
-| Output    | CubeGrabber | Spark Motor Ctrl       | CubeGrabber Left  | PWM  | 7           | Due to mechanical construction, _negative_ motor command produces intaking motion. |
-| Output    | CubeGrabber | Spark Motor Ctrl       | CubeGrabber Right | PWM  | 8           | Positive command produces intaking motion |
+| Output    | CubeGrabber | Spark Motor Ctrl       | CubeGrabber Left  | PWM  | 0           | Due to mechanical construction, _negative_ motor command produces intaking motion. |
+| Output    | CubeGrabber | Spark Motor Ctrl       | CubeGrabber Right | PWM  | 1           | Positive command produces intaking motion |
 
 ## Lessons
 
