@@ -6,9 +6,13 @@ class LessonThree {
 
     ////////////////////////////////////////////////
     // Declare new variables after this line...
-    int ASideLen = 3;
-    int BSideLen = 4;
-    int CSideLen = 5;
+
+    boolean cond1 = false;
+    boolean cond2 = true;
+
+    int ASideLen = 6;
+    int BSideLen = 8;
+    int CSideLen = 10;
 
     @Signal(units = "RPM")
     double actualSpeed_RPM = 0;
@@ -24,14 +28,26 @@ class LessonThree {
 
         ////////////////////////////////////////////////
         // Write your new code for PROBLEM 1 after this line...
-
-
+        if(cond1){
+            System.out.println("Ran IF");
+        } else if (cond2) {
+            System.out.println("Ran ELSE IF");
+        } else {
+            System.out.println("Ran ELSE");
+        }
         // ...but before this line.
         ////////////////////////////////////////////////
 
         ////////////////////////////////////////////////
         // Write your new code for PROBLEM 2 after this line...
 
+        int aSquared = ASideLen * ASideLen;
+        int bSquared = BSideLen * BSideLen;
+        int cSquared = CSideLen * CSideLen;
+
+        if(cSquared == aSquared + bSquared){
+            System.out.println("It's a right triangle!");
+        }
 
         // ...but before this line.
         ////////////////////////////////////////////////
