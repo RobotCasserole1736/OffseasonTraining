@@ -25,6 +25,14 @@ class LessonTwo {
     @Signal
     int result4;
 
+    double val1 = 10;
+    double val2 = -10;
+    double val3 = 9.5;
+
+    boolean val4 = true;
+    boolean val5 = true;
+    boolean val6 = true;
+
     // ...but before this line.
     ////////////////////////////////////////////////
 
@@ -32,10 +40,16 @@ class LessonTwo {
 
         ////////////////////////////////////////////////
         // Add your problem-solution code after this line...
+        result1 = val1 + val2 + val3;
+        
+        result2 = (val1/val2)-val3;
 
+        result3 = val4 | val5;
 
+        raiseArmNow = val4 & !val5;
         // ...but before this line.
         ////////////////////////////////////////////////
+        
 
 
 

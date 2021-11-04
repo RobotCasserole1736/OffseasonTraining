@@ -24,15 +24,38 @@ class LessonThree {
 
         ////////////////////////////////////////////////
         // Write your new code for PROBLEM 1 after this line...
+        boolean cond1 = false;
+boolean cond2 = true;
 
+if(cond1){
+    System.out.println("Ran IF");
+} else if (cond2) {
+    System.out.println("Ran ELSE IF");
+} else {
+    System.out.println("Ran ELSE");
+}
 
         // ...but before this line.
         ////////////////////////////////////////////////
 
         ////////////////////////////////////////////////
         // Write your new code for PROBLEM 2 after this line...
-
-
+        if (ASideLen > 0 & BSideLen > 0 & CSideLen > 0) {
+            if (CSideLen > ASideLen & CSideLen > BSideLen) {
+                if ((CSideLen * CSideLen) == (ASideLen * ASideLen) + (BSideLen * BSideLen)) {
+                    System.out.println("It's a right triangle!");
+                }
+                else {
+                    System.out.println(" Failure on third condition");
+                }
+            }
+            else {
+                System.out.println("Failure on second condition");
+            }
+        }
+       else {
+           System.out.println("Failure on first condition");
+       }
         // ...but before this line.
         ////////////////////////////////////////////////
     }
