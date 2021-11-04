@@ -32,6 +32,7 @@ public class Robot extends TimedRobot {
   CasseroleRIOLoadMonitor loadMon;
 
   DriverInterface di;
+  DriveTrain dt;
   @Signal
   int loopCounter = 0;
 
@@ -49,6 +50,7 @@ public class Robot extends TimedRobot {
     loadMon = new CasseroleRIOLoadMonitor();
 
     di = new DriverInterface();
+    dt = new DriveTrain();
 
     dataServer.registerSignals(this);
     dataServer.startServer();
@@ -84,6 +86,11 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+
+    di.update();
+
+    dt.setFwdRevCmd(di.getFwdRevCmd());
+    dt.setRotate(di.getRotate());
 
     periodicCommon();
   }
@@ -121,7 +128,7 @@ public class Robot extends TimedRobot {
 
   void periodicCommon() {
 
-    di.update();
+    dt.update();
 
     loopCounter++;
     dataServer.sampleAllSignals();
