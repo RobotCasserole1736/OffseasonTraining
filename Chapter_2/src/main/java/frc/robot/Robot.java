@@ -8,6 +8,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.TimedRobot;
+import frc.PoseTelemetry;
 import frc.lib.Calibration.CalWrangler;
 import frc.lib.DataServer.CasseroleDataServer;
 import frc.lib.DataServer.Annotations.Signal;
@@ -38,6 +39,8 @@ public class Robot extends TimedRobot {
   @Signal
   int loopCounter = 0;
 
+  PoseTelemetry pt;
+
   /**
    * This function is run when the robot is first started up and should be used
    * for any initialization code.
@@ -52,7 +55,10 @@ public class Robot extends TimedRobot {
     loadMon = new CasseroleRIOLoadMonitor();
 
     di = new DriverInterface();
+
     dt = new DriveTrain();
+
+    pt = PoseTelemetry.getInstance();
     dataServer.registerSignals(this);
     dataServer.startServer();
     webserver.startServer();
@@ -87,6 +93,11 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+    
+    di.update();
+
+    dt.setFwdRevCmd(di.getFwdRevCmd());
+    dt.setRotateCmd(di.getRotateCmd());
 
     dt.update();
 
@@ -129,9 +140,10 @@ public class Robot extends TimedRobot {
 
   void periodicCommon() {
 
-    di.update();
+    dt.update();
 
     loopCounter++;
+    pt.update();
     dataServer.sampleAllSignals();
   }
 
