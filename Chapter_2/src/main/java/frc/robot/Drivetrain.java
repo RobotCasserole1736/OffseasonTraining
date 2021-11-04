@@ -32,7 +32,18 @@ public class Drivetrain {
     }
 
     public void update(){
+        double leftMotorSpeed = 0;
+        double rightMotorSpeed = 0;
 
+        leftMotorSpeed  = curFwdRevCmd - curRotateCmd;
+        rightMotorSpeed = curFwdRevCmd + curRotateCmd;
+     
+        motorCtrl_Left1.set(leftMotorSpeed);
+        motorCtrl_Left2.set(leftMotorSpeed);
+        motorCtrl_Left3.set(leftMotorSpeed);
+        motorCtrl_Right1.set(rightMotorSpeed);
+        motorCtrl_Right2.set(rightMotorSpeed);
+        motorCtrl_Right3.set(rightMotorSpeed);
     }
 
     public void setFwdRevCmd(double cmd_in){
