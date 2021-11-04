@@ -1,0 +1,56 @@
+package frc.robot;
+
+import edu.wpi.first.wpilibj.Spark;
+import frc.lib.DataServer.Annotations.Signal;
+
+public class Drivetrain {
+    
+    @Signal
+    double curFwdRevCmd = 0;
+    @Signal
+    double curRotCmd = 0;
+    
+    Spark motorCtrl_Left1;
+    Spark motorCtrl_Left2;
+    Spark motorCtrl_Left3;
+
+    Spark motorCtrl_Right1;
+    Spark motorCtrl_Right2;
+    Spark motorCtrl_Right3;
+
+    public Drivetrain(){
+        
+        motorCtrl_Left1 = new Spark(7);
+        motorCtrl_Left2 = new Spark(8);
+        motorCtrl_Left3 = new Spark(9);
+
+        motorCtrl_Right1 = new Spark(4);
+        motorCtrl_Right2 = new Spark(5);
+        motorCtrl_Right3 = new Spark(6);
+
+    }
+
+    public void update(){
+        double LeftMotorSpeed = 0;
+        double RightMotorSpeed = 0;
+
+        LeftMotorSpeed = curFwdRevCmd - curRotCmd;
+        RightMotorSpeed = curFwdRevCmd + curRotCmd;
+
+        motorCtrl_Left1.set(LeftMotorSpeed);
+        motorCtrl_Left2.set(LeftMotorSpeed);
+        motorCtrl_Left3.set(LeftMotorSpeed);
+        motorCtrl_Right1.set(RightMotorSpeed);
+        motorCtrl_Right2.set(RightMotorSpeed);
+        motorCtrl_Right3.set(RightMotorSpeed);
+        
+    }
+
+    public void setFwdRevCmd(double cmd_in){
+        curFwdRevCmd = cmd_in;
+    }
+
+    public void setRotateCmd(double cmd_in){
+        curRotCmd = cmd_in;
+    }
+}
