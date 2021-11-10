@@ -32,7 +32,10 @@ public class DriverInterface {
      * @return 
      */
     double getFwdRevCmd(){
-        return curFwdRevCmd;
+        if(curFwdRevCmd > -0.5 && curFwdRevCmd < 0.5){
+            return 0;
+        }
+        else return curFwdRevCmd;
     }
 
     /**
@@ -43,7 +46,12 @@ public class DriverInterface {
      * @return 
      */
     double getRotateCmd(){
-        return curRotCmd;
+        if(curRotCmd > -0.5 && curRotCmd < 0.5){
+            return 0;
+        }
+        
+        
+        else return curRotCmd;
     }
     
 }

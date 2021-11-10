@@ -64,8 +64,8 @@ class DrivetrainModel {
         lhSide.update(12.5, lhMotorCmd, 0.0);
         rhSide.update(12.5, rhMotorCmd, 0.0);
 
-        double lhWheelDeltaFt = RPMtoFtPerSec(lhSide.getSpeed_RPM())*0.02;
-        double rhWheelDeltaFt = -1.0 * RPMtoFtPerSec(rhSide.getSpeed_RPM())*0.02; //RHS mechanically inverted
+        double lhWheelDeltaFt = -1 * RPMtoFtPerSec(lhSide.getSpeed_RPM())*0.02;
+        double rhWheelDeltaFt = RPMtoFtPerSec(rhSide.getSpeed_RPM())*0.02; //RHS mechanically inverted
 
         Twist2d dtTwist = new Twist2d(Units.feetToMeters(lhWheelDeltaFt + rhWheelDeltaFt)/2, 0, (rhWheelDeltaFt - lhWheelDeltaFt) / (DT_TRACK_WIDTH_FT));
 

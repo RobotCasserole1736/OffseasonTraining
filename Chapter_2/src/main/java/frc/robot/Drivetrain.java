@@ -35,8 +35,9 @@ public class Drivetrain {
         double leftMotorSpeed = 0;
         double rightMotorSpeed = 0;
 
-        leftMotorSpeed  = curFwdRevCmd - curRotateCmd;
-        rightMotorSpeed = curFwdRevCmd + curRotateCmd;
+        leftMotorSpeed  = (curFwdRevCmd - curRotateCmd);
+        rightMotorSpeed = (curFwdRevCmd + curRotateCmd);
+        leftMotorSpeed = leftMotorSpeed * -1;
      
         motorCtrl_Left1.set(leftMotorSpeed);
         motorCtrl_Left2.set(leftMotorSpeed);
