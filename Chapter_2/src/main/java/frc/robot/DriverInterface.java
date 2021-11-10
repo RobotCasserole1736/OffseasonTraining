@@ -20,8 +20,8 @@ public class DriverInterface {
     }
 
     public void update(){
-        curFwdRevCmd = -1.0 * driverController.getY(Hand.kLeft);
-        curRotCmd = -1.0 * driverController.getX(Hand.kRight);
+        curFwdRevCmd = -1 * driverController.getY(Hand.kLeft);
+        curRotCmd = -1 * driverController.getX(Hand.kRight);
     }
 
     /**
