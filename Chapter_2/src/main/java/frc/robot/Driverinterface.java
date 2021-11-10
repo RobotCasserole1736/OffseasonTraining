@@ -5,40 +5,45 @@ import edu.wpi.first.wpilibj.GenericHID.Hand;
 import frc.lib.DataServer.Annotations.Signal;
 
 public class DriverInterface {
-    
-  
+
     XboxController driverController;
 
     @Signal
     double curFwdRevCmd;
     @Signal
     double curRotCmd;
-   
-
 
     public DriverInterface(){
 
         driverController = new XboxController(0);
+
     }
 
     public void update(){
-        curFwdRevCmd = driverController.getY(Hand.kLeft);
-        curRotCmd= driverController.getX(Hand.kRight);
+        curFwdRevCmd = -1.0 * driverController.getY(Hand.kLeft);
+        curRotCmd = -1.0 * driverController.getX(Hand.kRight);
     }
+
     /**
-     * Returns 1 when the driver wants the robot to move forward
-     * -1 when they want it to go backward
-     * 0 when they want it to stop.
-     */  
+     * Gets the driver command for fwd/rev
+     * 1.0 means "fast as possible forward"
+     * 0.0 means stop
+     * -1.0 means "fast as possible reverse"
+     * @return 
+     */
     double getFwdRevCmd(){
-        return curFwdRevCmd*-0.72; //todo
+        return curFwdRevCmd;
     }
-   /**
-     * Returns 1 when the driver wants the robot to rotate right
-     * -1 when they want it to rotate left
-     * 0 when they want it no rotation
-     */   
+
+    /**
+     * Gets the driver command for rotate
+     * 1.0 means "fast as possible to the left"
+     * 0.0 means stop
+     * -1.0 means "fast as possible to the right"
+     * @return 
+     */
     double getRotateCmd(){
-        return curRotCmd;//todo
+        return curRotCmd;
     }
+    
 }

@@ -55,7 +55,7 @@ public class Robot extends TimedRobot {
     loadMon = new CasseroleRIOLoadMonitor();
 
     David = new DriverInterface();
-    Dwayne = new DriveTrain();
+    Dwayne = new Drivetrain();
     
 
 
@@ -139,8 +139,6 @@ public class Robot extends TimedRobot {
     David.update();
 
     Dwayne.update();
-
-    dt.update();
 
     loopCounter++;
     pt.update();
