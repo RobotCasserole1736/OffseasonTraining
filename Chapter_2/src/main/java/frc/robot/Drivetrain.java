@@ -18,8 +18,9 @@ public class Drivetrain {
     Spark motorCtrl_Right2;
     Spark motorCtrl_Right3;
 
+    // Constructor
     public Drivetrain(){
-        
+
         motorCtrl_Left1 = new Spark(7);
         motorCtrl_Left2 = new Spark(8);
         motorCtrl_Left3 = new Spark(9);
@@ -31,19 +32,18 @@ public class Drivetrain {
     }
 
     public void update(){
-        double LeftMotorSpeed = 0;
-        double RightMotorSpeed = 0;
+        double leftMotorSpeed = 0;
+        double rightMotorSpeed = 0;
 
-        LeftMotorSpeed = curFwdRevCmd - curRotCmd;
-        RightMotorSpeed = curFwdRevCmd + curRotCmd;
-
-        motorCtrl_Left1.set(LeftMotorSpeed);
-        motorCtrl_Left2.set(LeftMotorSpeed);
-        motorCtrl_Left3.set(LeftMotorSpeed);
-        motorCtrl_Right1.set(RightMotorSpeed);
-        motorCtrl_Right2.set(RightMotorSpeed);
-        motorCtrl_Right3.set(RightMotorSpeed);
-        
+        leftMotorSpeed  = curFwdRevCmd - curRotateCmd;
+        rightMotorSpeed = curFwdRevCmd + curRotateCmd;
+     
+        motorCtrl_Left1.set(leftMotorSpeed);
+        motorCtrl_Left2.set(leftMotorSpeed);
+        motorCtrl_Left3.set(leftMotorSpeed);
+        motorCtrl_Right1.set(rightMotorSpeed);
+        motorCtrl_Right2.set(rightMotorSpeed);
+        motorCtrl_Right3.set(rightMotorSpeed);
     }
 
     public void setFwdRevCmd(double cmd_in){
@@ -51,6 +51,7 @@ public class Drivetrain {
     }
 
     public void setRotateCmd(double cmd_in){
-        curRotCmd = cmd_in;
+        curRotateCmd = cmd_in;
     }
+    
 }
