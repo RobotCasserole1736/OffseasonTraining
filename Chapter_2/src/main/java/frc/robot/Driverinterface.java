@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
 import frc.lib.DataServer.Annotations.Signal;
 
-public class Driverinterface {
+public class DriverInterface {
     
   
     XboxController driverController;
@@ -16,7 +16,7 @@ public class Driverinterface {
    
 
 
-    public Driverinterface(){
+    public DriverInterface(){
 
         driverController = new XboxController(0);
     }

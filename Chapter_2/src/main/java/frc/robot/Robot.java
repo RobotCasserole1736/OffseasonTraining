@@ -31,7 +31,7 @@ public class Robot extends TimedRobot {
   LoopTiming loopTiming;
   CasseroleRIOLoadMonitor loadMon;
 
-  Driverinterface David;
+  DriverInterface David;
   Drivetrain Dwayne;
 
   @Signal
@@ -50,7 +50,7 @@ public class Robot extends TimedRobot {
     dataServer = CasseroleDataServer.getInstance();
     loadMon = new CasseroleRIOLoadMonitor();
 
-    David = new Driverinterface();
+    David = new DriverInterface();
 
 
     dataServer.registerSignals(this);
