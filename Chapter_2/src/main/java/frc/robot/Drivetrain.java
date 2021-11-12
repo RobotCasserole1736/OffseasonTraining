@@ -3,7 +3,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.Spark;
 import frc.lib.DataServer.Annotations.Signal;
 
-public class Drivetrain {
+public class DriveTrain {
 
     @Signal
     double curFwdRevCmd = 0;
@@ -19,7 +19,7 @@ public class Drivetrain {
     Spark motorCtrl_Right3;
 
     // Constructor
-    public Drivetrain(){
+    public DriveTrain(){
 
         motorCtrl_Left1 = new Spark(7);
         motorCtrl_Left2 = new Spark(8);
@@ -35,9 +35,10 @@ public class Drivetrain {
         double leftMotorSpeed = 0;
         double rightMotorSpeed = 0;
 
-        leftMotorSpeed  = curFwdRevCmd - curRotateCmd;
+        leftMotorSpeed  = (curFwdRevCmd - curRotateCmd) * -1;
         rightMotorSpeed = curFwdRevCmd + curRotateCmd;
-     
+
+
         motorCtrl_Left1.set(leftMotorSpeed);
         motorCtrl_Left2.set(leftMotorSpeed);
         motorCtrl_Left3.set(leftMotorSpeed);
