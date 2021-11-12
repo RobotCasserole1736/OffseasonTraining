@@ -8,6 +8,8 @@ public class DriverInterface {
 
     XboxController driverController;
 
+final int inputExponent = 3;
+
     @Signal
     double curFwdRevCmd;
     @Signal
@@ -20,8 +22,8 @@ public class DriverInterface {
     }
 
     public void update(){
-        curFwdRevCmd = -1.0 * driverController.getY(Hand.kLeft);
-        curRotCmd = -1.0 * driverController.getX(Hand.kRight);
+        curFwdRevCmd = -1.0 * driverController.getX(Hand.kRight);
+        curRotCmd = -1.0 * driverController.getY(Hand.kLeft);
     }
 
     /**
@@ -32,7 +34,10 @@ public class DriverInterface {
      * @return 
      */
     double getFwdRevCmd(){
-        return curFwdRevCmd;
+        if(curFwdRevCmd < 0.2 && curFwdRevCmd > -0.2){
+            return 0;
+        } else return Math.pow(curFwdRevCmd, inputExponent);
+            
     }
 
     /**
@@ -43,7 +48,10 @@ public class DriverInterface {
      * @return 
      */
     double getRotateCmd(){
-        return curRotCmd;
+        if(curRotCmd < 0.2 && curRotCmd > -0.2){
+            return 0;
+        } else return Math.pow(curRotCmd, inputExponent);
+        
     }
     
 }
