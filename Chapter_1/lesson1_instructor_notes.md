@@ -1,5 +1,3 @@
-# Instructor Notes
-
 # 1.1 - Github and Git - Getting Software
 
 ## Setup

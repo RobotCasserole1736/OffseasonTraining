@@ -1,29 +1,31 @@
-
 # Lesson 3.1: Comparison
 
-Booleans can be *created* by comparing two `double`'s or two `int`'s.
+Comparing two `double`'s or two `int`'s will create a boolean value. Either the comparison is "true", or it is "not true".
 
-`A == B` returns true if A and B are exactly the same, false otherwise.
+```java
 
-`A <= B` returns true if A is less than or the same as B, false otherwise.
+int A =  5; 
+int B = -3;
+boolean ans;
 
-`A < B` returns true if A is less than B, false otherwise.
+ans = (A == B); // Checks if A and B are exactly the same. In this case, 5 is not equal to -3, so ans is False.
+ans = (A <= B); // Checks if A is less than or equal to B. In this case, ans is False.
+ans = (A >  B); // Checks if A and B are exactly the same. In this case, ans is True.
+```
 
-`>` and `>=` do exactly what you'd expect them to.
+Key thing to memorize:
 
-Note the subtle difference between `=` and `==` - it's a common mistake to mix them up. THe way to remember: `=` assigns, `==` compares. It's just something to memorize. 
+`==` performs **comparison**.
 
-## Comparison Example
+`=` performs **assignment**.
 
-To illustrate the usage, consider the following problem:
+## Problem 1
 
 Create a boolean named `shooterRunning` which is `True` when the shooter wheel is spinning fast enough, and false otherwise.
 
 Critical to this, we have to define the speed at which we are running "fast enough". This number should come from the mechanical team that's prototyping the shooter. It might be verified by software team doing empirical testing on the final robot. Regardless, we'd create a variable to describe it:
 
 `final double SHOOTER_RUNNING_RPM = 3200.0;`
-
-NOTE: The ALL_CAPITAL_LETTERS format and presence of `final` indicates this is a _constant_ number. It's a promise to the roboRIO that we'll never change the numerical value of `SHOOTER_RUNNING_RPM` - it's a _constant_ value.
 
 Assume we have some measurement of shooter speed stored into the variable `shooterSpeed_RPM`. We can create our boolean:
 

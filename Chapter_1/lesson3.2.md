@@ -2,41 +2,44 @@
 
 ## `if` - `else if` - `else` Statements
 
-Recall that java code is organized into "blocks", using the `{` and `}` characters.
+If/Else statements _control whether a block of code is executed or skipped_.
+
+An `if` statement turns on or off a single block of code:
 
 ```java
-{
-    //This is a block of code
-}
-
-{ 
-    //This is a different block of code.
+if(<condition>){
+    //this code is only run if <condition> is True.
+    // Otherwise, the code is skipped
 }
 ```
 
-You can use "if-statements" to _control whether a block of code is executed or skipped_.
+An `if/else` statement toggles between two blocks of code:
 
-This is a very powerful concept: if/else allows you to use booleans to "turn on" or "turn off" certain code from executing. This is the basic mechanism for pieces of software to "make decisions" between alternatives.
+```java
+if(<condition>){
+    //this code is only run if <condition> is True.
+} else {
+    //this code is only run if <condition> is False.
+}
+```
 
-The sequence must always be:
+An `if/elseif/else` statement runs one block of code from three or more.
 
-1) `if(<condition>)`
-2) `else if(<condition>)` (optional)
-3) `else` (optional)
+```java
+if(<condition_1>){
+    //this code is only run if <condition_1> is True.
+} else if(<condition_2>){
+    //this code is only run if <condition_2> is True.
+} else if(<condition_3>){
+    //this code is only run if <condition_3> is True.
+} else {
+    //this code is only run if ALL of the previous conditions were False.
+}
+```
 
-Each `<condition>` must be (eventually) a boolean. Whether this is explicitly some `boolean` variable, or just a boolean created by comparison of two `int` or `double` values... doesn't quite matter. All that matters is that the thing inside the `()` can be interpreted as a `boolean`.
+You may have as many `else if` statements as you want.
 
-Note that both the `else if` and `else` statements are technically optional. You may or may not need them, depending on your situation.
-
-Additionally, you may have as many `else if` statements as you want. Anywhere between 0 and infinity (actually, as many as your PC's memory will allow ... which is "a lot". ).
-
-The blocks of code are always evaluated top-down. FIrst, the first `if` statement is checked. If its `<condition>` is `True`, its code block is run, and all the others are skipped. 
-
-If the first statement's `<condition>` is `False`, it is skipped, and execution goes to the next `else if(<condition>)`. If _that_ one's `<condition>` is true, it is run. Otherwise, execution moves on to the next `else if(<condition>)`.
-
-Finally, if there is an `else` statement and no prior `<condition>` has returned `True`, the `else` block is run.
-
-Here's an example of the syntax:
+Here's a functional example:
 
 ```java
 

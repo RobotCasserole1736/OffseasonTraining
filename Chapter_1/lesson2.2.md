@@ -3,9 +3,9 @@
 
 ## Logic
 
-Math operations work well with `int` and `double` types. `boolean` types have different, special operations. Just like we can calculate the _sum_ or the _product_ of numbers, we calculate the _AND_ or the _OR_ of boolean values.
+Logic operators are like math operations, but for `boolean` values.
 
-The main boolean operations are defined as:
+The main logic operations are defined as:
 
 `&`, or "AND", returns true _if both inputs are true_.
 
@@ -17,18 +17,20 @@ Some examples:
 
 ```java
 
-false = false & false;  // false AND false returns false    
-false = false & true;   // false AND true  returns false  
-false = true  & false;  // true  AND false returns false   
-true  = true  & true;   // true  AND true  returns true  
+boolean ans;
 
-false = false | false;  // false OR false returns false 
-true  = false | true;   // false OR true  returns true 
-true  = true  | false;  // true  OR false returns true 
-true  = true  | true;   // true  OR true  returns true  
+ans = false & false;  // false AND false ==> ans is false    
+ans = false & true;   // false AND true  ==> ans is false  
+ans = true  & false;  // true  AND false ==> ans is false   
+ans = true  & true;   // true  AND true  ==> ans is true  
 
-true  = !false;         // NOT false returns true      
-false = !true;          // NOT true  returns false    
+ans = false | false;  // false OR false ==> ans is false 
+ans = false | true;   // false OR true  ==> ans is true 
+ans = true  | false;  // true  OR false ==> ans is true 
+ans = true  | true;   // true  OR true  ==> ans is true  
+
+ans = !false;         // NOT false ==> ans is true    
+ans = !true;          // NOT true  ==> ans is false   
 
 ```
 

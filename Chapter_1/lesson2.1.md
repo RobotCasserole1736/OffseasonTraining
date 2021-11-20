@@ -5,56 +5,43 @@
 
 ### Variables & Types
 
-A _variable_ is a named "storage container" that holds some piece of information. Often, this information is a numeric quantity.
+A _variable_ is a named "storage container" for information
 
-Though not identical to the variables you know from Algebra, you can often think of them the same way.
+Variables have a _type_, which defines the types of information they hold
 
-Variables have a _type_, which defines the sorts of values they might hold.
+A `boolean` stores a value which can only be _True_ or _False_.
 
-Simple types include `boolean`, `int` and `double`. 
+An `int` or "integer" type stores whole-number values.
 
-A `boolean` stores a value which can only be _True_ or _False_. It's good for things like switches or logical conditions - things which can _only_ ever be "this" or "that".
-
-An `int` or "integer" type stores whole-number values. It's good for when you want to count "how many".
-
-A `double` or "double-precision floating point" type stores a real number, like `-2.5` or `3.14159`. It's good for expressing measurements, like the speed of a wheel (in RPM). 
-
-Always choose the "simplest" type to describe your variable. Not only will this make the code run faster, but it will help communicate the _meaning_ behind your variable. 
+A `double` or "double-precision floating point" type stores a real number, like `-2.5` or `3.14159`. 
 
 ### Declaring Variables
 
-Variables need to be _declared_ before they can be used. This _declaration_ process is used by the computer to know to set some _memory_ aside for us to save numeric values for future use or manipulation.
+Variables need to be _declared_ before they can be used.
 
 Variables get declared using the following _syntax_:
 
 `<type> <name> = <initial value>;`
 
-`<initial value>` is technically optional, but is highly recommended, especially for any robot code.
-
 For example:
 
 `double shooterSpeed_RPM = 20;`
 
-This line of code creates a new variable of type `boolean`, named `shooterSpeed_RPM`, and sets it equal to `20` to start. Its value may change in the future as we write new values to it.
-
 ### The Meaning of `=`
 
-In software, a single equals sign (`=`) is referred to as the "assignment" operator. It tells the computer to take the thing on the _right side_, and put it into the thing on the _left side_.
+In software, `=` has a more narrowly-defined meaning than you are used to in normal math.
 
-The value on the left side is almost always a single variable name. The value on the right side is usually a more complex expression of numbers and variables and other things.
+A single equals sign (`=`) is the "assignment" operator. It tells the computer to take the thing on the _right side_, and put it into the thing on the _left side_. 
 
-Unlike in "normal" math, reversing the order is _not allowed_. The _assignment_ operation has a source and a destination, and these two concepts aren't interchangable. The source must always be on the right, and the destination must always be on the left.
-
-### Math 
+### Doing Math 
 
 Variables are combined and manipulated using basic math operations you are probably already familiar with.
 
 `+`, `-`, `*`, and `\` represent addition, subtraction, multiplication, and division.
 
-The `=` equals sign means "calculate the value on the right side, and store it into the variable on the left". Though this often looks like the usual math expressions (`4 = 3 + 1;`), keep in mind direction is important. Calculate right, assign left. That's why it's called the _assignment operator_.
+Just like normal math, you can use `(` and `)` parenthesis to group operations together, changing the order of operations.
 
-Programming languages have an "order of operations", just in normal math. Just like normal math, you can use `(` and `)` parenthesis to group operations together, changing the order of operations.
-
+In software, always express calculations on the **Right-hand side** of the equation. The left-hand side should only have the *variable* where the result is to be stored.
 
 <details>
 <summary> Note </summary>
@@ -73,11 +60,9 @@ result = 10 * (20 + 30);
 
 ### Code Comments
 
-It's often useful to leave notes to the other human beings inside of code. These help tell the other humans what the code is intended to do, or why it is the way it is.
+A comment is a line in code intended only for humans, and ignored by the computer.
 
-In these lessons, we also use code comments to help guide you on where to type your code as you start off. Kind of a "training wheels" of sorts.
-
-Code comments are ignored by the computer. You can type whatever you want in them, the computer always ignores it. They're for human consumption only.
+Use them to explain the meaning and intent of different pieces of code.
 
 ```java
 
@@ -124,11 +109,10 @@ In particular, in each lesson `.java` file, you'll see things like this:
     ////////////////////////////////////////////////
 ```
 
-Pay attention to the comments as you go through each problem! They will help guide you on where to declare your variable, or where to type code
 
 ## Problem 0 - Starting off.
 
-Open a windows file explorer in the folder for the training repo we _cloned_ last lesson. Right click in the white-space, and select "Git Extensions Browse".
+Open a windows file explorer in the folder for the training repo we _cloned_ last lessons. Right click in the white-space, and select "Git Extensions".
 
 ![](doc/gitext_clone.png)
 
