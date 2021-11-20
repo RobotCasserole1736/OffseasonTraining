@@ -76,3 +76,7 @@ if(cond1){
 ### Problem Set Notes
 
 As students go through the problems, introduce the concept as needed that blocks of code can be _nested_.
+
+# Lesson 3.3 - "Bang Bang" Shooter Wheel Control
+
+See the description in Lesson 3.3.md
