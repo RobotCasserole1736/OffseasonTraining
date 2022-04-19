@@ -1,67 +1,45 @@
 
 # Lesson 5.1 - Using the Debugger
 
-Up till now, the pieces of code we've written are pretty small. Small enough that _by just staring at the code_, you can probably predict how it will work.
+The *debugger* is a tool which allows us to walk through our code's execution, line by line. As we step through code, we can inspect the values of different variables.
 
-Ideally, as we write more and more code, we'll keep it as organized as possible, to help keep this "inspectability". However, inevitably, bigger projects create more complex problems, that need more advanced tools to unravel.
+This is a useful tool for discovering bugs, and finding fixes.
 
-We've already looked at one of these tools: inserting `System.out.println()` calls at critical portions of your code allow you to check multiple things. This includes order of execution, and values of variables at various times.
-
-You've also seen the website utilities, which allow you to see values of variables as they change over time.
-
-We will introduce one additional tool that you can use to help investigate problems. It's called the _single step debugger_, or simply the "debugger".
-
-The debugger allows you to stop code execution on certain lines, "step" through your code's execution line by line, and print out values of variables and expressions at runtime. The biggest advantage of the debugger is that it doesn't require injecting any additional lines of code into your software - it _just works_. (usually :D).
-
-When running code locally on a desktop, the debugger is automatically running in the background - nothing special you have to do to start it.
-
-Regardless of what debug tool you happen to be using, the technique for solving problems is generally the same:
-
-1) Look at the code, and decide how you are expecting it to work.
-2) Investigate the code as it executes from start to end.
-3) Find the first place where the behavior of the code deviates from your expectations.
-
-The important thing to keep in mind: When you see errors, or software that doesn't work like you'd expect, don't get discouraged! There is a solution, it will just take time and technique to find it. Practicing this technique, over and over again, is how you get better and better at creating software!
+We'll start by debugging code running on our desktops.
 
 ## Walk-Through
 
-We'll now walk you through basic usage of the debugger that's available for robot code. 
-
-The same debugger can be used to inspect code behavior on both the robot and on your desktop. We'll start by debugging code running on our desktops.
+We'll walk through basic usage of the debugger that's available for robot code. 
 
 Start by opening `LessonFive.java` in vsCode.
 
 ### Launching the Debugger
 
-The debugger is automatically enabled when running software on your PC. Just press `F5` on your keyboard like normal, select the HAL sim GUI .dll, and let it run. You should see the sim GUI pop up. The debugger is now running in the background, ready to be used to analyze code behavior!
+Press `F5` on your keyboard like normal, select the HAL sim GUI .dll, and let it run like normal. You should see the sim GUI pop up. The debugger is now running in the background.
 
-You've probably seen the controls before, but here's the more detailed explanation of what each button does:
+The controls for the debugger are:
 
 ![](doc/dbg_ctrl.png)
 
-Additionally, click the "bug-with-an-X" on the left side of vsCode to open the debug pane:
+Click the "bug-with-an-X" on the left side of vsCode to open the debug pane:
 
 ![](doc/dbg_pane.png)
 
-The orange bar at the bottom of the window indicates debugging is active right now (blue indicates nothing is running). Additionally, you can see that we launched the `Desktop Debug` routine, as expected.
+The orange bar at the bottom of the window indicates debugging is active.
 
-Take a quick look at the code in the  `LessonFive` class. You can see it has a method named `lessonFiveEnabledUpdate()`, which is getting called inside `Robot.java`'s `teleopPeriodic()` method. Therefor, to "active" or "run" the lesson five code, we know we'll need to have the robot in the Teleop enabled mode.
+To run the lesson five code, put the robot into Teleop enabled mode.
 
 ### Setting Breakpoints
 
-Remember that a computer executes a program line by line, starting at the top, going through method calls as needed, calculating and assigning values for each line, then moving on to the next line.
-
-A "breakpoint" is a flag sent to the program to tell it to stop execution once code reaches the start of a certain line. "Setting" a breakpoint is the act of setting that flag on a particular line of code.
-
-To set a breakpoint in vsCode, simply click in the space to the left of the line numbers in a particular file. 
+Click in the space to the left of the line numbers in a particular file. 
 
 ![](doc/dbg_breakpoint_col.png)
 
-Let's go ahead and do this on the first line of `lessonFiveEnabledUpdate()`.
+This sets a breakpoint.
+
+Set a breakpoint on the first line of `lessonFiveEnabledUpdate()`.
 
 ![](doc/dbg_breakpoint.png)
-
-There should be a bright red circle that appears next to the line. Nothing else will happen at this point, because we're _not yet calling this method_.
 
 Quick knowledge check: _Why isn't this function getting called?_ Check your answer below.
 
@@ -70,17 +48,14 @@ Quick knowledge check: _Why isn't this function getting called?_ Check your answ
 The robot defaults to being in the Disabled state. In `Robot.java`, you can see that in `disabledPeriodic()`, there is indeed no call to `lessonFiveEnabledUpdate()`. Because of this, during the Disabled state, `lessonFiveEnabledUpdate()` should _NOT_ be getting called. The fact that the debugger does not hit this line of code while disabled proves this functionality. Huzzah!
 </details>
 
-With our breakpoint set, let's go ahead and enable the robot code. Do this by selecting `Teleooperated` from the `Robot State` pane in the Robot Simulation GUI:
+Enable the robot in `Teleop` mode:
 
 ![](doc/dbg_enabled.png)
 
-As soon as you do this, `lessonFiveEnabledUpdate()` will get called, and we should _hit the breakpoint_. Here's what that looks like:
+The breakpoint in `lessonFiveEnabledUpdate()` should be "hit":
 
 ![](doc/dbg_breakpoint_hit.png)
 
-The most obvious indicator is the yellow highlights on the breakpoint and line. It indicates the program is currently stopped on this line of code.
-
-You'll additionally see our previous "Pause" icon in the debugger controls has changed to a play button. Since the code is now stopped, we have a few options for what we can do, including continuing execution until the next breakpoint.
 
 Finally, you'll see the *Call Stack* in the bottom left. This shows not just where we're currently at in the code, but some info about _how we got here_. Specifically, you can see that `LessonFive.lelssonFiveEnabledUpdate()` (where we're at) got called from `Robot.teleopPeriodic()`, as expected. Below that, `Robot.teleopPeriodic()` got called from other code that's internal to WPIlib, and can be ignored.
 

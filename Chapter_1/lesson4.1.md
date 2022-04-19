@@ -1,16 +1,10 @@
 # Lesson 4.1: Organizing Code into Methods
 
-One way to organize code into meaningful chunks is by creating and calling _methods_. Sometimes called _functions_, these are named blocks of code that can be "called" from other pieces of code.
+Using methods helps us give meaningful names to groups of instructions.
 
-There are multiple good reasons to move chunks of code into a separate _method_:
-
-1) Reusability. Often, one small piece of code will need to be used in multiple spots. Rather than copying and pasting and duplicating the code, it's better to write it once in a method, then use that method wherever needed.
-2) Readability. A 1000-line file is hard to understand. It's better to break it up into meaningful chunks, and give each chunk a _meaningful name_. We'll see simple examples of this as we go.
-
+This help us make our code reusable, reducing development and maintenance effort.
 
 ## Structure of a Method
-
-Every method can optionally take _inputs_, called _arguments_. Additionally, they can output a single value, called a _return value_.
 
 Methods are written in the following form:
 
@@ -20,7 +14,7 @@ Methods are written in the following form:
 }
 ```
 
-For a very simple example, here's an example of a method that adds two numbers:
+Here's a simple example for adding two numbers:
 
 ```java
 double addTwoNumbers(double firstNumber, double secondNumber){
@@ -28,15 +22,13 @@ double addTwoNumbers(double firstNumber, double secondNumber){
 }
 ```
 
-Note that this code only _declares_ that a method with the name `addTwoNumbers` exists in your code. It doesn't actually cause it to get _used_ anywhere.
+We have defined the method's functionality - we will _use_ it later on.
 
 ## Execution Flow & Methods
 
-When we want to use a method, it is said that we _call_ the method. We use its name to do this. 
+To run a method, use it's name, followed by `()`.
 
-At the point of call, code execution jumps to the method, runs through it from start to finish, then jumps back to the point of call.
-
-To use the method we defined above, you could write the following lines of code:
+Pass in arguments as needed.
 
 ```java
 //...
@@ -52,29 +44,15 @@ System.out.println(result);
 
 What do you expect to be printed out from running this code?
 
-Trace the execution: First, the values 3 and 5 are passed into our method, `addTwoNumbers`. Inside that method, the two values are added and the result is returned (in this case, 8). That returned value ends up in the variable named `result`, which is then printed to the screen. Therefor, we expect `8` to be printed to the screen.
+Trace the execution: First, the values 3 and 5 are passed into our method, `addTwoNumbers`. 
 
-Note, you've already been using methods in the code you've written. 
+Inside that method, the two values are added and the result is returned (in this case, 8). That returned value ends up in the variable named `result`, which is then printed to the screen. 
 
-For one, all of the code you've written lives inside specific methods, which we know will get called in a specific sequence while the code is running. 
+Therefor, we expect `8` to be printed to the screen.
 
-Also, `System.out.println("some string")` is a special-named method which takes its argument (a string) and does some "behind the scenes magic" to print it to the console. You don't have to worry about any of the complexity of how this happens, you just call the method, and it _happens_. That's the beauty.
+Note: Using methods is something you've been doing since the start of these lessons. `System.out.println("some string")` is a method!
 
-### Common examples of Custom Methods in Robot Code
-
-There's a few common patterns you'll see for how methods get organized in robot code.
-
-`update` methods perform all the actions required to happen _every 20 ms_ to maintain control of some portion of the robot.
-
-`init` methods get called once before repeated calls `periodic`, to do one-time setup operations.
-
-`get` methods return meaningful values - think of them as the "output" points of a hunk of code.
-
-`set` methods take in meaningful values for a hunk of code. Think of them as the "input" points.
-
-`telemetryUpdate`broadcasts key pieces of data to the robot website for debug help.
-
-These names are chosen somewhat arbitrarily, and could technically be anything. The key is that usage and patterns remain as consistent as possible throughout the code, to make it easier to understand.
+`get`, `set`, `init`, and `update` are common methods which you will have to implement within the robot code you write.
 
 ## Problem 1
 

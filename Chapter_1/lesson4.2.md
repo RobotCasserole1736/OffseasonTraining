@@ -2,17 +2,11 @@
 
 ## Background
 
-On a robot, we use switches to detect when mechanisms have reached certain positions, and change robot behavior. These switches go by many names, including "limit switches" and "micro switches". 
+[Watch this video to understand how switches work on the inside.](https://www.youtube.com/watch?v=q6nP1FjxAMU) 
 
-[Watch this video to understand how they work on the inside.](https://www.youtube.com/watch?v=q6nP1FjxAMU) Note how there are two outputs, "Normally-Open"(NO) and "Normally-Closed"(NC).
+Assume this is a "critical" application where we have hooked up both on our robot.
 
-Usually we only hook up one of the NC/NO terminals on a robot. However, for cases where safety and redundancy are important, we might hook up both.
-
-In this case, we'll have two booleans associated with a single switch: `switch_NC_state` and `switch_NO_state`
-
-In normal operation, exactly one of these will be `true` at all times. Which one is `true` indicates whether the switch is pressed or not. If it's noticed that both are the same (both `true` or both `false`), we would have to assume that something is broken. Maybe the switch itself, maybe the wiring, it depends. However, we do know for sure we can't trust the switch's state. 
-
-Having both lines hooked up allows us detect "broken" in software. With this info, we could turn on a light to alert the pit crew that something is wrong. Additionally, we could put the robot in a "safe state" (usually, just don't run the motors). 
+In normal operation, only one input should be `True` at any time. Both inputs being `True` (or both inputs being `False`) indicates an electrical issue.
 
 ## Task
 

@@ -56,7 +56,7 @@ public class CrashTracker {
     
     private static String getMatchString() {
         String retval= "";
-        switch (DriverStation.getInstance().getMatchType()) {
+        switch (DriverStation.getMatchType()) {
             case Practice:
                 retval += "P";
             case Qualification:
@@ -66,9 +66,9 @@ public class CrashTracker {
             default:
                 retval += "N";
         }
-        retval += Integer.toString(DriverStation.getInstance().getMatchNumber());
+        retval += Integer.toString(DriverStation.getMatchNumber());
         retval += "R";
-        retval += Integer.toString(DriverStation.getInstance().getReplayNumber());
+        retval += Integer.toString(DriverStation.getReplayNumber());
         
         return retval;
     }
